@@ -12,13 +12,12 @@
   background-color: transparent;
   display: flex;
   flex-direction: row;
-  padding: 2rem;
 }
 
 .title-content {
-  width: 60%;
+  width: 55%;
   height: 100vh;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
 }
 
 .title-content h1 {
@@ -42,4 +41,14 @@
   flex-direction: row;
   width: 100%;
   margin-top: 3rem;
+}
+
+.title-countdown {
+  width: 45%;
+  height: 100vh;
+  padding: 0 0 0;
+}
+
+.title-countdown img {
+  width: 100%;
 }
