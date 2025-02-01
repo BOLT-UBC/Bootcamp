@@ -14,7 +14,7 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div classname="landing-page">
+    <div className="landing-page">
       <Title />
       <About />
       <Schedule />

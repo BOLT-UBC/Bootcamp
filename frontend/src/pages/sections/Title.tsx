@@ -8,8 +8,11 @@ export default function Title() {
       <div className="title-background">
         <div className="title-content">
           <h1>Bootcamp</h1>
-          <h2>Pre-Fellowship Workshop</h2>
-          <p>Learn the skills you need to succeed in the MLH Fellowship</p>
+          <h2>March 9-10, 2025 | BOLT UBC</h2>
+          <div className="button-container">
+            <button>Register Now</button>
+            <button>Learn More</button>
+          </div>
         </div>
       </div>
     </div>
