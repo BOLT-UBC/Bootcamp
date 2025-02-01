@@ -5,6 +5,7 @@ import About from "./sections/About";
 import Judges from "./sections/Judges";
 import FAQ from "./sections/FAQ";
 import Sponsors from "./sections/Sponsors";
+import SectionSeparator from "../components/SectionSeparator";
 
 import "./LandingPage.css";
 
@@ -16,18 +17,18 @@ export default function LandingPage() {
   return (
     <div className="landing-page">
       <Title />
+      <SectionSeparator />
       <About />
+      <SectionSeparator />
       <Schedule />
+      <SectionSeparator />
       <Judges />
+      <SectionSeparator />
       <FAQ />
       <Sponsors />
       <h1>Booot camp stuff here</h1>
       <button onClick={() => navigate("/registration")}>
         Go to register rn PLSSSSSS
-      </button>
-
-      <button onClick={() => navigate("/portal")}>
-        Go to portal
       </button>
     </div>
   );
