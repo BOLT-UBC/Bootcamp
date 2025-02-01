@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import TextArea from "../components/TextInput";
+import LongText from "../components/LongText";
 import { createClient } from "@supabase/supabase-js";
 
 
@@ -40,15 +40,15 @@ export default function Responses() {
       <div>
         {/* Standard Text Input */}
         <h4>why do you wanna join this club</h4>
-        <TextArea value={answer1} onChange={(e) => setAnswer1(e.target.value)} placeholder="Type your message here..." />
+        <LongText value={answer1} onChange={(e) => setAnswer1(e.target.value)} placeholder="Type your message here..." />
 
         {/* Standard Text Input */}
         <h4>why are you awesome</h4>
-        <TextArea value={answer2} onChange={(e) => setAnswer2(e.target.value)} placeholder="Type your message here..." />
+        <LongText value={answer2} onChange={(e) => setAnswer2(e.target.value)} placeholder="Type your message here..." />
 
         {/* Standard Text Input */}
         <h4>how much do u love lebron james</h4>
-        <TextArea value={answer3} onChange={(e) => setAnswer3(e.target.value)} placeholder="Type your message here..." />
+        <LongText value={answer3} onChange={(e) => setAnswer3(e.target.value)} placeholder="Type your message here..." />
       </div>
       
       <button onClick={send}>

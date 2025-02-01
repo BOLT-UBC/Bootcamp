@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import React from 'react';
+import React from "react"
 import { ChevronDown } from "lucide-react"
 import "./MultiSelect.css"
 
@@ -48,41 +48,38 @@ export default function MultiSelect({
         {label}
       </label>
 
-      <div className="relative">
+      <div style={{ position: "relative" }}>
         <button
           id="multi-select"
           type="button"
-          className={`multi-select-button ${isOpen ? "multi-select-button-open" : ""}`}
+          className="multi-select-button"
           onClick={() => setIsOpen(!isOpen)}
           onKeyDown={handleKeyDown}
-          aria-haspopup="listbox"
           aria-expanded={isOpen}
         >
           <span className="multi-select-selected-text">
             {value ? options.find((opt) => opt.value === value)?.label : placeholder}
           </span>
           <span className="multi-select-icon-wrapper">
-            <ChevronDown className={`multi-select-icon ${isOpen ? "multi-select-icon-open" : ""}`} />
+            <ChevronDown />
           </span>
         </button>
 
         {isOpen && (
-          <ul className="multi-select-dropdown" role="listbox" tabIndex={-1}>
+          <div className="multi-select-dropdown" role="listbox">
             {options.map((option) => (
-              <li
+              <div
                 key={option.value}
                 className={`multi-select-option ${value === option.value ? "multi-select-option-selected" : ""}`}
-                role="option"
-                aria-selected={value === option.value}
                 onClick={() => {
                   onValueChange?.(option.value)
                   setIsOpen(false)
                 }}
               >
                 {option.label}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </div>
     </div>

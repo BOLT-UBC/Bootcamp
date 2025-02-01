@@ -7,7 +7,7 @@ interface TextAreaProps {
   rows?: number;
 }
 
-const TextArea: React.FC<TextAreaProps> = ({ value, onChange, placeholder, rows = 4 }) => {
+const LongText: React.FC<TextAreaProps> = ({ value, onChange, placeholder, rows = 4 }) => {
   return (
     <textarea
       value={value}
@@ -19,4 +19,4 @@ const TextArea: React.FC<TextAreaProps> = ({ value, onChange, placeholder, rows 
   );
 };
 
-export default TextArea;
+export default LongText;
