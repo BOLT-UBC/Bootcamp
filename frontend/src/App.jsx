@@ -3,12 +3,10 @@ import LandingPage from './pages/LandingPage';
 
 export default function App() {
     return (
-        <BrowserRouter>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                </Routes>
-            </Router>
-        </BrowserRouter>
+        <Router>
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+            </Routes>
+        </Router>
     )
 }
