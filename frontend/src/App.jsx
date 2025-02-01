@@ -4,6 +4,7 @@ import StartRegistration from './pages/StartRegistration';
 import UserInfo from './pages/UserInfo';
 import Responses from './pages/Responses';
 import Team from './pages/Team';
+import Portal from './pages/Portal';
 import ThankYou from './pages/ThankYou';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
+                <Route path="/portal" element={<Portal />} />
                 <Route path="/registration" element={<StartRegistration />} />
                 <Route path="/registration/userInfo" element={<UserInfo />} />
                 <Route path="/registration/responses" element={<Responses />} />

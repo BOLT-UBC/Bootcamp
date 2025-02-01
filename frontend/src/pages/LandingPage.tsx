@@ -25,6 +25,10 @@ export default function LandingPage() {
       <button onClick={() => navigate("/registration")}>
         Go to register rn PLSSSSSS
       </button>
+
+      <button onClick={() => navigate("/portal")}>
+        Go to portal
+      </button>
     </div>
   );
 }
