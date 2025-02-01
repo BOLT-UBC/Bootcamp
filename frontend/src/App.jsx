@@ -11,6 +11,7 @@ import Responses from "./pages/Responses";
 import Team from "./pages/Team";
 import Portal from "./pages/Portal";
 import ThankYou from "./pages/ThankYou";
+import ConceptAuth from "./pages/ConceptAuth"
 
 export default function App() {
   return (
