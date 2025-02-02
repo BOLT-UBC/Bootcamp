@@ -30,7 +30,7 @@ export default function Responses() {
     //   console.log("Data inserted successfully:", data);
     // }
 
-    navigate("/registration/team");
+    navigate("/registration/thank you");
   }
 
   return (

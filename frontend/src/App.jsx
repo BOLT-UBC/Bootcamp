@@ -17,7 +17,6 @@ export default function App() {
                 <Route path="/registration" element={<StartRegistration />} />
                 <Route path="/registration/userInfo" element={<UserInfo />} />
                 <Route path="/registration/responses" element={<Responses />} />
-                <Route path="/registration/team" element={<Team />} />
                 <Route path="/registration/thankyou" element={<ThankYou />} />
                 <Route path="/authtest" element={<ConceptAuth />} />
             </Routes>

@@ -8,7 +8,6 @@ export default function UserInfo() {
   const [name, setName] = useState<string>("")
   const [pronouns, setPronouns] = useState<string>("")
   const [major, setMajor] = useState<string>("")
-
   const [selectedYear, setSelectedYear] = useState<string>()
 
   const years = [
@@ -16,6 +15,13 @@ export default function UserInfo() {
     { value: "year-2", label: "Year 2" },
     { value: "year-3", label: "Year 3" },
     { value: "year-4", label: "Year 4" },
+  ]
+
+  const pronounOptions = [
+    { value: "He/Him", label: "He/Him" },
+    { value: "She/Her", label: "She/Her" },
+    { value: "They/Them", label: "They/Them" },
+    { value: "Other", label: "Other" },
   ]
 
 
@@ -30,6 +36,18 @@ export default function UserInfo() {
           options={years}
           placeholder="Select your year"
         />
+      </div>
+
+      <div style={{ padding: "100px", maxWidth: "300px", margin: "0 auto" }}>
+        <MultiSelect
+          value={pronouns}
+          onValueChange={setPronouns}
+          label="Your Preferred Pronouns"
+          options={pronounOptions}
+          placeholder="Select your preferred pronouns"
+        />
+        <h4>If you selected other, please specify:</h4>
+        <ShortText value={pronouns} onChange={(e) => setPronouns(e.target.value)}></ShortText>
       </div>
 
       <div>
