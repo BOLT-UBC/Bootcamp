@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Sponsors.css";
+
 export default function Sponsors() {
-  return <h1>Sponsors</h1>;
+  return <div className="sponsor-background"></div>;
 }

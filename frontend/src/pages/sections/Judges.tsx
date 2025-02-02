@@ -1,5 +1,7 @@
 import React from "react";
+import "./Judges.css";
+import "../LandingPage.css";
 
 export default function Judges() {
-  return <h1>Judges</h1>;
+  return <div className="judge-background"></div>;
 }
