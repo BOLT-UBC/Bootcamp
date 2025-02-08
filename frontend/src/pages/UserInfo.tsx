@@ -7,7 +7,6 @@ import { supabase } from '../supabase';
 export default function UserInfo() {
   const navigate = useNavigate();
   const [name, setName] = useState<string>("");
-  // Initialize email with an empty string (or a known default)
   const [email, setEmail] = useState<string>("");
   const [pronouns, setPronouns] = useState<string>("");
   const [otherPronouns, setOtherPronouns] = useState<string>("");
@@ -34,7 +33,6 @@ export default function UserInfo() {
       if (error) {
         console.error("Error fetching user:", error.message);
       } else if (data?.user) {
-        // If data.user.email is undefined, we fallback to a default email.
         const userEmail = data.user.email ?? "user@example.com";
         setEmail(userEmail);
       }
