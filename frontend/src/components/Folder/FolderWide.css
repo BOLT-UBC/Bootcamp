@@ -1,7 +1,7 @@
 .folder-wide__wrapper {
     position: relative;
-    max-width: 75%;
-    height: 95vh;
+    width: 100%;
+    height: 100%;
 }
 
 .folder-wide__filler_wrapper {
@@ -23,8 +23,9 @@
     height: 100%;
 }
 
+/* !!! MIGHT NEED TO CHANGE POSITION TO RELATIVE */
 .folder-wide__content_wrapper {
-    position: relative;
+    position: flex; 
     z-index: 3;
     width: 100%;
     padding-top: 5%;
