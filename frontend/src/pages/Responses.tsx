@@ -11,9 +11,9 @@ import ShortText from "../components/ShortText";
 export default function Responses() {
   const navigate = useNavigate();
   const [name, setName] = useState<string>("");
-  const [answer1, setAnswer1] = useState<string>("")
-  const [answer2, setAnswer2] = useState<string>("")
-  const [answer3, setAnswer3] = useState<string>("")
+  const [answer1, setAnswer1] = useState<string>("");
+  const [answer2, setAnswer2] = useState<string>("");
+  const [answer3, setAnswer3] = useState<string>("");
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
 
@@ -32,7 +32,6 @@ export default function Responses() {
     }
   }, [email]);
 
-
   const send = async () => {
     if (!email) {
       alert("No email found. Make sure you are signed in.");
@@ -42,20 +41,22 @@ export default function Responses() {
       const { data, error } = await supabase
         .from("responses")
         .insert([
-          { user_email: email, 
+          {
+            user_email: email,
             answer1: answer1,
             answer2: answer2,
-            answer3: answer3}
+            answer3: answer3,
+          },
         ]);
 
-  //     if (error) throw error;
-  //     console.log("Responses saved:", data);
+      if (error) throw error;
+      console.log("Responses saved:", data);
 
-  //     navigate("/registration/thankyou");
-  //   } catch (err: any) {
-  //     console.error("Error saving responses:", err.message);
-  //   }
-  // };
+      navigate("/registration/thankyou");
+    } catch (err: any) {
+      console.error("Error saving responses:", err.message);
+    }
+  };
 
   return (
     <div className="container register-gradient">
