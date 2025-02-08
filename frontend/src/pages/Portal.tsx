@@ -5,7 +5,7 @@ import '../styles/Portal.css';
 import { supabase } from '../supabase';
 
 
-export default function Team() {
+export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
