@@ -16,6 +16,8 @@ export default function StartRegistration() {
   const [email, setEmail] = useState<string>("");
   const [pronouns, setPronouns] = useState<string>("");
   const [otherPronouns, setOtherPronouns] = useState<string>("");
+  const [school, setSchool] = useState<string>("");
+  const [otherSchool, setOtherSchool] = useState<string>("");
   const [major, setMajor] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
 
@@ -140,20 +142,20 @@ export default function StartRegistration() {
             />
           )}
 
-          {/* Pronouns */}
+          {/* Current School */}
           <label className="required-label">
             Current School<span className="required-text">*</span>
           </label>
           <MultiSelect
             value={pronouns}
-            onValueChange={(value) => setPronouns(value || "")}
+            onValueChange={(value) => setSchool(value || "")}
             options={universityOptions}
             placeholder="Select your preferred pronouns"
           />
           {pronouns === "Other" && (
             <ShortText
               value={otherPronouns}
-              onChange={(e) => setOtherPronouns(e.target.value)}
+              onChange={(e) => setOtherSchool(e.target.value)}
               placeholder="Specify your pronouns"
               need={true}
             />
