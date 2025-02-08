@@ -21,6 +21,7 @@ export default function StartRegistration() {
   const [otherSchool, setOtherSchool] = useState<string>("");
   const [major, setMajor] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
+  const [dietary, setDietary] = useState<string>("");
 
   const years = [
     { value: "1", label: "Year 1" },
@@ -182,6 +183,15 @@ export default function StartRegistration() {
             onChange={(e) => setMajor(e.target.value)}
             placeholder="Enter your major"
             need={true}
+          />
+
+          {/* Dietary Restrictions */}
+          <label className="required-label">Dietary Restrictions</label>
+          <ShortText
+            value={major}
+            onChange={(e) => setDietary(e.target.value)}
+            placeholder="Enter any dietary restrictions"
+            need={false}
           />
           <div className="button-row">
             <button onClick={() => navigate(-1)} className="back-button">
