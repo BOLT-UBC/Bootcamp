@@ -19,18 +19,26 @@ export default function Responses() {
   // console.log(KEY)
 
   const send = async () => {
-    // const { data, error } = await supabase.from("responses").insert([
-    //   { user_email: "developer@boltubc.com", answer1, answer2, answer3 }
-    // ]);
-  
-    // if (error) {
-    //   console.error("Error inserting data:", error.message);
-    // } else {
-    //   console.log("Data inserted successfully:", data);
-    // }
+    if (!email) {
+      alert("No email found. Make sure you are signed in.");
+      return;
+    }
 
-    navigate("/registration/thank you");
-  }
+    try {
+      const { data, error } = await supabase
+        .from("responses")
+        .insert([
+          { user_email: email, answer: `${answer1} | ${answer2} | ${answer3}` }
+        ]);
+
+      if (error) throw error;
+      console.log("Responses saved:", data);
+
+      navigate("/registration/thankyou");
+    } catch (err: any) {
+      console.error("Error saving responses:", err.message);
+    }
+  };
 
   return (
     <>

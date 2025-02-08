@@ -1,0 +1,13 @@
+.team__content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.team__buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    row-gap: 1rem;
+}
