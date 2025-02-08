@@ -1,0 +1,19 @@
+.about-background {
+  background-image: url("assets/About-Background.png");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.display-screen {
+  margin-top: 3rem;
+  font-family: "Roboto Mono", monospace;
+  color: #fdf9f7;
+  width: 50vw;
+  text-align: left;
+}

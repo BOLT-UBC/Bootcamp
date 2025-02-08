@@ -9,6 +9,8 @@ export default function ConceptAuth() {
   const signInWithGoogle = async () => {
     const { user, session, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
+      redirectTo: window.location.origin,
+      scopes: 'email profile',  
     });
 
     if (error) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import FolderRight from "../components/FolderRight";
-import "./Team.css"
+import "./Team.css";
 
 export default function Team() {
   const navigate = useNavigate();

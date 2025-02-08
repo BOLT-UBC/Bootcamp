@@ -1,0 +1,10 @@
+.schedule-background {
+  background-image: url("assets/Schedule-Background.png");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
