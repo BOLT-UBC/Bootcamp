@@ -58,7 +58,7 @@ export default function MultiSelect({
           aria-expanded={isOpen}
         >
           <span className="multi-select-selected-text">
-            {value ? (options.includes({ value: value, label: value}) ? options.find((opt) => opt.value === value)?.label : "Other") : placeholder}
+            {value ? options.find((opt) => opt.value === value)?.label : placeholder}
           </span>
           <span className="multi-select-icon-wrapper">
             <ChevronDown />

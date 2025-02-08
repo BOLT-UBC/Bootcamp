@@ -48,13 +48,8 @@ export default function UserInfo() {
         />
         <h4>If you selected other, please specify:</h4>
         <ShortText value={pronouns} onChange={(e) => setPronouns(e.target.value)}></ShortText>
-      </div>
-
-      <div>
         <h4>wassayname</h4>
         <ShortText value={name} onChange={(e) => setName(e.target.value)}></ShortText>
-        <h4>what r ur pronouns</h4>
-        <ShortText value={pronouns} onChange={(e) => setPronouns(e.target.value)}></ShortText>
         <h4>whats ur major</h4>
         <ShortText value={major} onChange={(e) => setMajor(e.target.value)}></ShortText>
       </div>
