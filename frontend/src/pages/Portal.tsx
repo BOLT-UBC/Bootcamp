@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import PortalNavBar from '../components/portalNavBar';
 import PortalPageSection from '../components/PortalPageSection';
 import '../styles/Portal.css';
+import { supabase } from '../supabase';
 
 
 export default function Team() {
   const [activePage, setActivePage] = useState("Dashboard");
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Sign Out Error:", error);
+    } else {
+      console.log("User signed out successfully");
+      window.location.href = "/";
+    }
+  };
   return (
     <>
         <div className='portal-page'>
@@ -25,7 +36,7 @@ export default function Team() {
                   <a className="link" onClick={() => setActivePage("FAQ")} href="#faq">FAQ</a>
                 </nav>
               </div>
-              <button className='logout'>Log Out</button>
+              <button className='logout' onClick={() => signOut()} >Log Out </button>
             </div>
           <h1>{activePage}</h1>
         </div>
