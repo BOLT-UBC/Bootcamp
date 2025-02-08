@@ -5,14 +5,16 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import StartRegistration from "./pages/StartRegistration";
-import UserInfo from "./pages/UserInfo";
-import Responses from "./pages/Responses";
 import Portal from "./pages/Portal";
-import ThankYou from "./pages/ThankYou";
 import "./App.css";
 import AuthCallback from "./pages/AuthCallback";
 import LoginPage from "./pages/LoginPage";
+import ProtectedStartRegistration from "./pages/ProtectedStartRegistration";
+import ProtectedUserInfo from "./pages/ProtectedUserInfo";
+import ProtectedResponses from "./pages/ProtectedResponses";
+import ProtectedThankYou from "./pages/ProtectedThankYou";
+import ProtectedPortal from "./pages/ProtectedPortal";
+
 
 export default function App() {
   return (
@@ -21,10 +23,11 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/portal" element={<Portal />} />
-        <Route path="/registration" element={<StartRegistration />} />
-        <Route path="/registration/userInfo" element={<UserInfo />} />
-        <Route path="/registration/responses" element={<Responses />} />
-        <Route path="/registration/thankyou" element={<ThankYou />} />
+        {/* <Route path="/portal" element={<ProtectedPortal />} /> */}
+        <Route path="/registration" element={<ProtectedStartRegistration />} />
+        <Route path="/registration/userInfo" element={<ProtectedUserInfo />} />
+        <Route path="/registration/responses" element={<ProtectedResponses />} />
+        <Route path="/registration/thankyou" element={<ProtectedThankYou />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
       </Routes>
     </Router>
