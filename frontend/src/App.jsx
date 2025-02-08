@@ -12,12 +12,14 @@ import Portal from "./pages/Portal";
 import ThankYou from "./pages/ThankYou";
 import "./App.css";
 import AuthCallback from "./pages/AuthCallback";
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/portal" element={<Portal />} />
         <Route path="/registration" element={<StartRegistration />} />
         <Route path="/registration/userInfo" element={<UserInfo />} />

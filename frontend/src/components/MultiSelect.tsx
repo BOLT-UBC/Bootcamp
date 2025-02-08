@@ -1,53 +1,50 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import React from "react"
-import { ChevronDown } from "lucide-react"
-import "./MultiSelect.css"
+import { useState, useRef, useEffect } from "react";
+import React from "react";
+import { ChevronDown } from "lucide-react";
+import "./MultiSelect.css";
 
 interface MultiSelectProps {
-  onValueChange?: (value: string) => void
-  value?: string
-  label?: string
-  options: Array<{ value: string; label: string }>
-  placeholder?: string
+  onValueChange?: (value: string) => void;
+  value?: string;
+  options: Array<{ value: string; label: string }>;
+  placeholder?: string;
 }
 
 export default function MultiSelect({
   onValueChange,
   value,
-  label = "Select an option",
   options = [],
   placeholder = "Select an option...",
 }: MultiSelectProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Escape") {
-      setIsOpen(false)
+      setIsOpen(false);
     } else if (event.key === "Enter" || event.key === " ") {
-      setIsOpen((prev) => !prev)
+      setIsOpen((prev) => !prev);
     }
-  }
+  };
 
   return (
     <div className="multi-select-container" ref={dropdownRef}>
-      <label htmlFor="multi-select" className="multi-select-label">
-        {label}
-      </label>
-
       <div style={{ position: "relative" }}>
         <button
           id="multi-select"
@@ -58,7 +55,9 @@ export default function MultiSelect({
           aria-expanded={isOpen}
         >
           <span className="multi-select-selected-text">
-            {value ? options.find((opt) => opt.value === value)?.label : placeholder}
+            {value
+              ? options.find((opt) => opt.value === value)?.label
+              : placeholder}
           </span>
           <span className="multi-select-icon-wrapper">
             <ChevronDown />
@@ -70,10 +69,12 @@ export default function MultiSelect({
             {options.map((option) => (
               <div
                 key={option.value}
-                className={`multi-select-option ${value === option.value ? "multi-select-option-selected" : ""}`}
+                className={`multi-select-option ${
+                  value === option.value ? "multi-select-option-selected" : ""
+                }`}
                 onClick={() => {
-                  onValueChange?.(option.value)
-                  setIsOpen(false)
+                  onValueChange?.(option.value);
+                  setIsOpen(false);
                 }}
               >
                 {option.label}
@@ -83,6 +84,5 @@ export default function MultiSelect({
         )}
       </div>
     </div>
-  )
+  );
 }
-

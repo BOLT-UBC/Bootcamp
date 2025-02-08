@@ -1,20 +1,27 @@
 import React from "react";
+import "./ShortText.css";
 
 interface InputProps {
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  rows?: number;
+  need: boolean;
 }
 
-const ShortText: React.FC<InputProps> = ({ value, onChange, placeholder, rows = 1 }) => {
+const ShortText: React.FC<InputProps> = ({
+  value,
+  onChange,
+  placeholder,
+  need,
+}) => {
   return (
-    <textarea
+    <input
+      type="text"
       value={value}
-      onChange={onChange} // Allows user to edit text
+      onChange={onChange}
       placeholder={placeholder}
-      rows={rows}
-      className="p-2 border rounded-md w-full resize-none"
+      className="input-field"
+      required={need}
     />
   );
 };
