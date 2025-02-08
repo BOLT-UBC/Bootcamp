@@ -10,12 +10,9 @@ import UserInfo from "./pages/UserInfo";
 import Responses from "./pages/Responses";
 import Portal from "./pages/Portal";
 import ThankYou from "./pages/ThankYou";
-<<<<<<< HEAD
 import ConceptAuth from "./pages/ConceptAuth";
 import "./App.css";
-=======
 import AuthCallback from "./pages/AuthCallback";
->>>>>>> c50210f (merge)
 
 export default function App() {
   return (
