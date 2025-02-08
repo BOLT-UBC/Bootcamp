@@ -16,6 +16,7 @@ export default function Responses() {
   const [answer3, setAnswer3] = useState<string>("");
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
+  const [caseCompCount, setCaseCompCount] = useState([]);
 
   useEffect(() => {
     if (!email) {
@@ -38,16 +39,14 @@ export default function Responses() {
       return;
     }
     try {
-      const { data, error } = await supabase
-        .from("responses")
-        .insert([
-          {
-            user_email: email,
-            answer1: answer1,
-            answer2: answer2,
-            answer3: answer3,
-          },
-        ]);
+      const { data, error } = await supabase.from("responses").insert([
+        {
+          user_email: email,
+          answer1: answer1,
+          answer2: answer2,
+          answer3: answer3,
+        },
+      ]);
 
       if (error) throw error;
       console.log("Responses saved:", data);
@@ -77,12 +76,15 @@ export default function Responses() {
             <b>How many case competitions have you been to before?</b>
             <span className="required-text">*</span>
           </label>
-          <ShortText
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your legal name"
-            need={true}
-          />
+          <div className="radio-group">
+            {["0", "1", "2", "3", "4", "5+"].map((option) => (
+              <label key={option} className="radio-label">
+                <input type="radio" name="caseCompCount" value={option} />
+                {option}
+              </label>
+            ))}
+          </div>
+
           {/* Roles */}
           <label className="required-label">
             <b>
@@ -90,12 +92,16 @@ export default function Responses() {
             </b>
             <span className="required-text">*</span>
           </label>
-          <ShortText
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your legal name"
-            need={true}
-          />
+          <div className="checkbox-group">
+            {["Project Manager", "Business Analyst", "Data Analyst"].map(
+              (option) => (
+                <label key={option} className="checkbox-label">
+                  <input type="checkbox" value={option} />
+                  {option}
+                </label>
+              )
+            )}
+          </div>
           {/* Tell about */}
           <label className="required-label">
             <b>

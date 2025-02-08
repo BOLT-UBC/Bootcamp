@@ -29,7 +29,10 @@ export default function App() {
         <Route path="/portal/create-team" element={<CreateTeam />} />
         <Route path="/registration" element={<ProtectedStartRegistration />} />
         <Route path="/registration/userInfo" element={<ProtectedUserInfo />} />
-        <Route path="/registration/responses" element={<ProtectedResponses />} />
+        <Route
+          path="/registration/responses"
+          element={<ProtectedResponses />}
+        />
         <Route path="/registration/thankyou" element={<ProtectedThankYou />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
       </Routes>
