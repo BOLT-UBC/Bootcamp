@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const LandingPageButton = ({ text }) => {
+const LandingPageButton = ({ text, path }) => {
+  const navigate = useNavigate();
+
   return (
     <button
       style={{
@@ -16,6 +19,7 @@ const LandingPageButton = ({ text }) => {
         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
         textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
+      onClick={() => navigate(path)}
     >
       {text}
     </button>

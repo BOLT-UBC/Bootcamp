@@ -4,6 +4,8 @@ import "../LandingPage.css";
 import Rocket from "../../components/Rocket";
 import LandingPageButton from "../../components/LandingPageButton";
 
+import { useNavigate } from "react-router-dom";
+
 export default function Title() {
   return (
     <div className="title-gradient">
@@ -14,8 +16,8 @@ export default function Title() {
           <h2>March 9-10, 2025 | BOLT UBC</h2>
           <div className="button-container">
             {/* Replace with custom button component */}
-            <LandingPageButton text="Register Now" />
-            <LandingPageButton text="View Portal" />
+            <LandingPageButton text="Register Now" path="/login" />
+            <LandingPageButton text="View Portal" path="/portal" />
           </div>
         </div>
       </div>
