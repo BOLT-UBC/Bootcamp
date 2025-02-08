@@ -42,7 +42,7 @@ export default function Responses() {
       if (error) throw error;
       console.log("Responses saved:", data);
 
-      navigate("/registration/thank-you");
+      navigate("/registration/thankyou");
     } catch (err: any) {
       console.error("Error saving responses:", err.message);
     }
