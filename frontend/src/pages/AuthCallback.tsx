@@ -14,7 +14,7 @@ export default function AuthCallback() {
       
       if (error || !user) {
         // Not Logged In
-        navigate("/registration");
+        navigate("/");
         return;
       }
       

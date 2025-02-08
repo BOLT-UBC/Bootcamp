@@ -1,0 +1,59 @@
+/* LoginPage.css */
+.space-gradient {
+  background: linear-gradient(to top, #693b48 0%, #422932 19%, #17161b 81%);
+  width: 100%;
+  min-height: 100vh; /* Ensures it covers the entire page */
+  height: auto; /* Allows it to expand beyond 100vh if needed */
+  justify-content: center;
+}
+
+.login-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Righteous", sans-serif;
+}
+
+.login-title {
+  color: #fdf9f7;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  font-size: 6rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.login-subtitle {
+  color: #fdf9f7;
+  font-size: 1.2rem;
+  margin-top: 8px;
+  font-weight: 600;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+}
+
+.google-button {
+  margin-top: 24px;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  transition: box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+
+.google-button:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.google-logo {
+  width: 24px;
+  height: 24px;
+}
