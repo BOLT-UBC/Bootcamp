@@ -75,6 +75,8 @@ export default function StartRegistration() {
             pronouns: finalPronouns,
             major,
             year: selectedYear ? parseInt(selectedYear) : null,
+            school,
+            dietary
           },
         ],
         { onConflict: "email" }
@@ -188,7 +190,7 @@ export default function StartRegistration() {
           {/* Dietary Restrictions */}
           <label className="required-label">Dietary Restrictions</label>
           <ShortText
-            value={major}
+            value={dietary}
             onChange={(e) => setDietary(e.target.value)}
             placeholder="Enter any dietary restrictions"
             need={false}
