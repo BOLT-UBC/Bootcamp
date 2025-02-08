@@ -2,51 +2,35 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import LongText from "../components/LongText";
 import { supabase } from "../supabase";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Responses() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [email, setEmail] = useState<string>(location.state?.email || "");
-  const [answer1, setAnswer1] = useState<string>("");
-  const [answer2, setAnswer2] = useState<string>("");
-  const [answer3, setAnswer3] = useState<string>("");
+  const [answer1, setAnswer1] = useState<string>("")
+  const [answer2, setAnswer2] = useState<string>("")
+  const [answer3, setAnswer3] = useState<string>("")
 
-  useEffect(() => {
-    if (!email) {
-      const getUserEmail = async () => {
-        const { data, error } = await supabase.auth.getUser();
-        if (error) {
-          console.error("Error fetching user:", error.message);
-        } else if (data?.user) {
-          const userEmail = data.user.email ?? "user@example.com";
-          setEmail(userEmail);
-        }
-      };
-      getUserEmail();
-    }
-  }, [email]);
+  // const URL = import.meta.env.VITE_SUPABASE_URL;
+  // const KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+  // const supabase = createClient(URL, KEY);
+
+  // console.log(URL)
+  // console.log(KEY)
 
   const send = async () => {
-    if (!email) {
-      alert("No email found. Make sure you are signed in.");
-      return;
-    }
+    // const { data, error } = await supabase.from("responses").insert([
+    //   { user_email: "developer@boltubc.com", answer1, answer2, answer3 }
+    // ]);
+  
+    // if (error) {
+    //   console.error("Error inserting data:", error.message);
+    // } else {
+    //   console.log("Data inserted successfully:", data);
+    // }
 
-    try {
-      const { data, error } = await supabase
-        .from("responses")
-        .insert([
-          { user_email: email, answer: `${answer1} | ${answer2} | ${answer3}` }
-        ]);
-
-      if (error) throw error;
-      console.log("Responses saved:", data);
-
-      navigate("/registration/thankyou");
-    } catch (err: any) {
-      console.error("Error saving responses:", err.message);
-    }
-  };
+    navigate("/registration/thank you");
+  }
 
   return (
     <>
