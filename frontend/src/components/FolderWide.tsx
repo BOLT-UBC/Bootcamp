@@ -1,12 +1,12 @@
 import React from "react";
-import "./FolderRight.css";
+import "./FolderWide.css";
 
-type FolderRightProps = React.PropsWithChildren<{}>;
+type FolderWideProps = React.PropsWithChildren<{}>;
 
-const FolderRight: React.FC<FolderRightProps> = ({ children }) => {
+const FolderWide: React.FC<FolderWideProps> = ({ children }) => {
   return (
     <>
-      <div className="folder-right__wrapper">
+      <div className="folder-wide__wrapper">
         <div>
           <svg // outline
             width="1477"
@@ -14,7 +14,7 @@ const FolderRight: React.FC<FolderRightProps> = ({ children }) => {
             viewBox="0 0 1477 884"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="folder-right__outline_wrapper"
+            className="folder-wide__outline_wrapper"
             preserveAspectRatio="none"
           >
             <path
@@ -31,7 +31,7 @@ const FolderRight: React.FC<FolderRightProps> = ({ children }) => {
             viewBox="0 0 1473 880"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="folder-right__filler_wrapper"
+            className="folder-wide__filler_wrapper"
             preserveAspectRatio="none"
           >
             <path
@@ -41,10 +41,10 @@ const FolderRight: React.FC<FolderRightProps> = ({ children }) => {
           </svg>
         </div>
 
-        <div className="folder-right__content_wrapper">{children}</div>
+        <div className="folder-wide__content_wrapper">{children}</div>
       </div>
     </>
   );
 };
 
-export default FolderRight;
+export default FolderWide;

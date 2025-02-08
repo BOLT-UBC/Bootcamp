@@ -4,7 +4,71 @@
   background-position: center;
   width: 100vw;
   height: 100vh;
-  background-color: transparent;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: "Righteous", sans-serif;
+}
+
+.faq-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  margin: 4rem;
+  letter-spacing: 0.3rem;
+}
+
+.faq-container {
+  display: flex;
+  gap: 40px;
+  padding-bottom: 8rem;
+  width: 70%;
+}
+
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  width: 50%;
+}
+
+.faq-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  letter-spacing: 0.3rem;
+}
+
+.dropdown {
+  border-radius: 1rem;
+  background: white;
+  color: black;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.462);
+  overflow: hidden;
+  width: 100%;
+}
+
+.dropdown-button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  font-weight: 900; /* Try using 300 if 100 is too light */
+}
+
+.dropdown-content {
+  padding: 12px;
+  background: #4e2424;
+  color: white;
+  font-size: 0.8rem;
+
+  font-weight: 100; /* Try using 300 if 100 is too light */
+  font-family: "Roboto Mono", monospace, sans-serif; /* Fallback font */
 }
