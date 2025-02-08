@@ -13,6 +13,7 @@ export default function StartRegistration() {
   const navigate = useNavigate();
   const [intro, setIntro] = useState("");
   const [name, setName] = useState<string>("");
+  const [preferredName, setPreferredName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [pronouns, setPronouns] = useState<string>("");
   const [otherPronouns, setOtherPronouns] = useState<string>("");
@@ -106,8 +107,8 @@ export default function StartRegistration() {
             Legal First/Last Name<span className="required-text">*</span>
           </label>
           <ShortText
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Enter your legal name"
             need={true}
           />
@@ -117,9 +118,9 @@ export default function StartRegistration() {
             Preferred Name<span className="required-text">*</span>
           </label>
           <ShortText
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your legal name"
+            value={preferredName}
+            onChange={(e) => setPreferredName(e.target.value)}
+            placeholder="Enter your preferred name"
             need={true}
           />
 
