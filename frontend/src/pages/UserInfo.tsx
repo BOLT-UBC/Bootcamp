@@ -151,14 +151,14 @@ export default function StartRegistration() {
             Current School<span className="required-text">*</span>
           </label>
           <MultiSelect
-            value={pronouns}
+            value={school}
             onValueChange={(value) => setSchool(value || "")}
             options={universityOptions}
             placeholder="Select your the school you are currently attending"
           />
-          {pronouns === "Other" && (
+          {school === "Other" && (
             <ShortText
-              value={otherPronouns}
+              value={otherSchool}
               onChange={(e) => setOtherSchool(e.target.value)}
               placeholder="Specify your pronouns"
               need={true}
