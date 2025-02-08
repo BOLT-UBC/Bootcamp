@@ -36,7 +36,10 @@ export default function Responses() {
       const { data, error } = await supabase
         .from("responses")
         .insert([
-          { user_email: email, answer: `${answer1} | ${answer2} | ${answer3}` }
+          { user_email: email, 
+            answer1: answer1,
+            answer2: answer2,
+            answer3: answer3}
         ]);
 
       if (error) throw error;
