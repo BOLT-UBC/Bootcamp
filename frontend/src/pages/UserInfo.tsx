@@ -33,6 +33,13 @@ export default function StartRegistration() {
     { value: "Other", label: "Other" },
   ];
 
+  const universityOptions = [
+    { value: "UBC", label: "UBC" },
+    { value: "SFU", label: "SFU" },
+    { value: "BCIT", label: "BCIT" },
+    { value: "Other", label: "Other" },
+  ];
+
   useEffect(() => {
     const getUserEmail = async () => {
       const { data, error } = await supabase.auth.getUser();
@@ -103,6 +110,17 @@ export default function StartRegistration() {
             need={true}
           />
 
+          {/* Prefered Name */}
+          <label className="required-label">
+            Preferred Name<span className="required-text">*</span>
+          </label>
+          <ShortText
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your legal name"
+            need={true}
+          />
+
           {/* Pronouns */}
           <label className="required-label">
             Pronouns<span className="required-text">*</span>
@@ -111,6 +129,25 @@ export default function StartRegistration() {
             value={pronouns}
             onValueChange={(value) => setPronouns(value || "")}
             options={pronounOptions}
+            placeholder="Select your preferred pronouns"
+          />
+          {pronouns === "Other" && (
+            <ShortText
+              value={otherPronouns}
+              onChange={(e) => setOtherPronouns(e.target.value)}
+              placeholder="Specify your pronouns"
+              need={true}
+            />
+          )}
+
+          {/* Pronouns */}
+          <label className="required-label">
+            Current School<span className="required-text">*</span>
+          </label>
+          <MultiSelect
+            value={pronouns}
+            onValueChange={(value) => setPronouns(value || "")}
+            options={universityOptions}
             placeholder="Select your preferred pronouns"
           />
           {pronouns === "Other" && (
