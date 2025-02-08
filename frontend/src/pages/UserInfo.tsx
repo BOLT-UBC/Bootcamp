@@ -151,7 +151,7 @@ export default function StartRegistration() {
             value={pronouns}
             onValueChange={(value) => setSchool(value || "")}
             options={universityOptions}
-            placeholder="Select your preferred pronouns"
+            placeholder="Select your the school you are currently attending"
           />
           {pronouns === "Other" && (
             <ShortText
