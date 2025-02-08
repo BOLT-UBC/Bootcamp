@@ -10,35 +10,27 @@ export default function AuthCallback() {
 
   useEffect(() => {
     const handleRedirect = async () => {
-      const { data: user, error } = await supabase.auth.getUser();
-      navigate("/registration");
-    
-
-      // TODO: Logic once table ready 
-
+      const { data: {user}, error } = await supabase.auth.getUser();
       
       if (error || !user) {
-        console.log("Not Logged In")
-        //console.error("Authentication failed:", error);
-        //router.push("/registration");
-        //return;
+        // Not Logged In
+        navigate("/registration");
+        return;
       }
       
-      console.log(user);
-
-      /*
-      const { data: existingUser, error: userError } = await supabase
-        .from("users")
-        .select("id")
-        .eq("id", user.id)
+      const { data: existingUser, error: queryError } = await supabase
+        .from("responses")
+        .select("user_email")
+        .eq("user_email", user?.email)
         .single();
 
-      if (userError || !existingUser) {
-        router.push("/registration"); 
+      if (queryError || !existingUser) {
+        // Haven't registered
+        navigate("/registration");
       } else {
-        router.push("/portal"); 
+       // Registered
+         navigate("/portal"); 
       }
-      */
     
     };
     handleRedirect();
