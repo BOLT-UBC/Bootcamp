@@ -1,0 +1,68 @@
+.title-countdown {
+  position: absolute;
+  right: 10vw;
+  bottom: 5vh;
+  z-index: 0;
+  color: #fdf9f7;
+}
+
+.title-countdown img {
+  height: 110vh; /* Make the height span the entire viewport */
+  object-fit: contain; /* Ensures the image fits within the viewport while maintaining aspect ratio */
+}
+
+.countdown-label {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.6rem;
+  left: 10rem;
+  bottom: 7.6rem;
+}
+
+.countdown-label h1 {
+  margin: 0;
+}
+
+.countdown {
+  position: absolute;
+  font-family: "DigitalNumbers", sans-serif;
+  font-size: 1.2rem;
+  left: 7rem;
+  bottom: 2.9rem;
+}
+
+.countdown h1 {
+  margin: 0;
+}
+
+.countdown-sublabel-time {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.5rem;
+  left: 7rem;
+  bottom: 0.7rem;
+}
+
+.countdown-sublabel-days {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.5rem;
+  left: 11.5rem;
+  bottom: 0.7rem;
+}
+
+.countdown-sublabel-hours {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.5rem;
+  left: 17rem;
+  bottom: 0.7rem;
+}
+
+.countdown-sublabel-minutes {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.5rem;
+  left: 22.3rem;
+  bottom: 0.7rem;
+}

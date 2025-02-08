@@ -10,8 +10,8 @@ import UserInfo from "./pages/UserInfo";
 import Responses from "./pages/Responses";
 import Portal from "./pages/Portal";
 import ThankYou from "./pages/ThankYou";
-import ConceptAuth from "./pages/ConceptAuth";
-import Team from "./pages/Team";
+import "./App.css";
+import AuthCallback from "./pages/AuthCallback";
 
 export default function App() {
   return (
@@ -23,8 +23,7 @@ export default function App() {
         <Route path="/registration/userInfo" element={<UserInfo />} />
         <Route path="/registration/responses" element={<Responses />} />
         <Route path="/registration/thankyou" element={<ThankYou />} />
-        <Route path="/authtest" element={<ConceptAuth />} />
-        <Route path="/teamtest" element={<Team />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
       </Routes>
     </Router>
   );

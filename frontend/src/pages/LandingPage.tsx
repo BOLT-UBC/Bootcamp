@@ -7,6 +7,9 @@ import FAQ from "./sections/FAQ";
 import Sponsors from "./sections/Sponsors";
 import SectionSeparator from "../components/SectionSeparator";
 
+
+import { supabase } from '../supabase.js';
+
 import "./LandingPage.css";
 
 import { useNavigate } from "react-router-dom";
@@ -14,6 +17,23 @@ import { useNavigate } from "react-router-dom";
 export default function LandingPage() {
   const navigate = useNavigate();
 
+
+  const signInWithGoogle = async () => {
+    const { user, session, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error("Google Sign-In Error:", error);
+    } else {
+      console.log("User:", user);
+      console.log("Session:", session);
+    }
+  };
+  
   return (
     <div className="landing-page">
       <Title />
@@ -29,8 +49,13 @@ export default function LandingPage() {
       <SectionSeparator />
 
       <h1>Booot camp stuff here</h1>
-      <button onClick={() => navigate("/registration")}>
+      <button onClick={signInWithGoogle}>
         Go to register rn PLSSSSSS
+      </button>
+
+      
+      <button onClick={() => navigate('/registration')}>
+        Portall! 
       </button>
     </div>
   );
