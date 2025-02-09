@@ -65,17 +65,19 @@ export default function StartRegistration() {
     }
 
     const finalPronouns = pronouns === "Other" ? otherPronouns : pronouns;
+    const finalSchool = school === "Other" ? otherSchool : school;
 
     try {
       const { data, error } = await supabase.from("users").upsert(
         [
           {
             name,
+            preferred_name: preferredName,
             email,
             pronouns: finalPronouns,
             major,
             year: selectedYear ? parseInt(selectedYear) : null,
-            school,
+            school: finalSchool,
             dietary
           },
         ],
