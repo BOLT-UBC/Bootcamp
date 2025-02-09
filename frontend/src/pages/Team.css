@@ -19,3 +19,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.team_current_teammates__wrapper {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.team_current_teammate__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.teammate_profile_picture {
+    max-width: 50%;
+    aspect-ratio: 1;
+    border-radius: 30px;
+    object-fit: cover;
+}
