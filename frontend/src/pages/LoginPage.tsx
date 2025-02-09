@@ -23,7 +23,21 @@ export default function LoginPage() {
         } 
     }
     else {
+      const userEmail = user.email ?? "";
+        await saveUserEmail(userEmail);
         navigate('/auth/callback');
+    }
+  };
+
+  const saveUserEmail = async (email: string) => {
+    try {
+      const { error } = await supabase.from("users").upsert(
+        [{ email }],
+        { onConflict: "email" }
+      );
+      if (error) throw error;
+    } catch (err: any) {
+      console.error("Error saving email:", err.message);
     }
   };
 

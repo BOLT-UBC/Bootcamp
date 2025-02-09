@@ -18,20 +18,37 @@ export default function Responses() {
   const [email, setEmail] = useState<string>(location.state?.email || "");
   const [caseCompCount, setCaseCompCount] = useState([]);
 
+  // useEffect(() => {
+  //   if (!email) {
+  //     const getUserEmail = async () => {
+  //       const { data, error } = await supabase.auth.getUser();
+  //       if (error) {
+  //         console.error("Error fetching user:", error.message);
+  //       } else if (data?.user) {
+  //         const userEmail = data.user.email ?? "user@example.com";
+  //         setEmail(userEmail);
+  //       }
+  //     };
+  //     getUserEmail();
+  //   }
+  // }, [email]);
+
   useEffect(() => {
-    if (!email) {
-      const getUserEmail = async () => {
-        const { data, error } = await supabase.auth.getUser();
-        if (error) {
-          console.error("Error fetching user:", error.message);
-        } else if (data?.user) {
-          const userEmail = data.user.email ?? "user@example.com";
-          setEmail(userEmail);
-        }
-      };
-      getUserEmail();
+    const storedEmail = localStorage.getItem("user_email");
+    if (storedEmail) {
+      setEmail(storedEmail);
+    } else {
+      fetchUserEmail();
     }
-  }, [email]);
+  }, []);
+
+  const fetchUserEmail = async () => {
+    const { data, error } = await supabase.auth.getUser();
+    if (!error && data?.user) {
+      setEmail(data.user.email ?? "");
+      localStorage.setItem("user_email", data.user.email ?? "");
+    }
+  };
 
   const send = async () => {
     if (!email) {
