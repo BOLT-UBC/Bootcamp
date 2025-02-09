@@ -35,18 +35,24 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="bot-row">
-                {/* <div className="top1">
+                    <div className="bot1-wrapper">
+                        <div className="bot1-top">
+                            <PortalBoxWidget>
+                            </PortalBoxWidget>
+                        </div>
+                        <div className="bot1-bot">
+                        <PortalBoxWidget>
+                        </PortalBoxWidget>
+                        </div>
+                    </div>
+                    <div className="bot2">
                         <PortalBoxWidget>
                         </PortalBoxWidget>
                     </div>
-                    <div className="top2">
+                    <div className="bot3">
                         <PortalBoxWidget>
                         </PortalBoxWidget>
                     </div>
-                    <div className="top3">
-                        <PortalBoxWidget>
-                        </PortalBoxWidget>
-                    </div> */}
                 </div>
             </div>
         </>
