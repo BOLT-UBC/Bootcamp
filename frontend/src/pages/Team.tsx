@@ -1,25 +1,34 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import FolderThin from "../components/FolderThin";
+
+import FullFolder from '../components/Folder/FullFolder';
+import PortalBoxWidget from '../components/PortalBoxWidget';
+
+import CryCat from '../components/assets/CryCat.jpg'
+
+import "./Team.css"
+
+const teammateCardStyle = {
+  display: "flex",
+  flexdirection: "column",
+  alignItems: "center",
+  width: "25%",
+  height: "50%",
+  aspectRatio: "1" 
+}
 
 export default function Team() {
   const navigate = useNavigate();
 
   return (
     <>
-        {/* <FolderThin></FolderThin> */}
-        <h1>make ur team :D</h1>
-        <button onClick={() => navigate("/portal")}>
-            Back to Portal
-        </button>
-
-        <button onClick={() => navigate("/portal/join-team")}>
-            Join Team
-        </button>
-
-        <button onClick={() => navigate("/portal/create-team")}>
-            Create Team
-        </button>
+    <div className='hehehaha'>
+      <FullFolder>
+        <PortalBoxWidget style={teammateCardStyle}>
+          <img src={CryCat} className='teammate_profile_picture'></img>
+        </PortalBoxWidget>
+      </FullFolder>
+    </div>
     </>
   );
 }
