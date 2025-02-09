@@ -10,13 +10,14 @@ import ShortText from "../components/ShortText";
 
 export default function Responses() {
   const navigate = useNavigate();
-  const [name, setName] = useState<string>("");
   const [answer1, setAnswer1] = useState<string>("");
   const [answer2, setAnswer2] = useState<string>("");
   const [answer3, setAnswer3] = useState<string>("");
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
-  const [caseCompCount, setCaseCompCount] = useState([]);
+  const [compCount, setCompCount] = useState<string>("");
+  const [roles, setRoles] = useState<string[]>([]);
+  const [events, setEvents] = useState<string[]>([]);
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("user_email");
@@ -35,25 +36,66 @@ export default function Responses() {
     }
   };
 
+  const handleRoleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setRoles((prevRoles) => {
+      const updatedRoles = prevRoles.includes(value)
+        ? prevRoles.filter((role) => role !== value) // Remove role if already selected
+        : [...prevRoles, value]; // Add role if not selected
+      return updatedRoles;
+    });
+  };
+
+  const handleEventChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setEvents((prevEvents) => {
+      const updatedEvents = prevEvents.includes(value)
+        ? prevEvents.filter((event) => event !== value) // Remove role if already selected
+        : [...prevEvents, value]; // Add role if not selected
+
+      console.log(updatedEvents);
+      return updatedEvents;
+    });
+  };
+
   const send = async () => {
     if (!email) {
       alert("No email found. Make sure you are signed in.");
       return;
     }
+
+    if (!compCount) {
+      alert("Please select how many case competitions you've attended.");
+      return;
+    }
+
+    if (roles.length === 0) {
+      alert("Please select at least one role.");
+      return;
+    }
+
+    if (events.length === 0) {
+      alert("Please select at least one event.");
+      return;
+    }
+
     try {
       const { data, error } = await supabase.from("responses").insert([
         {
           user_email: email,
-          answer1: answer1,
-          answer2: answer2,
-          answer3: answer3,
+          case_comp_count: parseInt(compCount),
+          roles,
+          answer1,
+          answer2,
+          answer3,
+          events_attending: events,
         },
       ]);
 
       if (error) throw error;
       console.log("Responses saved:", data);
 
-      navigate("/registration/thankyou");
+      navigate("/registration/last");
     } catch (err: any) {
       console.error("Error saving responses:", err.message);
     }
@@ -81,7 +123,19 @@ export default function Responses() {
           <div className="radio-group">
             {["0", "1", "2", "3", "4", "5+"].map((option) => (
               <label key={option} className="radio-label">
-                <input type="radio" name="caseCompCount" value={option} />
+                <input
+                  type="radio"
+                  name="caseCompCount"
+                  value={option}
+                  checked={compCount === option}
+                  onChange={(e) => {
+                    setCompCount(e.target.value);
+                    console.log(
+                      "Selected Case Competition Count:",
+                      e.target.value
+                    );
+                  }}
+                />
                 {option}
               </label>
             ))}
@@ -98,7 +152,12 @@ export default function Responses() {
             {["Project Manager", "Business Analyst", "Data Analyst"].map(
               (option) => (
                 <label key={option} className="checkbox-label">
-                  <input type="checkbox" value={option} />
+                  <input
+                    type="checkbox"
+                    value={option}
+                    checked={roles.includes(option)}
+                    onChange={handleRoleChange}
+                  />
                   {option}
                 </label>
               )
@@ -145,7 +204,12 @@ export default function Responses() {
               "March 8th (Finals Presentations)",
             ].map((option) => (
               <label key={option} className="checkbox-label">
-                <input type="checkbox" value={option} />
+                <input
+                  type="checkbox"
+                  value={option}
+                  checked={events.includes(option)}
+                  onChange={handleEventChange}
+                />
                 {option}
               </label>
             ))}
@@ -154,7 +218,6 @@ export default function Responses() {
           {/* Tell about */}
           <label className="required-label">
             <b>What are you expecting to learn in the workshops? (optional)</b>
-            <span className="required-text">*</span>
           </label>
           <LongText
             value={answer3}
@@ -166,12 +229,12 @@ export default function Responses() {
             <button onClick={() => navigate(-1)} className="back-button">
               Back
             </button>
-            <button className="continue-button">Save & Continue</button>
+            <button onClick={send} className="continue-button">
+              Save & Continue
+            </button>
           </div>
         </div>
       </div>
-
-      {/* <button onClick={send}>Next</button> */}
     </div>
   );
 }

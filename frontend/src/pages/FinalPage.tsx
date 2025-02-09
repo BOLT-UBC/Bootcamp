@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import LongText from "../components/LongText";
 import { supabase } from "../supabase";
-import { v4 as uuidv4 } from "uuid";
-
 import { Link } from "react-router-dom";
-
-import ShortText from "../components/ShortText";
 
 export default function Responses() {
   const navigate = useNavigate();
-  const [name, setName] = useState<string>("");
-  const [answer1, setAnswer1] = useState<string>("");
-  const [answer2, setAnswer2] = useState<string>("");
-  const [answer3, setAnswer3] = useState<string>("");
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
-  const [caseCompCount, setCaseCompCount] = useState([]);
+  const [hear, setHear] = useState<string>("");
+  const [emailUpdates, setEmailUpdates] = useState<string>("");
+  const [past, setPast] = useState<string[]>([]);
 
   useEffect(() => {
     if (!email) {
@@ -27,11 +20,36 @@ export default function Responses() {
         } else if (data?.user) {
           const userEmail = data.user.email ?? "user@example.com";
           setEmail(userEmail);
+          console.log("Fetched User Email:", userEmail);
         }
       };
       getUserEmail();
     }
   }, [email]);
+
+  // Handle radio change (How did you hear about this event?)
+  const handleHearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setHear(event.target.value);
+  };
+
+  // Handle checkbox changes for past events
+  const handlePastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setPast((prevPast) => {
+      const updatedPast = prevPast.includes(value)
+        ? prevPast.filter((p) => p !== value) // Remove if already selected
+        : [...prevPast, value]; // Add if not selected
+
+      return updatedPast;
+    });
+  };
+
+  // Handle radio change (Would you like to receive email updates?)
+  const handleEmailUpdatesChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setEmailUpdates(event.target.value);
+  };
 
   const send = async () => {
     if (!email) {
@@ -42,9 +60,9 @@ export default function Responses() {
       const { data, error } = await supabase.from("responses").insert([
         {
           user_email: email,
-          answer1: answer1,
-          answer2: answer2,
-          answer3: answer3,
+          how_heard: hear,
+          past_events: past,
+          email_updates: emailUpdates,
         },
       ]);
 
@@ -71,7 +89,8 @@ export default function Responses() {
 
         <div className="register-form">
           <h2 className="form-title">Final Step</h2>
-          {/* Case Comp Count */}
+
+          {/* How did you hear about this event? */}
           <label className="required-label">
             <b>How did you hear about this event?</b>
             <span className="required-text">*</span>
@@ -81,18 +100,45 @@ export default function Responses() {
               "BOLT Website",
               "Facebook",
               "Instagram",
-              "Instagram",
               "Word of Mouth",
               "Other",
             ].map((option) => (
               <label key={option} className="radio-label">
-                <input type="radio" name="caseCompCount" value={option} />
+                <input
+                  type="radio"
+                  name="hear"
+                  value={option}
+                  checked={hear === option}
+                  onChange={handleHearChange}
+                />
                 {option}
               </label>
             ))}
           </div>
 
-          {/* Case Comp Count */}
+          {/* Which BOLT events have you attended in the past? */}
+          <label className="required-label">
+            <b>
+              Which BOLT events have you attended in the past? [Select all that
+              apply]
+            </b>
+            <span className="required-text">*</span>
+          </label>
+          <div className="checkbox-group">
+            {["FirstByte", "Bolt Connect", "Other"].map((option) => (
+              <label key={option} className="checkbox-label">
+                <input
+                  type="checkbox"
+                  value={option}
+                  checked={past.includes(option)}
+                  onChange={handlePastChange}
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+
+          {/* Would you like to receive email updates? */}
           <label className="required-label">
             <b>
               Would you like to receive email updates about future BOLT events?
@@ -106,24 +152,13 @@ export default function Responses() {
               "Maybe next time.",
             ].map((option) => (
               <label key={option} className="radio-label">
-                <input type="radio" name="caseCompCount" value={option} />
-                {option}
-              </label>
-            ))}
-          </div>
-
-          {/* Roles */}
-          <label className="required-label">
-            <b>
-              Which BOLT events have you attended in the past? [Select all that
-              apply]
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="checkbox-group">
-            {["FirstByte", "Bolt Connect", "Other"].map((option) => (
-              <label key={option} className="checkbox-label">
-                <input type="checkbox" value={option} />
+                <input
+                  type="radio"
+                  name="emailUpdates"
+                  value={option}
+                  checked={emailUpdates === option}
+                  onChange={handleEmailUpdatesChange}
+                />
                 {option}
               </label>
             ))}
@@ -133,12 +168,12 @@ export default function Responses() {
             <button onClick={() => navigate(-1)} className="back-button">
               Back
             </button>
-            <button className="continue-button">Save & Continue</button>
+            <button onClick={send} className="continue-button">
+              Register
+            </button>
           </div>
         </div>
       </div>
-
-      {/* <button onClick={send}>Next</button> */}
     </div>
   );
 }

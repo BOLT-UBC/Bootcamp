@@ -14,6 +14,10 @@ export default function StartRegistration() {
           <Link to="/portal" className="portal-link">
             your portal
           </Link>{" "}
+          or go back {" "}
+          <Link to="/" className="portal-link">
+            home
+          </Link>{" "}
           !
         </p>
 
