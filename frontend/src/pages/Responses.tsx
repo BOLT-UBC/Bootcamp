@@ -218,7 +218,6 @@ export default function Responses() {
           {/* Tell about */}
           <label className="required-label">
             <b>What are you expecting to learn in the workshops? (optional)</b>
-            <span className="required-text">*</span>
           </label>
           <LongText
             value={answer3}
