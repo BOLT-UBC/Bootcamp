@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./LongText.css";
+
 interface TextAreaProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -7,14 +9,19 @@ interface TextAreaProps {
   rows?: number;
 }
 
-const LongText: React.FC<TextAreaProps> = ({ value, onChange, placeholder, rows = 4 }) => {
+const LongText: React.FC<TextAreaProps> = ({
+  value,
+  onChange,
+  placeholder,
+  rows = 4,
+}) => {
   return (
     <textarea
       value={value}
       onChange={onChange} // Allows user to edit text
       placeholder={placeholder}
       rows={rows}
-      className="p-2 border rounded-md w-full resize-none"
+      className="textarea"
     />
   );
 };

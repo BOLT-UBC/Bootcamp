@@ -109,8 +109,10 @@ export default function Responses() {
                   value={option}
                   checked={hear === option}
                   onChange={handleHearChange}
+                  className="radioInput"
                 />
-                {option}
+                <span className="radioButton"></span>
+                <span className="radioText">{option}</span>
               </label>
             ))}
           </div>
@@ -123,16 +125,18 @@ export default function Responses() {
             </b>
             <span className="required-text">*</span>
           </label>
-          <div className="checkbox-group">
+          <div className="checkboxGroup">
             {["FirstByte", "Bolt Connect", "Other"].map((option) => (
-              <label key={option} className="checkbox-label">
+              <label key={option} className="checkboxLabel">
                 <input
                   type="checkbox"
                   value={option}
                   checked={past.includes(option)}
                   onChange={handlePastChange}
+                  className="checkboxInput"
                 />
-                {option}
+                <span className="checkbox"></span>
+                <span className="checkboxText">{option}</span>
               </label>
             ))}
           </div>
@@ -157,8 +161,10 @@ export default function Responses() {
                   value={option}
                   checked={emailUpdates === option}
                   onChange={handleEmailUpdatesChange}
+                  className="radioInput"
                 />
-                {option}
+                <span className="radioButton"></span>
+                <span className="radioText">{option}</span>
               </label>
             ))}
           </div>

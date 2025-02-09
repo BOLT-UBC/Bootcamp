@@ -62,7 +62,8 @@
 .required-label {
   display: block;
   font-size: 1rem;
-  margin-bottom: 5px;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .required-text {
@@ -89,7 +90,7 @@
 .back-button,
 .continue-button {
   padding: 12px 24px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
   border-radius: 8px;
@@ -137,4 +138,123 @@ ul li {
 
 .email-link {
   color: #c88b5e; /* Match button color */
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: white;
+  border: 2px solid #3e2723;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.radio-label:hover {
+  background-color: #f2ece9;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radioButton {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  height: 13px;
+  width: 13px;
+  background-color: transparent;
+  border: 2px solid #3e2723;
+  border-radius: 50%;
+}
+
+.radioInput:checked + .radioButton::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.radioText {
+  margin-left: 28px;
+  font-size: 1rem;
+  color: #3e2723;
+  min-width: 4rem;
+  text-align: center;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkboxLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #3e2723;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.checkboxLabel:hover {
+  background-color: #f2ece9;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  height: 12px;
+  width: 12px;
+  background-color: transparent;
+  border: 2px solid #3e2723;
+  border-radius: 4px;
+}
+
+.checkboxInput:checked + .checkbox::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 3px;
+  height: 7px;
+  border: solid #3e2723;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkboxText {
+  margin-left: 32px;
+  font-size: 1rem;
+  color: #3e2723;
+  width: fit-content;
 }

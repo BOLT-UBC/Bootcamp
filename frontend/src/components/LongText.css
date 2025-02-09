@@ -1,22 +1,24 @@
-.input-field {
+.textarea {
   width: 100%; /* Adjust width to match the form padding */
   padding: 10px; /* Added more padding for better UX */
-  border-radius: 12px;
+  background-color: white;
   border: 2px solid #3e2723;
-  margin-bottom: 15px;
+  border-radius: 12px;
   font-size: 1rem;
+  color: #3e2723;
+  resize: vertical; /* Changed from 'none' to 'vertical' */
+  min-height: 150px;
+  max-height: 400px; /* Added max-height for better UX */
   transition: border-color 0.2s ease;
   display: block; /* Ensures inputs are properly aligned */
   box-sizing: border-box;
 }
 
-.input-field::placeholder {
-  font-size: 1rem;
-
+.textarea::placeholder {
   font-style: italic;
-  color: #888; /* Optional: Adjust color for better visibility */
+  font-size: 1rem;
 }
 
-.input-field:focus {
+.textarea:focus {
   outline: none;
 }

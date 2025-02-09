@@ -44,33 +44,33 @@ export default function MultiSelect({
   };
 
   return (
-    <div className="multi-select-container" ref={dropdownRef}>
-      <div style={{ position: "relative" }}>
+    <div className="multiSelectContainer" ref={dropdownRef}>
+      <div className="selectWrapper">
         <button
           id="multi-select"
           type="button"
-          className="multi-select-button"
+          className="multiSelectButton"
           onClick={() => setIsOpen(!isOpen)}
           onKeyDown={handleKeyDown}
           aria-expanded={isOpen}
         >
-          <span className="multi-select-selected-text">
+          <span className="multiSelectSelectedText">
             {value
               ? options.find((opt) => opt.value === value)?.label
               : placeholder}
           </span>
-          <span className="multi-select-icon-wrapper">
+          <span className="multiSelectIconWrapper">
             <ChevronDown />
           </span>
         </button>
 
         {isOpen && (
-          <div className="multi-select-dropdown" role="listbox">
+          <div className="multiSelectDropdown" role="listbox">
             {options.map((option) => (
               <div
                 key={option.value}
-                className={`multi-select-option ${
-                  value === option.value ? "multi-select-option-selected" : ""
+                className={`multiSelectOption ${
+                  value === option.value ? "multiSelectOptionSelected" : ""
                 }`}
                 onClick={() => {
                   onValueChange?.(option.value);

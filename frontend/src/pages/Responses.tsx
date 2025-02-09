@@ -135,8 +135,10 @@ export default function Responses() {
                       e.target.value
                     );
                   }}
+                  className="radioInput"
                 />
-                {option}
+                <span className="radioButton"></span>
+                <span className="radioText">{option}</span>
               </label>
             ))}
           </div>
@@ -148,17 +150,19 @@ export default function Responses() {
             </b>
             <span className="required-text">*</span>
           </label>
-          <div className="checkbox-group">
+          <div className="checkboxGroup">
             {["Project Manager", "Business Analyst", "Data Analyst"].map(
               (option) => (
-                <label key={option} className="checkbox-label">
+                <label key={option} className="checkboxLabel">
                   <input
                     type="checkbox"
                     value={option}
                     checked={roles.includes(option)}
                     onChange={handleRoleChange}
+                    className="checkboxInput"
                   />
-                  {option}
+                  <span className="checkbox"></span>
+                  <span className="checkboxText">{option}</span>
                 </label>
               )
             )}
@@ -197,20 +201,22 @@ export default function Responses() {
             </b>
             <span className="required-text">*</span>
           </label>
-          <div className="checkbox-group">
+          <div className="checkboxGroup">
             {[
               "March 1st  (Case Workshop + Networking Session)",
               "March 4th (Online Workshop)",
               "March 8th (Finals Presentations)",
             ].map((option) => (
-              <label key={option} className="checkbox-label">
+              <label key={option} className="checkboxLabel">
                 <input
                   type="checkbox"
                   value={option}
                   checked={events.includes(option)}
                   onChange={handleEventChange}
+                  className="checkboxInput"
                 />
-                {option}
+                <span className="checkbox"></span>
+                <span className="checkboxText">{option}</span>
               </label>
             ))}
           </div>
