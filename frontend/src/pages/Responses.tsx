@@ -211,12 +211,12 @@ export default function Responses() {
             <button onClick={() => navigate(-1)} className="back-button">
               Back
             </button>
-            <button className="continue-button">Save & Continue</button>
+            <button onClick={send} className="continue-button">
+              Save & Continue
+            </button>
           </div>
         </div>
       </div>
-
-      {/* <button onClick={send}>Next</button> */}
     </div>
   );
 }
