@@ -59,7 +59,6 @@ export default function Responses() {
     try {
       const { data, error } = await supabase.from("responses").insert([
         {
-          user_email: email,
           how_heard: hear,
           past_events: past,
           email_updates: emailUpdates,
