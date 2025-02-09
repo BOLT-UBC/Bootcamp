@@ -6,6 +6,17 @@
     text-align: center;
 }
 
+.team_content_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.teammate_cards_wrapper {
+    display: flex;
+    gap: 1rem;
+}
+
 .team__buttons-wrapper {
     display: flex;
     justify-content: center;
@@ -33,8 +44,29 @@
 }
 
 .teammate_profile_picture {
-    max-width: 50%;
+    max-width: 60%;
     aspect-ratio: 1;
     border-radius: 30px;
     object-fit: cover;
+}
+
+.teammate_name {
+    font-size: 2rem;
+}
+
+.pending_requests_cards_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.pending_request_profile_picture {
+    max-width: 30%;
+    aspect-ratio: 1;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.pending_request_desc {
+
 }
