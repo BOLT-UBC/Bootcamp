@@ -23,6 +23,7 @@ export default function Responses() {
     const storedEmail = localStorage.getItem("user_email");
     if (storedEmail) {
       setEmail(storedEmail);
+      fetchResponses(storedEmail);
     } else {
       fetchUserEmail();
     }
@@ -33,6 +34,36 @@ export default function Responses() {
     if (!error && data?.user) {
       setEmail(data.user.email ?? "");
       localStorage.setItem("user_email", data.user.email ?? "");
+      fetchResponses(data.user.email ?? "");
+    }
+  };
+
+  const fetchResponses = async (userEmail: string) => {
+    try {
+      const { data, error } = await supabase
+        .from("responses")
+        .select("*")
+        .eq("user_email", userEmail)
+        .maybeSingle();
+
+      if (error) {
+        console.error("Error fetching responses:", error.message);
+        return;
+      }
+
+      if (!data) {
+        console.log("No previous responses found.");
+        return;
+      }
+
+      setAnswer1(data.answer1 || "");
+      setAnswer2(data.answer2 || "");
+      setAnswer3(data.answer3 || "");
+      setCompCount(data.case_comp_count?.toString() || "");
+      setRoles(data.roles || []);
+      setEvents(data.events_attending || []);
+    } catch (err: any) {
+      console.error("Error retrieving responses:", err.message);
     }
   };
 
@@ -80,20 +111,48 @@ export default function Responses() {
     }
 
     try {
-      const { data, error } = await supabase.from("responses").insert([
-        {
-          user_email: email,
-          case_comp_count: parseInt(compCount),
-          roles,
-          answer1,
-          answer2,
-          answer3,
-          events_attending: events,
-        },
-      ]);
+      // Step 1: Check if email exists in the responses table
+      const { data: existingUser, error: fetchError } = await supabase
+        .from("responses")
+        .select("user_email")
+        .eq("user_email", email)
+        .single();
 
-      if (error) throw error;
-      console.log("Responses saved:", data);
+      if (fetchError && fetchError.code !== "PGRST116") throw fetchError; // Ignore "row not found" errors
+
+      if (existingUser) {
+        // Step 2a: If email exists, update the row
+        const { error: updateError } = await supabase
+          .from("responses")
+          .update({
+            case_comp_count: parseInt(compCount),
+            roles,
+            answer1,
+            answer2,
+            answer3,
+            events_attending: events,
+          })
+          .eq("user_email", email);
+
+        if (updateError) throw updateError;
+        console.log("Response updated successfully.");
+      } else {
+        // Step 2b: If email doesn't exist, insert a new row
+        const { error: insertError } = await supabase.from("responses").insert([
+          {
+            user_email: email,
+            case_comp_count: parseInt(compCount),
+            roles,
+            answer1,
+            answer2,
+            answer3,
+            events_attending: events,
+          },
+        ]);
+
+        if (insertError) throw insertError;
+        console.log("New response created.");
+      }
 
       navigate("/registration/page-3");
     } catch (err: any) {

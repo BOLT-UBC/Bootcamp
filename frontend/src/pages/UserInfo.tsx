@@ -52,6 +52,35 @@ export default function StartRegistration() {
       } else if (data?.user) {
         const userEmail = data.user.email ?? "user@example.com";
         setEmail(userEmail);
+        console.log(userEmail);
+        fetchUserData(userEmail); // Fetch user data after getting the email
+      }
+    };
+
+    const fetchUserData = async (userEmail: string) => {
+      try {
+        const { data, error } = await supabase
+          .from("users")
+          .select("*")
+          .eq("email", userEmail)
+          .single();
+
+        if (error) {
+          console.error("Error fetching user data:", error.message);
+          return;
+        }
+
+        if (data) {
+          setName(data.name || "");
+          setPreferredName(data.preferred_name || "");
+          setPronouns(data.pronouns || "");
+          setMajor(data.major || "");
+          setSelectedYear(data.year ? data.year.toString() : null);
+          setSchool(data.school || "");
+          setDietary(data.dietary || "");
+        }
+      } catch (err: any) {
+        console.error("Error retrieving user data:", err.message);
       }
     };
 

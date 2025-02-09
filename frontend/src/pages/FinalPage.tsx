@@ -20,12 +20,39 @@ export default function Responses() {
         } else if (data?.user) {
           const userEmail = data.user.email ?? "user@example.com";
           setEmail(userEmail);
+          fetchResponses(userEmail); // Fetch user data after getting the email
           console.log("Fetched User Email:", userEmail);
         }
       };
       getUserEmail();
     }
   }, [email]);
+
+  const fetchResponses = async (userEmail: string) => {
+    try {
+      const { data, error } = await supabase
+        .from("responses")
+        .select("*")
+        .eq("user_email", userEmail)
+        .maybeSingle();
+
+      if (error) {
+        console.error("Error fetching responses:", error.message);
+        return;
+      }
+
+      if (!data) {
+        console.log("No previous responses found.");
+        return;
+      }
+
+      setHear(data.how_heard || "");
+      setPast(data.past_events || []);
+      setEmailUpdates(data.email_updates || "");
+    } catch (err: any) {
+      console.error("Error retrieving responses:", err.message);
+    }
+  };
 
   // Handle radio change (How did you hear about this event?)
   const handleHearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,13 +84,14 @@ export default function Responses() {
       return;
     }
     try {
-      const { data, error } = await supabase.from("responses").insert([
-        {
+      const { data, error } = await supabase
+        .from("responses")
+        .update({
           how_heard: hear,
           past_events: past,
           email_updates: emailUpdates,
-        },
-      ]);
+        })
+        .eq("user_email", email);
 
       if (error) throw error;
       console.log("Responses saved:", data);
