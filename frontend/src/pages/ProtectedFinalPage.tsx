@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { supabase } from "../supabase.js";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import UserInfo from "./UserInfo.js";
+import FinalPage from "./FinalPage.js";
 
-export default function ProtectedUserInfo() {
+export default function ProtectedResponses() {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [registered, setRegistered] = useState(false);
@@ -20,7 +20,7 @@ export default function ProtectedUserInfo() {
       if (user) {
         setIsAuthenticated(true);
 
-        // Check if the user is registered
+        // Check if user is registered
         const { data, error: userError } = await supabase
           .from("users")
           .select("registered")
@@ -64,12 +64,12 @@ export default function ProtectedUserInfo() {
             "linear-gradient(to top, #693b48 0%, #422932 19%, #17161b 81%)",
         }}
       >
-        <div style={{ fontSize: "24px", fontWeight: "bold", color: "#fff" }}>
-          Loading...
-        </div>
+        <div
+          style={{ fontSize: "24px", fontWeight: "bold", color: "#fff" }}
+        ></div>
       </div>
     );
   }
 
-  return <UserInfo />;
+  return <FinalPage />;
 }

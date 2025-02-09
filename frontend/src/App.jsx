@@ -16,7 +16,7 @@ import ProtectedStartRegistration from "./pages/ProtectedStartRegistration";
 import ProtectedUserInfo from "./pages/ProtectedUserInfo";
 import ProtectedResponses from "./pages/ProtectedResponses";
 import ProtectedThankYou from "./pages/ProtectedThankYou";
-import FinalPage from "./pages/FinalPage";
+import ProtectedFinalPage from "./pages/ProtectedFinalPage";
 
 export default function App() {
   return (
@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/registration" element={<ProtectedStartRegistration />} />
         <Route path="/registration/page-1" element={<ProtectedUserInfo />} />
         <Route path="/registration/page-2" element={<ProtectedResponses />} />
-        <Route path="/registration/page-3" element={<FinalPage />} />
+        <Route path="/registration/page-3" element={<ProtectedFinalPage />} />
         <Route path="/registration/page-4" element={<ProtectedThankYou />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
       </Routes>

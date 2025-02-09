@@ -84,17 +84,27 @@ export default function Responses() {
       return;
     }
     try {
-      const { data, error } = await supabase
-        .from("responses")
-        .update({
-          how_heard: hear,
-          past_events: past,
-          email_updates: emailUpdates,
-        })
-        .eq("user_email", email);
+      const [
+        { data: responsesData, error: responsesError },
+        { data: usersData, error: usersError },
+      ] = await Promise.all([
+        supabase
+          .from("responses")
+          .update({
+            how_heard: hear,
+            past_events: past,
+            email_updates: emailUpdates,
+          })
+          .eq("user_email", email),
 
-      if (error) throw error;
-      console.log("Responses saved:", data);
+        supabase.from("users").update({ registered: true }).eq("email", email),
+      ]);
+
+      if (responsesError) throw responsesError;
+      if (usersError) throw usersError;
+
+      console.log("Responses saved:", responsesData);
+      console.log("User registered updated:", usersData);
 
       navigate("/registration/page-4");
     } catch (err: any) {
