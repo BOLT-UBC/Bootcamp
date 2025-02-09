@@ -16,6 +16,7 @@ import ProtectedStartRegistration from "./pages/ProtectedStartRegistration";
 import ProtectedUserInfo from "./pages/ProtectedUserInfo";
 import ProtectedResponses from "./pages/ProtectedResponses";
 import ProtectedThankYou from "./pages/ProtectedThankYou";
+import FinalPage from "./pages/FinalPage";
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
         <Route path="/portal" element={<Portal />} />
         <Route path="/portal/team" element={<Team />} />
         <Route path="/portal/join-team" element={<JoinTeam />} />
-        <Route path="/portal/create-team" element={<CreateTeam />} /> 
+        <Route path="/portal/create-team" element={<CreateTeam />} />
         <Route path="/portal/team" element={<Team />} />
         <Route path="/portal/join-team" element={<JoinTeam />} />
         <Route path="/portal/create-team" element={<CreateTeam />} />
