@@ -1,7 +1,7 @@
 .folder-thin__wrapper {
     position: relative;
-    max-width: 10%;
-    height: 95vh;
+    width: 100%;
+    height: 100%
 }
 
 .folder-thin__filler_wrapper {

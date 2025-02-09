@@ -43,10 +43,10 @@ export default function LandingPage() {
       {/* <Sponsors /> */}
       <SectionSeparator />
 
-      <h1>Booot camp stuff here</h1>
+      {/* <h1>Booot camp stuff here</h1>
       <button onClick={signInWithGoogle}>Go to register rn PLSSSSSS</button>
 
-      <button onClick={() => navigate("/registration")}>Portall!</button>
+      <button onClick={() => navigate("/registration")}>Portall!</button> */}
     </div>
   );
 }

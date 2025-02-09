@@ -8,15 +8,18 @@ type FullFoledrProps = React.PropsWithChildren<{}>;
 
 const FullFolder: React.FC<FullFoledrProps> = ({ children }) => {
   return (
-    <>
       <section className="full_folder__wrapper">
-        {/* <div className="full_folder__content_wrapper">
+        <div className="full_folder__content_wrapper">
+          <div className="folder_thin__container">
           <FolderThin />
-          <FolderWide>{children}</FolderWide>
-        </div> */}
+          </div>
+          <div className="folder_wide__container">
+            <FolderWide>{children}</FolderWide>
+          </div>
+        </div>
         <div className="full_folder__background_wrapper">
           <svg
-            className="full_folder_background_outline"
+            className="full_folder__background_filler"
             width="1759"
             height="969"
             viewBox="0 0 1759 969"
@@ -45,7 +48,7 @@ const FullFolder: React.FC<FullFoledrProps> = ({ children }) => {
             />
           </svg>
           <svg
-            className="full_folder_background_filler"
+            className="full_folder__background_outline"
             width="1759"
             height="969"
             viewBox="0 0 1759 969"
@@ -61,7 +64,6 @@ const FullFolder: React.FC<FullFoledrProps> = ({ children }) => {
           </svg>
         </div>
       </section>
-    </>
   );
 };
 

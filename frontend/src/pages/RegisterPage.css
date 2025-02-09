@@ -1,0 +1,140 @@
+.planet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  color: #fdf9f7;
+}
+
+.register-gradient {
+  background: linear-gradient(to top, #693b48 0%, #422932 19%, #17161b 81%);
+  width: 100%;
+  min-height: 100vh; /* Ensures it covers the entire page */
+  height: auto; /* Allows it to expand beyond 100vh if needed */
+}
+
+.register-content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Righteous", sans-serif;
+  padding: 3rem;
+  width: 60%;
+  z-index: 0;
+}
+
+.register-title {
+  color: #fdf9f7;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  font-size: 4rem;
+  font-weight: 700; /* Increased weight for a bolder title */
+  margin: 0.5rem 0;
+}
+
+.register-subtitle {
+  color: #fdf9f7;
+  font-size: 1rem;
+  margin-top: 8px;
+  font-weight: 300; /* Lighter weight for contrast */
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+}
+
+.register-form {
+  width: 100%;
+  height: auto;
+  background-color: #ead0c3;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.form-title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-section {
+  margin: 10px 0;
+}
+
+.optional-label,
+.required-label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.required-text {
+  color: red;
+  font-style: italic;
+  font-size: 0.8em; /* Adjust size */
+  vertical-align: super;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.button-row-single {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.back-button,
+.continue-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.continue-button,
+.back-button {
+  background-color: #c88b5e;
+  color: white;
+}
+
+.continue-button:hover,
+.back-button:hover {
+  background-color: #b07a4c;
+}
+
+.portal-link {
+  color: #c88b5e; /* Match button color */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.portal-link:hover {
+  color: #b07a4c; /* Darker shade on hover */
+  text-decoration: underline;
+}
+
+.bootcamp-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.email-link {
+  color: #c88b5e; /* Match button color */
+}

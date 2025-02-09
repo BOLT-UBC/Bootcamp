@@ -1,0 +1,15 @@
+.input-field {
+  width: 100%; /* Adjust width to match the form padding */
+  padding: 10px; /* Added more padding for better UX */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  display: block; /* Ensures inputs are properly aligned */
+  box-sizing: border-box;
+}
+
+.input-field::placeholder {
+  font-style: italic;
+  color: #888; /* Optional: Adjust color for better visibility */
+}

@@ -7,7 +7,7 @@ const FolderThin: React.FC<FolderThinProps> = ({ children }) => {
   return (
     <>
       <div className="folder-thin__wrapper">
-        <div>
+
           <svg
             width="227"
             height="884"
@@ -24,8 +24,8 @@ const FolderThin: React.FC<FolderThinProps> = ({ children }) => {
               stroke-width="4"
             />
           </svg>
-        </div>
-        <div>
+
+
           <svg
             width="227"
             height="884"
@@ -41,7 +41,6 @@ const FolderThin: React.FC<FolderThinProps> = ({ children }) => {
               stroke-width="4"
             />
           </svg>
-        </div>
         <div className="folder-thin__content_wrapper">{children}</div>
       </div>
     </>

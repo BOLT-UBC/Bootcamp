@@ -7,7 +7,7 @@ const FolderWide: React.FC<FolderWideProps> = ({ children }) => {
   return (
     <>
       <div className="folder-wide__wrapper">
-        <div>
+
           <svg // outline
             width="1477"
             height="884"
@@ -23,8 +23,6 @@ const FolderWide: React.FC<FolderWideProps> = ({ children }) => {
               stroke-width="4"
             />
           </svg>
-        </div>
-        <div>
           <svg // fill
             width="1473"
             height="880"
@@ -39,8 +37,6 @@ const FolderWide: React.FC<FolderWideProps> = ({ children }) => {
               fill="#CD6E15"
             />
           </svg>
-        </div>
-
         <div className="folder-wide__content_wrapper">{children}</div>
       </div>
     </>

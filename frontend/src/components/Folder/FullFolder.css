@@ -1,10 +1,41 @@
-.full_folder__background_wrapper {
+.full_folder__wrapper {
     position: relative;
-    max-width: 75%;
-    height: 95vh;
+    width: 90%;
 }
 
-.full_folder_background_filler {
+.full_folder__content_wrapper {
+    position: absolute;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 90%;
+    margin-top: 4vh 
+} 
+/* SUS USE of 5VH */
+
+.folder_wide__container {
+    width: 80%;
+}
+
+
+.folder_thin__container {
+    width: 15%;
+    margin-left: 0.8%;
+}
+
+
+.full_folder__background_wrapper {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+}
+
+.full_folder__background_filler {
     position: absolute;
     top: 0;
     left: 0;
@@ -13,7 +44,7 @@
     height: 100%;
 }
 
-.full_folder_background_outline{
+.full_folder__background_outline{
     filter: drop-shadow(0px 0px 10px #fab277);
     position: absolute;
     top: 0;

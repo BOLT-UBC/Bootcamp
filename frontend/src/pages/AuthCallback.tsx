@@ -14,9 +14,12 @@ export default function AuthCallback() {
       
       if (error || !user) {
         // Not Logged In
-        navigate("/registration");
+        navigate("/");
         return;
       }
+
+      const userEmail = user.email ?? "";
+      localStorage.setItem("user_email", userEmail);
       
       const { data: existingUser, error: queryError } = await supabase
         .from("responses")
@@ -30,6 +33,7 @@ export default function AuthCallback() {
       } else {
        // Registered
          navigate("/portal"); 
+        // navigate("/registration");
       }
     
     };
