@@ -65,16 +65,20 @@ export default function StartRegistration() {
     }
 
     const finalPronouns = pronouns === "Other" ? otherPronouns : pronouns;
+    const finalSchool = school === "Other" ? otherSchool : school;
 
     try {
       const { data, error } = await supabase.from("users").upsert(
         [
           {
             name,
+            preferred_name: preferredName,
             email,
             pronouns: finalPronouns,
             major,
             year: selectedYear ? parseInt(selectedYear) : null,
+            school: finalSchool,
+            dietary
           },
         ],
         { onConflict: "email" }
@@ -149,14 +153,14 @@ export default function StartRegistration() {
             Current School<span className="required-text">*</span>
           </label>
           <MultiSelect
-            value={pronouns}
+            value={school}
             onValueChange={(value) => setSchool(value || "")}
             options={universityOptions}
             placeholder="Select your the school you are currently attending"
           />
-          {pronouns === "Other" && (
+          {school === "Other" && (
             <ShortText
-              value={otherPronouns}
+              value={otherSchool}
               onChange={(e) => setOtherSchool(e.target.value)}
               placeholder="Specify your pronouns"
               need={true}
@@ -188,7 +192,7 @@ export default function StartRegistration() {
           {/* Dietary Restrictions */}
           <label className="required-label">Dietary Restrictions</label>
           <ShortText
-            value={major}
+            value={dietary}
             onChange={(e) => setDietary(e.target.value)}
             placeholder="Enter any dietary restrictions"
             need={false}

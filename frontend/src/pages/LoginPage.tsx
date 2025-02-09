@@ -5,9 +5,28 @@ import "./LoginPage.css";
 import "./LandingPage.css";
 
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabase";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const signInWithGoogle = async () => {
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (!user || authError) {
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+                redirectTo: `${window.location.origin}/auth/callback`,
+            },
+        });
+        if (error) {
+        console.error("Google Sign-In Error:", error);
+        } 
+    }
+    else {
+        navigate('/auth/callback');
+    }
+  };
+
   return (
     <div className="space-gradient container">
       {/* <SpaceBG /> */}
@@ -16,7 +35,7 @@ export default function LoginPage() {
         <p className="login-subtitle">Welcome to BOLT Bootcamp 2025!</p>
         <button
           className="google-button"
-          onClick={() => navigate("/registration")}
+          onClick={signInWithGoogle}
         >
           <img
             src="/Google__G__logo.svg"

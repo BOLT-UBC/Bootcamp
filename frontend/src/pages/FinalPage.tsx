@@ -70,14 +70,41 @@ export default function Responses() {
         </p>
 
         <div className="register-form">
-          <h2 className="form-title">Your Bootcamp</h2>
+          <h2 className="form-title">Final Step</h2>
           {/* Case Comp Count */}
           <label className="required-label">
-            <b>How many case competitions have you been to before?</b>
+            <b>How did you hear about this event?</b>
             <span className="required-text">*</span>
           </label>
           <div className="radio-group">
-            {["0", "1", "2", "3", "4", "5+"].map((option) => (
+            {[
+              "BOLT Website",
+              "Facebook",
+              "Instagram",
+              "Instagram",
+              "Word of Mouth",
+              "Other",
+            ].map((option) => (
+              <label key={option} className="radio-label">
+                <input type="radio" name="caseCompCount" value={option} />
+                {option}
+              </label>
+            ))}
+          </div>
+
+          {/* Case Comp Count */}
+          <label className="required-label">
+            <b>
+              Would you like to receive email updates about future BOLT events?
+            </b>
+            <span className="required-text">*</span>
+          </label>
+          <div className="radio-group">
+            {[
+              "Yes, sign me up!",
+              "I've already signed up!",
+              "Maybe next time.",
+            ].map((option) => (
               <label key={option} className="radio-label">
                 <input type="radio" name="caseCompCount" value={option} />
                 {option}
@@ -88,77 +115,19 @@ export default function Responses() {
           {/* Roles */}
           <label className="required-label">
             <b>
-              What role(s) would you like to take on? [Select all that apply]
+              Which BOLT events have you attended in the past? [Select all that
+              apply]
             </b>
             <span className="required-text">*</span>
           </label>
           <div className="checkbox-group">
-            {["Project Manager", "Business Analyst", "Data Analyst"].map(
-              (option) => (
-                <label key={option} className="checkbox-label">
-                  <input type="checkbox" value={option} />
-                  {option}
-                </label>
-              )
-            )}
-          </div>
-
-          {/* Tell about */}
-          <label className="required-label">
-            <b>
-              Tell us a little about yourself! What are your interests,
-              experiences, or passions that you'd like to share with us?
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <LongText
-            value={answer1}
-            onChange={(e) => setAnswer1(e.target.value)}
-            placeholder="Type your answer..."
-          />
-
-          {/* Tell about */}
-          <label className="required-label">
-            <b>What are you hoping to get out of Bootcamp?</b>
-            <span className="required-text">*</span>
-          </label>
-          <LongText
-            value={answer2}
-            onChange={(e) => setAnswer2(e.target.value)}
-            placeholder="Type your answer..."
-          />
-
-          {/* Roles */}
-          <label className="required-label">
-            <b>
-              We will be holding multiple events prior to the final day, which
-              events will you be attending? [Select all apply]
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="checkbox-group">
-            {[
-              "March 1st  (Case Workshop + Networking Session)",
-              "March 4th (Online Workshop)",
-              "March 8th (Finals Presentations)",
-            ].map((option) => (
+            {["FirstByte", "Bolt Connect", "Other"].map((option) => (
               <label key={option} className="checkbox-label">
                 <input type="checkbox" value={option} />
                 {option}
               </label>
             ))}
           </div>
-
-          {/* Tell about */}
-          <label className="required-label">
-            <b>What are you expecting to learn in the workshops? (optional)</b>
-            <span className="required-text">*</span>
-          </label>
-          <LongText
-            value={answer3}
-            onChange={(e) => setAnswer3(e.target.value)}
-            placeholder="Type your answer..."
-          />
 
           <div className="button-row">
             <button onClick={() => navigate(-1)} className="back-button">

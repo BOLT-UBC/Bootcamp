@@ -9,6 +9,9 @@ export default function ThankYou() {
       <button onClick={() => navigate("/")}>
         Home
       </button>
+      <button onClick={() => navigate("/portal/team")}>
+        Join a Team
+      </button>
     </>
   );
 }
