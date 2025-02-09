@@ -4,6 +4,7 @@ import PortalPageSection from '../components/PortalPageSection';
 import '../styles/Portal.css';
 import { supabase } from '../supabase';
 import Dashboard from './Dashboard';
+import FullFolder from '../components/Folder/FullFolder';
 
 
 export default function Portal() {
@@ -20,7 +21,8 @@ export default function Portal() {
   };
   return (
     <>
-        <div className='portal-page'>
+      <FullFolder></FullFolder>
+        {/* <div className='portal-page'>
           <div className='navBar'>
               <h1 className='bootcamp-title'>Bootcamp</h1>
               <div className='my-portal'>
@@ -42,7 +44,7 @@ export default function Portal() {
             <div className='page-right'>
               <Dashboard />
             </div>
-        </div>
+        </div> */}
     </>
   );
 }
