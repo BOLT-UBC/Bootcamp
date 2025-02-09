@@ -27,7 +27,7 @@ export default function App() {
         <Route path="/portal" element={<Portal />} />
         <Route path="/portal/team" element={<Team />} />
         <Route path="/portal/join-team" element={<JoinTeam />} />
-        <Route path="/portal/create-team" element={<CreateTeam />} /> 
+        <Route path="/portal/create-team" element={<CreateTeam />} />
         <Route path="/portal/team" element={<Team />} />
         <Route path="/portal/join-team" element={<JoinTeam />} />
         <Route path="/portal/create-team" element={<CreateTeam />} />
