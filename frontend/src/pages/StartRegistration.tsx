@@ -74,7 +74,7 @@ export default function StartRegistration() {
           </p>
           <div className="button-row-single">
             <button
-              onClick={() => navigate("/registration/userInfo")}
+              onClick={() => navigate("/registration/page-1")}
               className="continue-button"
             >
               Next

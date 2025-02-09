@@ -68,7 +68,7 @@ export default function Responses() {
       if (error) throw error;
       console.log("Responses saved:", data);
 
-      navigate("/registration/thankyou");
+      navigate("/registration/page-4");
     } catch (err: any) {
       console.error("Error saving responses:", err.message);
     }
@@ -170,7 +170,10 @@ export default function Responses() {
           </div>
 
           <div className="button-row">
-            <button onClick={() => navigate(-1)} className="back-button">
+            <button
+              onClick={() => navigate("/registration/page-2")}
+              className="back-button"
+            >
               Back
             </button>
             <button onClick={send} className="continue-button">

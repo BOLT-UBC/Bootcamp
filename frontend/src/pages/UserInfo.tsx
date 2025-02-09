@@ -87,7 +87,7 @@ export default function StartRegistration() {
       if (error) throw error;
       console.log("User saved:", data);
 
-      navigate("/registration/responses", { state: { email } });
+      navigate("/registration/page-2", { state: { email } });
     } catch (err: any) {
       console.error("Error saving user:", err.message);
     }
@@ -206,7 +206,10 @@ export default function StartRegistration() {
             need={false}
           />
           <div className="button-row">
-            <button onClick={() => navigate(-1)} className="back-button">
+            <button
+              onClick={() => navigate("/registration")}
+              className="back-button"
+            >
               Back
             </button>
             <button onClick={saveUser} className="continue-button">
