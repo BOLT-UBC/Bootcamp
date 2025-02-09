@@ -7,13 +7,25 @@
   justify-content: center;
 }
 
+.space-bg {
+  background-image: url("assets/SpaceBG.png");
+  background-size: cover;
+  background-position: center bottom;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .login-content {
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   font-family: "Righteous", sans-serif;
+  justify-content: center;
 }
 
 .login-title {

@@ -103,144 +103,148 @@ export default function Responses() {
 
   return (
     <div className="container register-gradient">
-      <div className="register-content">
-        <h1 className="register-title">Register</h1>
-        <p className="register-subtitle">
-          Already registered for Bootcamp? View your status in{" "}
-          <Link to="/portal" className="portal-link">
-            your portal
-          </Link>{" "}
-          !
-        </p>
+      <div className="space-bg">
+        <div className="register-content">
+          <h1 className="register-title">Register</h1>
+          <p className="register-subtitle">
+            Already registered for Bootcamp? View your status in{" "}
+            <Link to="/portal" className="portal-link">
+              your portal
+            </Link>{" "}
+            !
+          </p>
 
-        <div className="register-form">
-          <h2 className="form-title">Your Bootcamp</h2>
-          {/* Case Comp Count */}
-          <label className="required-label">
-            <b>How many case competitions have you been to before?</b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="radio-group">
-            {["0", "1", "2", "3", "4", "5+"].map((option) => (
-              <label key={option} className="radio-label">
-                <input
-                  type="radio"
-                  name="caseCompCount"
-                  value={option}
-                  checked={compCount === option}
-                  onChange={(e) => {
-                    setCompCount(e.target.value);
-                    console.log(
-                      "Selected Case Competition Count:",
-                      e.target.value
-                    );
-                  }}
-                  className="radioInput"
-                />
-                <span className="radioButton"></span>
-                <span className="radioText">{option}</span>
-              </label>
-            ))}
-          </div>
+          <div className="register-form">
+            <h2 className="form-title">Your Bootcamp</h2>
+            {/* Case Comp Count */}
+            <label className="required-label">
+              <b>How many case competitions have you been to before?</b>
+              <span className="required-text">*</span>
+            </label>
+            <div className="radio-group">
+              {["0", "1", "2", "3", "4", "5+"].map((option) => (
+                <label key={option} className="radio-label">
+                  <input
+                    type="radio"
+                    name="caseCompCount"
+                    value={option}
+                    checked={compCount === option}
+                    onChange={(e) => {
+                      setCompCount(e.target.value);
+                      console.log(
+                        "Selected Case Competition Count:",
+                        e.target.value
+                      );
+                    }}
+                    className="radioInput"
+                  />
+                  <span className="radioButton"></span>
+                  <span className="radioText">{option}</span>
+                </label>
+              ))}
+            </div>
 
-          {/* Roles */}
-          <label className="required-label">
-            <b>
-              What role(s) would you like to take on? [Select all that apply]
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="checkboxGroup">
-            {["Project Manager", "Business Analyst", "Data Analyst"].map(
-              (option) => (
+            {/* Roles */}
+            <label className="required-label">
+              <b>
+                What role(s) would you like to take on? [Select all that apply]
+              </b>
+              <span className="required-text">*</span>
+            </label>
+            <div className="checkboxGroup">
+              {["Project Manager", "Business Analyst", "Data Analyst"].map(
+                (option) => (
+                  <label key={option} className="checkboxLabel">
+                    <input
+                      type="checkbox"
+                      value={option}
+                      checked={roles.includes(option)}
+                      onChange={handleRoleChange}
+                      className="checkboxInput"
+                    />
+                    <span className="checkbox"></span>
+                    <span className="checkboxText">{option}</span>
+                  </label>
+                )
+              )}
+            </div>
+
+            {/* Tell about */}
+            <label className="required-label">
+              <b>
+                Tell us a little about yourself! What are your interests,
+                experiences, or passions that you'd like to share with us?
+              </b>
+              <span className="required-text">*</span>
+            </label>
+            <LongText
+              value={answer1}
+              onChange={(e) => setAnswer1(e.target.value)}
+              placeholder="Type your answer..."
+            />
+
+            {/* Tell about */}
+            <label className="required-label">
+              <b>What are you hoping to get out of Bootcamp?</b>
+              <span className="required-text">*</span>
+            </label>
+            <LongText
+              value={answer2}
+              onChange={(e) => setAnswer2(e.target.value)}
+              placeholder="Type your answer..."
+            />
+
+            {/* Roles */}
+            <label className="required-label">
+              <b>
+                We will be holding multiple events prior to the final day, which
+                events will you be attending? [Select all apply]
+              </b>
+              <span className="required-text">*</span>
+            </label>
+            <div className="checkboxGroup">
+              {[
+                "March 1st  (Case Workshop + Networking Session)",
+                "March 4th (Online Workshop)",
+                "March 8th (Finals Presentations)",
+              ].map((option) => (
                 <label key={option} className="checkboxLabel">
                   <input
                     type="checkbox"
                     value={option}
-                    checked={roles.includes(option)}
-                    onChange={handleRoleChange}
+                    checked={events.includes(option)}
+                    onChange={handleEventChange}
                     className="checkboxInput"
                   />
                   <span className="checkbox"></span>
                   <span className="checkboxText">{option}</span>
                 </label>
-              )
-            )}
-          </div>
+              ))}
+            </div>
 
-          {/* Tell about */}
-          <label className="required-label">
-            <b>
-              Tell us a little about yourself! What are your interests,
-              experiences, or passions that you'd like to share with us?
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <LongText
-            value={answer1}
-            onChange={(e) => setAnswer1(e.target.value)}
-            placeholder="Type your answer..."
-          />
+            {/* Tell about */}
+            <label className="required-label">
+              <b>
+                What are you expecting to learn in the workshops? (optional)
+              </b>
+            </label>
+            <LongText
+              value={answer3}
+              onChange={(e) => setAnswer3(e.target.value)}
+              placeholder="Type your answer..."
+            />
 
-          {/* Tell about */}
-          <label className="required-label">
-            <b>What are you hoping to get out of Bootcamp?</b>
-            <span className="required-text">*</span>
-          </label>
-          <LongText
-            value={answer2}
-            onChange={(e) => setAnswer2(e.target.value)}
-            placeholder="Type your answer..."
-          />
-
-          {/* Roles */}
-          <label className="required-label">
-            <b>
-              We will be holding multiple events prior to the final day, which
-              events will you be attending? [Select all apply]
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="checkboxGroup">
-            {[
-              "March 1st  (Case Workshop + Networking Session)",
-              "March 4th (Online Workshop)",
-              "March 8th (Finals Presentations)",
-            ].map((option) => (
-              <label key={option} className="checkboxLabel">
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={events.includes(option)}
-                  onChange={handleEventChange}
-                  className="checkboxInput"
-                />
-                <span className="checkbox"></span>
-                <span className="checkboxText">{option}</span>
-              </label>
-            ))}
-          </div>
-
-          {/* Tell about */}
-          <label className="required-label">
-            <b>What are you expecting to learn in the workshops? (optional)</b>
-          </label>
-          <LongText
-            value={answer3}
-            onChange={(e) => setAnswer3(e.target.value)}
-            placeholder="Type your answer..."
-          />
-
-          <div className="button-row">
-            <button
-              onClick={() => navigate("/registration/page-1")}
-              className="back-button"
-            >
-              Back
-            </button>
-            <button onClick={send} className="continue-button">
-              Save & Continue
-            </button>
+            <div className="button-row">
+              <button
+                onClick={() => navigate("/registration/page-1")}
+                className="back-button"
+              >
+                Back
+              </button>
+              <button onClick={send} className="continue-button">
+                Save & Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>

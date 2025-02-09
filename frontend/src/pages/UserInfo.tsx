@@ -95,134 +95,131 @@ export default function StartRegistration() {
 
   return (
     <div className="container register-gradient">
-      <div className="register-content">
-        <h1 className="register-title">Register</h1>
-        <p className="register-subtitle">
-          Already registered for Bootcamp? View your status in{" "}
-          <Link to="/portal" className="portal-link">
-            your portal
-          </Link>{" "}
-          !
-        </p>
+      <div className="space-bg">
+        <div className="register-content">
+          <h1 className="register-title">Register</h1>
+          <p className="register-subtitle">
+            Already registered for Bootcamp? View your status in{" "}
+            <Link to="/portal" className="portal-link">
+              your portal
+            </Link>{" "}
+            !
+          </p>
 
-        <div className="register-form">
-          <h2 className="form-title">About You</h2>
-          {/* Legal Name */}
-          <label className="required-label">
-            <b>Legal First/Last Name</b>
-            <span className="required-text">*</span>
-          </label>
-          <ShortText
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your legal name"
-            need={true}
-          />
-
-          {/* Prefered Name */}
-          <label className="required-label">
-            <b>Preferred Name</b>
-            <span className="required-text">*</span>
-          </label>
-          <ShortText
-            value={preferredName}
-            onChange={(e) => setPreferredName(e.target.value)}
-            placeholder="Enter your preferred name"
-            need={true}
-          />
-
-          {/* Pronouns */}
-          <label className="required-label">
-            <b>Pronouns</b>
-            <span className="required-text">*</span>
-          </label>
-          <MultiSelect
-            value={pronouns}
-            onValueChange={(value) => setPronouns(value || "")}
-            options={pronounOptions}
-            placeholder="Select your preferred pronouns"
-          />
-          {pronouns === "Other" && (
+          <div className="register-form">
+            <h2 className="form-title">About You</h2>
+            {/* Legal Name */}
+            <label className="required-label">
+              <b>Legal First/Last Name</b>
+              <span className="required-text">*</span>
+            </label>
             <ShortText
-              value={otherPronouns}
-              onChange={(e) => setOtherPronouns(e.target.value)}
-              placeholder="Specify your pronouns"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your legal name"
               need={true}
             />
-          )}
 
-          {/* Current School */}
-          <label className="required-label">
-            <b>Current School</b>
-            <span className="required-text">*</span>
-          </label>
-          <MultiSelect
-            value={school}
-            onValueChange={(value) => setSchool(value || "")}
-            options={universityOptions}
-            placeholder="Select your the school you are currently attending"
-          />
-          {school === "Other" && (
+            {/* Prefered Name */}
+            <label className="required-label">
+              <b>Preferred Name</b>
+              <span className="required-text">*</span>
+            </label>
             <ShortText
-              value={otherSchool}
-              onChange={(e) => setOtherSchool(e.target.value)}
-              placeholder="Specify your current school"
+              value={preferredName}
+              onChange={(e) => setPreferredName(e.target.value)}
+              placeholder="Enter your preferred name"
               need={true}
             />
-          )}
 
-          {/* Year */}
-          <label className="required-label">
-            <b>Year</b>
-            <span className="required-text">*</span>
-          </label>
-          <MultiSelect
-            value={selectedYear || ""}
-            onValueChange={(value) => setSelectedYear(value || null)}
-            options={years}
-            placeholder="Select your year"
-          />
+            {/* Pronouns */}
+            <label className="required-label">
+              <b>Pronouns</b>
+              <span className="required-text">*</span>
+            </label>
+            <MultiSelect
+              value={pronouns}
+              onValueChange={(value) => setPronouns(value || "")}
+              options={pronounOptions}
+              placeholder="Select your preferred pronouns"
+            />
+            {pronouns === "Other" && (
+              <ShortText
+                value={otherPronouns}
+                onChange={(e) => setOtherPronouns(e.target.value)}
+                placeholder="Specify your pronouns"
+                need={true}
+              />
+            )}
 
-          {/* Major */}
-          <label className="required-label">
-            <b>Major</b>
-            <span className="required-text">*</span>
-          </label>
-          <ShortText
-            value={major}
-            onChange={(e) => setMajor(e.target.value)}
-            placeholder="Enter your major"
-            need={true}
-          />
+            {/* Current School */}
+            <label className="required-label">
+              <b>Current School</b>
+              <span className="required-text">*</span>
+            </label>
+            <MultiSelect
+              value={school}
+              onValueChange={(value) => setSchool(value || "")}
+              options={universityOptions}
+              placeholder="Select your the school you are currently attending"
+            />
+            {school === "Other" && (
+              <ShortText
+                value={otherSchool}
+                onChange={(e) => setOtherSchool(e.target.value)}
+                placeholder="Specify your current school"
+                need={true}
+              />
+            )}
 
-          {/* Dietary Restrictions */}
-          <label className="required-label">
-            <b>Dietary Restrictions</b>
-          </label>
-          <ShortText
-            value={dietary}
-            onChange={(e) => setDietary(e.target.value)}
-            placeholder="Enter any dietary restrictions"
-            need={false}
-          />
-          <div className="button-row">
-            <button
-              onClick={() => navigate("/registration")}
-              className="back-button"
-            >
-              Back
-            </button>
-            <button onClick={saveUser} className="continue-button">
-              Save & Continue
-            </button>
+            {/* Year */}
+            <label className="required-label">
+              <b>Year</b>
+              <span className="required-text">*</span>
+            </label>
+            <MultiSelect
+              value={selectedYear || ""}
+              onValueChange={(value) => setSelectedYear(value || null)}
+              options={years}
+              placeholder="Select your year"
+            />
+
+            {/* Major */}
+            <label className="required-label">
+              <b>Major</b>
+              <span className="required-text">*</span>
+            </label>
+            <ShortText
+              value={major}
+              onChange={(e) => setMajor(e.target.value)}
+              placeholder="Enter your major"
+              need={true}
+            />
+
+            {/* Dietary Restrictions */}
+            <label className="required-label">
+              <b>Dietary Restrictions</b>
+            </label>
+            <ShortText
+              value={dietary}
+              onChange={(e) => setDietary(e.target.value)}
+              placeholder="Enter any dietary restrictions"
+              need={false}
+            />
+            <div className="button-row">
+              <button
+                onClick={() => navigate("/registration")}
+                className="back-button"
+              >
+                Back
+              </button>
+              <button onClick={saveUser} className="continue-button">
+                Save & Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* SpaceBG Positioned at Bottom */}
-      {/* <div className="planet">
-        <SpaceBG />
-      </div> */}
     </div>
   );
 }

@@ -76,109 +76,112 @@ export default function Responses() {
 
   return (
     <div className="container register-gradient">
-      <div className="register-content">
-        <h1 className="register-title">Register</h1>
-        <p className="register-subtitle">
-          Already registered for Bootcamp? View your status in{" "}
-          <Link to="/portal" className="portal-link">
-            your portal
-          </Link>{" "}
-          !
-        </p>
+      <div className="space-bg">
+        <div className="register-content">
+          <h1 className="register-title">Register</h1>
+          <p className="register-subtitle">
+            Already registered for Bootcamp? View your status in{" "}
+            <Link to="/portal" className="portal-link">
+              your portal
+            </Link>{" "}
+            !
+          </p>
 
-        <div className="register-form">
-          <h2 className="form-title">Final Step</h2>
+          <div className="register-form">
+            <h2 className="form-title">Final Step</h2>
 
-          {/* How did you hear about this event? */}
-          <label className="required-label">
-            <b>How did you hear about this event?</b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="radio-group">
-            {[
-              "BOLT Website",
-              "Facebook",
-              "Instagram",
-              "Word of Mouth",
-              "Other",
-            ].map((option) => (
-              <label key={option} className="radio-label">
-                <input
-                  type="radio"
-                  name="hear"
-                  value={option}
-                  checked={hear === option}
-                  onChange={handleHearChange}
-                  className="radioInput"
-                />
-                <span className="radioButton"></span>
-                <span className="radioText">{option}</span>
-              </label>
-            ))}
-          </div>
+            {/* How did you hear about this event? */}
+            <label className="required-label">
+              <b>How did you hear about this event?</b>
+              <span className="required-text">*</span>
+            </label>
+            <div className="radio-group">
+              {[
+                "BOLT Website",
+                "Facebook",
+                "Instagram",
+                "Word of Mouth",
+                "Other",
+              ].map((option) => (
+                <label key={option} className="radio-label">
+                  <input
+                    type="radio"
+                    name="hear"
+                    value={option}
+                    checked={hear === option}
+                    onChange={handleHearChange}
+                    className="radioInput"
+                  />
+                  <span className="radioButton"></span>
+                  <span className="radioText">{option}</span>
+                </label>
+              ))}
+            </div>
 
-          {/* Which BOLT events have you attended in the past? */}
-          <label className="required-label">
-            <b>
-              Which BOLT events have you attended in the past? [Select all that
-              apply]
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="checkboxGroup">
-            {["FirstByte", "Bolt Connect", "Other"].map((option) => (
-              <label key={option} className="checkboxLabel">
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={past.includes(option)}
-                  onChange={handlePastChange}
-                  className="checkboxInput"
-                />
-                <span className="checkbox"></span>
-                <span className="checkboxText">{option}</span>
-              </label>
-            ))}
-          </div>
+            {/* Which BOLT events have you attended in the past? */}
+            <label className="required-label">
+              <b>
+                Which BOLT events have you attended in the past? [Select all
+                that apply]
+              </b>
+              <span className="required-text">*</span>
+            </label>
+            <div className="checkboxGroup">
+              {["FirstByte", "Bolt Connect", "Other"].map((option) => (
+                <label key={option} className="checkboxLabel">
+                  <input
+                    type="checkbox"
+                    value={option}
+                    checked={past.includes(option)}
+                    onChange={handlePastChange}
+                    className="checkboxInput"
+                  />
+                  <span className="checkbox"></span>
+                  <span className="checkboxText">{option}</span>
+                </label>
+              ))}
+            </div>
 
-          {/* Would you like to receive email updates? */}
-          <label className="required-label">
-            <b>
-              Would you like to receive email updates about future BOLT events?
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="radio-group">
-            {[
-              "Yes, sign me up!",
-              "I've already signed up!",
-              "Maybe next time.",
-            ].map((option) => (
-              <label key={option} className="radio-label">
-                <input
-                  type="radio"
-                  name="emailUpdates"
-                  value={option}
-                  checked={emailUpdates === option}
-                  onChange={handleEmailUpdatesChange}
-                  className="radioInput"
-                />
-                <span className="radioButton"></span>
-                <span className="radioText">{option}</span>
-              </label>
-            ))}
-          </div>
+            {/* Would you like to receive email updates? */}
+            <label className="required-label">
+              <b>
+                Would you like to receive email updates about future BOLT
+                events?
+              </b>
+              <span className="required-text">*</span>
+            </label>
+            <div className="radio-group">
+              {[
+                "Yes, sign me up!",
+                "I've already signed up!",
+                "Maybe next time.",
+              ].map((option) => (
+                <label key={option} className="radio-label">
+                  <input
+                    type="radio"
+                    name="emailUpdates"
+                    value={option}
+                    checked={emailUpdates === option}
+                    onChange={handleEmailUpdatesChange}
+                    className="radioInput"
+                  />
+                  <span className="radioButton"></span>
+                  <span className="radioText">{option}</span>
+                </label>
+              ))}
+            </div>
 
-          <div className="button-row">
-            <button
-              onClick={() => navigate("/registration/page-2")}
-              className="back-button"
-            >
-              Back
-            </button>
-            <button onClick={send} className="continue-button">
-              Register
-            </button>
+            <div className="button-row">
+              <button
+                onClick={() => navigate("/registration/page-2")}
+                className="back-button"
+              >
+                Back
+              </button>
+              <button onClick={send} className="continue-button">
+                Register
+              </button>
+            </div>
           </div>
         </div>
       </div>
