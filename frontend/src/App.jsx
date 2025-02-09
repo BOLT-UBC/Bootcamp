@@ -16,6 +16,7 @@ import ProtectedUserInfo from "./pages/ProtectedUserInfo";
 import ProtectedResponses from "./pages/ProtectedResponses";
 import ProtectedThankYou from "./pages/ProtectedThankYou";
 import LoginPage from "./pages/LoginPage";
+import FinalPage from "./pages/FinalPage";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           path="/registration/responses"
           element={<ProtectedResponses />}
         />
+        <Route path="/registration/last" element={<FinalPage />} />
         <Route path="/registration/thankyou" element={<ProtectedThankYou />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
       </Routes>

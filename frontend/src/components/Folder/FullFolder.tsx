@@ -8,7 +8,6 @@ type FullFoledrProps = React.PropsWithChildren<{}>;
 
 const FullFolder: React.FC<FullFoledrProps> = ({ children }) => {
   return (
-    <>
       <section className="full_folder__wrapper">
         <div className="full_folder__content_wrapper">
           <div className="folder_thin__container">
@@ -65,7 +64,6 @@ const FullFolder: React.FC<FullFoledrProps> = ({ children }) => {
           </svg>
         </div>
       </section>
-    </>
   );
 };
 
