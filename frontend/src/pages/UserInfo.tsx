@@ -78,7 +78,7 @@ export default function StartRegistration() {
             major,
             year: selectedYear ? parseInt(selectedYear) : null,
             school: finalSchool,
-            dietary
+            dietary,
           },
         ],
         { onConflict: "email" }
@@ -109,7 +109,8 @@ export default function StartRegistration() {
           <h2 className="form-title">About You</h2>
           {/* Legal Name */}
           <label className="required-label">
-            Legal First/Last Name<span className="required-text">*</span>
+            <b>Legal First/Last Name</b>
+            <span className="required-text">*</span>
           </label>
           <ShortText
             value={name}
@@ -120,7 +121,8 @@ export default function StartRegistration() {
 
           {/* Prefered Name */}
           <label className="required-label">
-            Preferred Name<span className="required-text">*</span>
+            <b>Preferred Name</b>
+            <span className="required-text">*</span>
           </label>
           <ShortText
             value={preferredName}
@@ -131,7 +133,8 @@ export default function StartRegistration() {
 
           {/* Pronouns */}
           <label className="required-label">
-            Pronouns<span className="required-text">*</span>
+            <b>Pronouns</b>
+            <span className="required-text">*</span>
           </label>
           <MultiSelect
             value={pronouns}
@@ -150,7 +153,8 @@ export default function StartRegistration() {
 
           {/* Current School */}
           <label className="required-label">
-            Current School<span className="required-text">*</span>
+            <b>Current School</b>
+            <span className="required-text">*</span>
           </label>
           <MultiSelect
             value={school}
@@ -162,14 +166,15 @@ export default function StartRegistration() {
             <ShortText
               value={otherSchool}
               onChange={(e) => setOtherSchool(e.target.value)}
-              placeholder="Specify your pronouns"
+              placeholder="Specify your current school"
               need={true}
             />
           )}
 
           {/* Year */}
           <label className="required-label">
-            Year<span className="required-text">*</span>
+            <b>Year</b>
+            <span className="required-text">*</span>
           </label>
           <MultiSelect
             value={selectedYear || ""}
@@ -180,7 +185,8 @@ export default function StartRegistration() {
 
           {/* Major */}
           <label className="required-label">
-            Major<span className="required-text">*</span>
+            <b>Major</b>
+            <span className="required-text">*</span>
           </label>
           <ShortText
             value={major}
@@ -190,7 +196,9 @@ export default function StartRegistration() {
           />
 
           {/* Dietary Restrictions */}
-          <label className="required-label">Dietary Restrictions</label>
+          <label className="required-label">
+            <b>Dietary Restrictions</b>
+          </label>
           <ShortText
             value={dietary}
             onChange={(e) => setDietary(e.target.value)}

@@ -45,6 +45,8 @@
   border-radius: 1rem;
   padding: 1rem 2rem;
   font-family: "Roboto Mono", monospace;
+  display: block;
+  box-sizing: border-box;
 }
 
 .form-title {
@@ -137,7 +139,11 @@ ul li {
 }
 
 .email-link {
-  color: #c88b5e; /* Match button color */
+  color: #ac6d41; /* Match button color */
+}
+
+.email-link:hover {
+  color: #d0976e; /* Match button color */
 }
 
 .radio-group {

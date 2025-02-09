@@ -14,7 +14,7 @@ export default function StartRegistration() {
           <Link to="/portal" className="portal-link">
             your portal
           </Link>{" "}
-          or go back {" "}
+          or go back{" "}
           <Link to="/" className="portal-link">
             home
           </Link>{" "}
@@ -46,7 +46,7 @@ export default function StartRegistration() {
             provide workshops, networking opportunities, and more to get you and
             your team prepared to solve this case.
           </p>
-          <h3>WHEN ⏰:</h3>
+          <h3>When ⏰:</h3>
           <ul>
             <li>Wednesday, Feb 26th: Case Release</li>
             <li>
@@ -57,6 +57,14 @@ export default function StartRegistration() {
             <li>Wednesday, March 5: Submission Deadline</li>
             <li>Saturday, March 8 (in-person): Final Case Presentations</li>
           </ul>
+
+          <h3>Join a Team 👥:</h3>
+          <p>
+            Don't have a team yet? No worries! After registering, you'll have
+            the opportunity to find teammates through our networking sessions,
+            or you can be matched with others who are also looking for a team.
+          </p>
+
           <p>
             Contact us at our email:{" "}
             <a href="mailto:boltubc@gmail.com" className="email-link">
