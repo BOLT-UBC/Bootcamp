@@ -68,23 +68,23 @@ export default function Responses() {
       alert("Please select how many case competitions you've attended.");
       return;
     }
-  
+
     if (roles.length === 0) {
       alert("Please select at least one role.");
       return;
     }
-  
+
     if (events.length === 0) {
       alert("Please select at least one event.");
       return;
     }
-  
+
     try {
       const { data, error } = await supabase.from("responses").insert([
         {
           user_email: email,
-          case_comp_count: parseInt(compCount), 
-          roles, 
+          case_comp_count: parseInt(compCount),
+          roles,
           answer1,
           answer2,
           answer3,
@@ -95,7 +95,7 @@ export default function Responses() {
       if (error) throw error;
       console.log("Responses saved:", data);
 
-      navigate("/registration/thankyou");
+      navigate("/registration/last");
     } catch (err: any) {
       console.error("Error saving responses:", err.message);
     }
