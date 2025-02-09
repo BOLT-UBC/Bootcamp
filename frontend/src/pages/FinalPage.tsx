@@ -10,13 +10,11 @@ import ShortText from "../components/ShortText";
 
 export default function Responses() {
   const navigate = useNavigate();
-  const [name, setName] = useState<string>("");
-  const [answer1, setAnswer1] = useState<string>("");
-  const [answer2, setAnswer2] = useState<string>("");
-  const [answer3, setAnswer3] = useState<string>("");
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
-  const [caseCompCount, setCaseCompCount] = useState([]);
+  const [hear, setHear] = useState<string>("");
+  const [emailUpdates, setEmailUpdates] = useState<string[]>([]);
+  const [past, setPast] = useState<string[]>([]);
 
   useEffect(() => {
     if (!email) {
@@ -42,9 +40,6 @@ export default function Responses() {
       const { data, error } = await supabase.from("responses").insert([
         {
           user_email: email,
-          answer1: answer1,
-          answer2: answer2,
-          answer3: answer3,
         },
       ]);
 
@@ -92,6 +87,22 @@ export default function Responses() {
             ))}
           </div>
 
+          {/* Roles */}
+          <label className="required-label">
+            <b>
+              Which BOLT events have you attended in the past? [Select all that
+              apply]
+            </b>
+            <span className="required-text">*</span>
+          </label>
+          <div className="checkbox-group">
+            {["FirstByte", "Bolt Connect", "Other"].map((option) => (
+              <label key={option} className="checkbox-label">
+                <input type="checkbox" value={option} />
+                {option}
+              </label>
+            ))}
+          </div>
           {/* Case Comp Count */}
           <label className="required-label">
             <b>
@@ -111,24 +122,6 @@ export default function Responses() {
               </label>
             ))}
           </div>
-
-          {/* Roles */}
-          <label className="required-label">
-            <b>
-              Which BOLT events have you attended in the past? [Select all that
-              apply]
-            </b>
-            <span className="required-text">*</span>
-          </label>
-          <div className="checkbox-group">
-            {["FirstByte", "Bolt Connect", "Other"].map((option) => (
-              <label key={option} className="checkbox-label">
-                <input type="checkbox" value={option} />
-                {option}
-              </label>
-            ))}
-          </div>
-
           <div className="button-row">
             <button onClick={() => navigate(-1)} className="back-button">
               Back
