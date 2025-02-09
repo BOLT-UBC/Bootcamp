@@ -3,6 +3,7 @@ import PortalNavBar from '../components/portalNavBar';
 import PortalPageSection from '../components/PortalPageSection';
 import '../styles/Portal.css';
 import { supabase } from '../supabase';
+import Dashboard from './Dashboard';
 
 
 export default function Team() {
@@ -38,7 +39,9 @@ export default function Team() {
               </div>
               <button className='logout' onClick={() => signOut()} >Log Out </button>
             </div>
-          <h1>{activePage}</h1>
+            <div className='page-right'>
+              <Dashboard />
+            </div>
         </div>
     </>
   );

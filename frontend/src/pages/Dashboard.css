@@ -1,0 +1,39 @@
+/* .hi_container {
+    width: 400px;
+    height: 400px;
+} */
+
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 70vw;
+}
+
+.top-row {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+    row-gap: 2rem;
+}
+
+.top1 {
+    flex: 1;
+}
+
+.top2 {
+    flex: 2;
+}
+
+.top3 {
+    flex: 3;
+}
+
+.bot-row {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
