@@ -37,8 +37,11 @@ const FolderWide: React.FC<FolderWideProps> = ({ children }) => {
               fill="#CD6E15"
             />
           </svg>
-        <div className="folder-wide__content_wrapper">{children}</div>
+          <div className="folder-wide__content_wrapper">
+          {children}
+        </div>
       </div>
+
     </>
   );
 };

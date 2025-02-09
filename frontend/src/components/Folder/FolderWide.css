@@ -25,9 +25,10 @@
 
 /* !!! MIGHT NEED TO CHANGE POSITION TO RELATIVE */
 .folder-wide__content_wrapper {
-    position: flex; 
+    position: relative; 
     z-index: 3;
     width: 100%;
-    padding-top: 5%;
-    padding-left: 1%;
+    height: 85%;
+    padding-top: 10vh;
+    padding-left: 1vw;
 }
