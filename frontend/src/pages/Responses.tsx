@@ -18,21 +18,6 @@ export default function Responses() {
   const [email, setEmail] = useState<string>(location.state?.email || "");
   const [caseCompCount, setCaseCompCount] = useState([]);
 
-  // useEffect(() => {
-  //   if (!email) {
-  //     const getUserEmail = async () => {
-  //       const { data, error } = await supabase.auth.getUser();
-  //       if (error) {
-  //         console.error("Error fetching user:", error.message);
-  //       } else if (data?.user) {
-  //         const userEmail = data.user.email ?? "user@example.com";
-  //         setEmail(userEmail);
-  //       }
-  //     };
-  //     getUserEmail();
-  //   }
-  // }, [email]);
-
   useEffect(() => {
     const storedEmail = localStorage.getItem("user_email");
     if (storedEmail) {
