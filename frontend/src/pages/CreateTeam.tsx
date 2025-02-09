@@ -87,9 +87,9 @@ export default function CreateTeam() {
         <h4>Instructions: do this do that </h4>
         <div>
             <ShortText
-            value={teamName} 
-            onChange={(e) => setTeamName(e.target.value)} 
-            placeholder="Create your team name" 
+                value={teamName} 
+                onChange={(e) => setTeamName(e.target.value)} 
+                placeholder="Create your team name" 
             />
             {!madeTeam && <button onClick={send}>
                 Create
