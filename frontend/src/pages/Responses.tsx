@@ -63,13 +63,32 @@ export default function Responses() {
       alert("No email found. Make sure you are signed in.");
       return;
     }
+
+    if (!compCount) {
+      alert("Please select how many case competitions you've attended.");
+      return;
+    }
+  
+    if (roles.length === 0) {
+      alert("Please select at least one role.");
+      return;
+    }
+  
+    if (events.length === 0) {
+      alert("Please select at least one event.");
+      return;
+    }
+  
     try {
       const { data, error } = await supabase.from("responses").insert([
         {
           user_email: email,
-          answer1: answer1,
-          answer2: answer2,
-          answer3: answer3,
+          case_comp_count: parseInt(compCount), 
+          roles, 
+          answer1,
+          answer2,
+          answer3,
+          events_attending: events,
         },
       ]);
 
