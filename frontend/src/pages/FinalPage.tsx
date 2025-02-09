@@ -133,7 +133,7 @@ export default function Responses() {
             <button onClick={() => navigate(-1)} className="back-button">
               Back
             </button>
-            <button className="continue-button">Save & Continue</button>
+            <button className="continue-button">Register</button>
           </div>
         </div>
       </div>
