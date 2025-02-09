@@ -102,6 +102,7 @@ export default function Responses() {
               )
             )}
           </div>
+
           {/* Tell about */}
           <label className="required-label">
             <b>
@@ -122,8 +123,40 @@ export default function Responses() {
             <span className="required-text">*</span>
           </label>
           <LongText
-            value={answer1}
-            onChange={(e) => setAnswer1(e.target.value)}
+            value={answer2}
+            onChange={(e) => setAnswer2(e.target.value)}
+            placeholder="Type your answer..."
+          />
+
+          {/* Roles */}
+          <label className="required-label">
+            <b>
+              We will be holding multiple events prior to the final day, which
+              events will you be attending? [Select all apply]
+            </b>
+            <span className="required-text">*</span>
+          </label>
+          <div className="checkbox-group">
+            {[
+              "March 1st  (Case Workshop + Networking Session)",
+              "March 4th (Online Workshop)",
+              "March 8th (Finals Presentations)",
+            ].map((option) => (
+              <label key={option} className="checkbox-label">
+                <input type="checkbox" value={option} />
+                {option}
+              </label>
+            ))}
+          </div>
+
+          {/* Tell about */}
+          <label className="required-label">
+            <b>What are you expecting to learn in the workshops? (optional)</b>
+            <span className="required-text">*</span>
+          </label>
+          <LongText
+            value={answer3}
+            onChange={(e) => setAnswer3(e.target.value)}
             placeholder="Type your answer..."
           />
 
