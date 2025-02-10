@@ -24,9 +24,16 @@
 }
 
 .folder-thin__content_wrapper {
-    position: relative;
+    position: absolute;
     z-index: 3;
     width: 100%;
-    padding-top: 5%;
-    padding-left: 1%;
+    height: 85%;
+    margin-top: 7vh;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+}
+
+.folder-thin__content_wrapper::-webkit-scrollbar {
+    display: none;
 }
