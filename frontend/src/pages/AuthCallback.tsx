@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../supabase.js";
 
 export default function AuthCallback() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const redirectTo = new URLSearchParams(location.search).get("redirect");
 
   useEffect(() => {
     const handleRedirect = async () => {
@@ -29,16 +31,23 @@ export default function AuthCallback() {
         .single();
 
       if (queryError || !existingUser || !existingUser.registered) {
-        // Haven't registered
-        navigate("/registration");
+        // Haven't registered, redirect to registration
+        navigate(redirectTo === "/portal" ? "/registration" : "/registration");
       } else {
-        // Registered
-        navigate("/registration/page-4");
+        console.log(redirectTo);
+        // Registered, redirect to intended page
+        navigate(
+          redirectTo === "/portal"
+            ? "/portal"
+            : redirectTo === "/registration"
+            ? "/registration/page-4"
+            : "/"
+        );
       }
     };
 
     handleRedirect();
-  }, [navigate]);
+  }, [navigate, location]);
 
   return (
     <div

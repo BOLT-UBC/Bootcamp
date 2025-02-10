@@ -5,7 +5,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import Portal from "./pages/Portal";
+import ProtectedPortal from "./pages/ProtectedPortal";
 import "./App.css";
 import Team from "./pages/Team";
 import JoinTeam from "./pages/JoinTeam";
@@ -25,7 +25,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/portal" element={<Portal />} />
+        <Route path="/portal" element={<ProtectedPortal />} />
         <Route path="/portal/team" element={<Team />} />
         <Route path="/portal/join-team" element={<JoinTeam />} />
         <Route path="/portal/create-team" element={<CreateTeam />} />

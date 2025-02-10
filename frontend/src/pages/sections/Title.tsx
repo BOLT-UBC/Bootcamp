@@ -16,7 +16,7 @@ export default function Title() {
           <h2>March 9-10, 2025 | BOLT UBC</h2>
           <div className="button-container">
             {/* Replace with custom button component */}
-            <LandingPageButton text="Register Now" path="/login" />
+            <LandingPageButton text="Register Now" path="/registration" />
             <LandingPageButton text="View Portal" path="/portal" />
           </div>
         </div>
