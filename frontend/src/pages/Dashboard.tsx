@@ -139,7 +139,7 @@ export default function Dashboard() {
                     <div className="bot3">
                         <PortalBoxWidget>
                             <h1>schedule</h1>
-                            <button className="redirect-button" onClick={() => navigate()}>View Schedule{" "}</button>
+                            <button className="redirect-button">View Schedule{" "}</button>
                         </PortalBoxWidget>
                     </div>
                 </div>
