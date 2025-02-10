@@ -45,7 +45,7 @@ export default function ProtectedResponses() {
   useEffect(() => {
     if (!loading) {
       if (!isAuthenticated) {
-        navigate("/login");
+        navigate(`/login?redirect=%2Fregistration`);
       } else if (registered) {
         navigate("/registration/page-4"); // Redirect if user is not registered
       }

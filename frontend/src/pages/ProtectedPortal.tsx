@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabase.js";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Portal from "./Portal.js";
 
 export default function ProtectedPortal() {
   const [loading, setLoading] = useState(true);
-  const [isRegistered, setIsRegistered] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -16,30 +16,27 @@ export default function ProtectedPortal() {
         error,
       } = await supabase.auth.getUser();
 
-      if (user) {
-        // Check Registered
-        const { data: existingUser, error: queryError } = await supabase
-          .from("responses")
-          .select("user_email")
-          .eq("user_email", user?.email)
-          .single();
+      if (error || !user) {
+        navigate(`/login?redirect=${encodeURIComponent(location.pathname)}`); // Preserve redirect
+        return;
+      }
 
-        if (queryError || !existingUser) {
-          // Haven't registered
-          setIsRegistered(false);
-        } else {
-          // Registered
-          setIsRegistered(true);
-        }
-      } else {
-        setIsRegistered(false);
+      // Check if the user is registered
+      const { data: existingUser, error: queryError } = await supabase
+        .from("users")
+        .select("registered")
+        .eq("email", user.email)
+        .single();
+
+      if (queryError || !existingUser || !existingUser.registered) {
+        navigate("/registration"); // Redirect to registration if not registered
       }
 
       setLoading(false);
     };
 
     checkAuth();
-  }, []);
+  }, [navigate, location.pathname]);
 
   if (loading) {
     return (
@@ -53,15 +50,11 @@ export default function ProtectedPortal() {
             "linear-gradient(to top, #693b48 0%, #422932 19%, #17161b 81%)",
         }}
       >
-        <div
-          style={{ fontSize: "24px", fontWeight: "bold", color: "#fff" }}
-        ></div>
+        <div style={{ fontSize: "24px", fontWeight: "bold", color: "#fff" }}>
+          Checking authentication...
+        </div>
       </div>
     );
-  }
-
-  if (!isRegistered) {
-    navigate("/");
   }
 
   return <Portal />;

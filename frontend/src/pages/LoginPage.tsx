@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../supabase";
 import SpaceBG from "../components/SpaceBG";
 
@@ -8,7 +8,11 @@ import "./LandingPage.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [loading, setLoading] = useState(true);
+
+  // Get intended redirection page
+  const redirectTo = new URLSearchParams(location.search).get("redirect");
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -45,7 +49,9 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: `${window.location.origin}/auth/callback?redirect=${
+          redirectTo || "portal"
+        }`,
       },
     });
 

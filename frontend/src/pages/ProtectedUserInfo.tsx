@@ -3,12 +3,14 @@ import { supabase } from "../supabase.js";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import UserInfo from "./UserInfo.js";
+import { useLocation } from "react-router-dom";
 
 export default function ProtectedUserInfo() {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [registered, setRegistered] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -45,7 +47,7 @@ export default function ProtectedUserInfo() {
   useEffect(() => {
     if (!loading) {
       if (!isAuthenticated) {
-        navigate("/login");
+        navigate(`/login?redirect=%2Fregistration`);
       } else if (registered) {
         navigate("/registration/page-4"); // Redirect if user is not registered
       }

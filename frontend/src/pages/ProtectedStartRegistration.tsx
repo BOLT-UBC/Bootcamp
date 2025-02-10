@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { supabase } from "../supabase.js";
 import StartRegistration from "./StartRegistration.js";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function ProtectedStartRegistration() {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [registered, setRegistered] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -17,40 +18,39 @@ export default function ProtectedStartRegistration() {
         error,
       } = await supabase.auth.getUser();
 
-      if (user) {
-        setIsAuthenticated(true);
+      if (error || !user) {
+        navigate(`/login?redirect=${encodeURIComponent(location.pathname)}`);
+        return;
+      }
 
-        // Check if the user is already registered
-        const { data, error: userError } = await supabase
-          .from("users")
-          .select("registered")
-          .eq("email", user.email)
-          .single();
+      setIsAuthenticated(true);
 
-        if (userError) {
-          console.error("Error checking registration:", userError.message);
-        } else if (data?.registered) {
-          setRegistered(true);
-        }
-      } else {
-        setIsAuthenticated(false);
+      // Check if the user is already registered
+      const { data, error: userError } = await supabase
+        .from("users")
+        .select("registered")
+        .eq("email", user.email)
+        .single();
+
+      if (userError) {
+        console.error("Error checking registration:", userError.message);
+      } else if (data?.registered) {
+        setRegistered(true);
       }
 
       setLoading(false);
     };
 
     checkAuth();
-  }, []);
+  }, [navigate, location]);
 
   useEffect(() => {
     if (!loading) {
-      if (!isAuthenticated) {
-        navigate("/login");
-      } else if (registered) {
+      if (registered) {
         navigate("/registration/page-4");
       }
     }
-  }, [loading, isAuthenticated, registered, navigate]);
+  }, [loading, registered, navigate]);
 
   if (loading) {
     return (
