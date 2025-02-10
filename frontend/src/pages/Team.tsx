@@ -109,7 +109,6 @@ useEffect(() => {
   return (
     <>
       <div className="hehehaha">
-        <FullFolder>
             {hasTeam ? <div className="team_content_wrapper">
                 <div className="teammate_cards_wrapper">
                     
@@ -141,7 +140,6 @@ useEffect(() => {
                 </PortalBoxWidget>
             </div> */}
             </div> : <NoTeamDisplay/>}
-            </FullFolder>
       </div>
     </>
   )

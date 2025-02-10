@@ -4,6 +4,7 @@ import ShortText from '../components/ShortText';
 import { supabase } from '../supabase';
 import "./Dashboard.css";
 import FullFolder from "../components/Folder/FullFolder";
+import Dashboard from './Dashboard';
 
 export default function CreateTeam() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function CreateTeam() {
   const [shortId, setId] = useState<string>("");
   const [madeTeam, setMadeTeam] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
-  const [activePage, setActivePage] = useState("Dashboard");
+  const [activePage, setActivePage] = useState("create");
 
   const signOut = async () => {
       const { error } = await supabase.auth.signOut();
@@ -187,33 +188,35 @@ const navigationComponent =
 
   return (
     <>
+      {activePage === "create" ? (
         <div className="hehehaha">
-            <FullFolder portalTitle="Create Team" navbarTitle={"Bootcamp"} navigationComponent={navigationComponent}>
-                <div className="folder-contents">
-                    <h1 className='instruction'>What would you like to name your team?</h1>
-                    <div className="team-input">
-                        <ShortText
-                            value={teamName}
-                            onChange={(e) => setTeamName(e.target.value)}
-                            placeholder="Your Team Name"
-                            need={true} 
-                        />
-                        {!madeTeam && <button className="teams-button-join" onClick={send}>
-                            Create Team
-                        </button>}
-                    </div>
-                    
-                    {madeTeam && <p className='message'>Team {teamName} successfully created! Your team ID is: {shortId}.</p>}
-                    {message.length > 0 ? <p className='message'>{message}</p> : null}
-                    <h4 className='note'>
-                        For someone to join your team, they will need your team ID. Note that we will only show this ID to you once.
-                    </h4>
-                    <button className="teams-button" onClick={() => navigate("/portal/team")}>
-                        Back to Team
-                    </button>
-                </div>
-            </FullFolder>
-        </div>
+        <div className="folder-contents">
+            <h1 className='instruction'>What would you like to name your team?</h1>
+            <div className="team-input">
+                <ShortText
+                    value={teamName}
+                    onChange={(e) => setTeamName(e.target.value)}
+                    placeholder="Your Team Name"
+                    need={true} 
+                />
+                {!madeTeam && <button className="teams-button-join" onClick={send}>
+                    Create Team
+                </button>}
+            </div>
+            
+            {madeTeam && <p className='message'>Team {teamName} successfully created! Your team ID is: {shortId}.</p>}
+            {message.length > 0 ? <p className='message'>{message}</p> : null}
+            <h4 className='note'>
+                For someone to join your team, they will need your team ID. Note that we will only show this ID to you once.
+            </h4>
+            <button className="teams-button" onClick={() => setActivePage("Dashboard")}>
+                Back to Dashboard
+            </button>
+            </div>
+    </div>
+            ) : (
+                <Dashboard/>
+        )}
     </>
   );
 }

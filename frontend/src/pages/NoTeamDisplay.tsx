@@ -1,25 +1,32 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
+import React, { useState } from "react";
 import "./Team.css";
+import CreateTeam from "./CreateTeam";
+import JoinTeam from "./JoinTeam";
+
 
 export default function NoTeamDisplay() {
-    const navigate = useNavigate()
+    const [activePage, setActivePage] = useState("current");
 
     return (
         <>
-            <div>
-                <h1>You are not in a team yet :(</h1>
+            {activePage === "current" ? (
                 <div>
-                    <button
-                        onClick={() => navigate("/portal/join-team")}
-                        className="back-button"> Join Team </button>
+                    <h1>You are not in a team yet :(</h1>
+                    <div>
+                        <button
+                            onClick={() => setActivePage("join")}
+                            className="back-button"> Join Team </button>
 
-                    <button
-                        onClick={() => navigate("/portal/create-team")}
-                        className="back-button"> Create Team </button>
+                        <button
+                            onClick={() => setActivePage("create")}
+                            className="back-button"> Create Team </button>
+                    </div>
                 </div>
-            </div>
+            ) : activePage === "join" ? (
+                <JoinTeam />
+            ) : (
+                <CreateTeam />
+            )}
         </>
     );
 }

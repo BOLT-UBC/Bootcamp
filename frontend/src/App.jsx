@@ -27,9 +27,6 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/portal" element={<ProtectedPortal />} />
-        <Route path="/portal/team" element={<Team />} />
-        <Route path="/portal/join-team" element={<JoinTeam />} />
-        <Route path="/portal/create-team" element={<CreateTeam />} />
         <Route path="/registration" element={<ProtectedStartRegistration />} />
         <Route path="/registration/page-1" element={<ProtectedUserInfo />} />
         <Route path="/registration/page-2" element={<ProtectedResponses />} />

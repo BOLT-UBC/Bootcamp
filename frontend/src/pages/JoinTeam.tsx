@@ -4,6 +4,7 @@ import { supabase } from '../supabase';
 import ShortText from '../components/ShortText';
 import FullFolder from "../components/Folder/FullFolder";
 import "./CreateJoin.css"
+import Dashboard from './Dashboard';
 
 export default function JoinTeam() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function JoinTeam() {
   const [message, setMessage] = useState<string>("")
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
-  const [activePage, setActivePage] = useState("Dashboard");
+  const [activePage, setActivePage] = useState("Join");
 
   useEffect(() => {
       const storedEmail = localStorage.getItem("user_email");
@@ -223,8 +224,8 @@ const signOut = async () => {
 
   return (
     <>
-        <div className="hehehaha">
-            <FullFolder portalTitle="Join Team" navbarTitle={"Bootcamp"} navigationComponent={navigationComponent}>
+    {activePage === "Join" ? (
+                <div className="hehehaha">
                 <div className="folder-contents">
                     <h1 className='instruction'>Enter your team ID below</h1>
                     <div className="team-input">
@@ -244,12 +245,14 @@ const signOut = async () => {
                         Your team ID should have been provided when your team was created. 
                         Note that you cannot leave your team once you've joined.
                     </h4>
-                    <button className="teams-button" onClick={() => navigate("/portal/team")}>
-                        Back to Team
+                    <button className="teams-button" onClick={() => setActivePage("Dashboard")}>
+                        Back to Dashboard
                     </button>
                 </div>
-            </FullFolder>
-        </div>
+          </div>
+            ) : (
+                <Dashboard/>
+            )}
     </>
   );
 }

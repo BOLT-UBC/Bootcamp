@@ -6,6 +6,10 @@ import { supabase } from "../supabase";
 import Dashboard from "./Dashboard";
 import FullFolder from "../components/Folder/FullFolder";
 import SpaceBG from "../components/SpaceBG";
+import Team from "./Team";
+import NoTeamDisplay from "./NoTeamDisplay";
+import FAQ from "./sections/FAQ";
+import Schedule from "./sections/Schedule";
 
 export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -34,7 +38,7 @@ export default function Portal() {
             </a>
             <a
               className="link link__last"
-              onClick={() => setActivePage("My Team")}
+              onClick={() => setActivePage("Team")}
               href="#my-team"
             >
               My Team
@@ -69,7 +73,10 @@ export default function Portal() {
     <>
       <div className="portal-page">
         <FullFolder portalTitle={activePage} navbarTitle={"Bootcamp"} navigationComponent={navigationComponent}>
-          <Dashboard />
+          {activePage === "Dashboard" && <Dashboard />}
+          {activePage === "Team" && <Team />}
+          {activePage === "FAQ" && <FAQ />}
+          {activePage === "Schedule" && <Schedule />}
         </FullFolder>
         <img className="portal-background" src={"./assets/PortalBg.png"}></img>
       </div>

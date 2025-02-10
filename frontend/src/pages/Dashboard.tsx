@@ -112,7 +112,6 @@ const navigate =     useNavigate();
                             <h1>My Team</h1>
                             {teamID ? <h1>{team} #{teamID}</h1> : <p className="dashboard__desc">You don't have a team!</p> }
                             <h3>{teammates.join(", ")}</h3>
-                            <button className="redirect-button" onClick={() => navigate("/portal/team")}>{teamID ? "View Team" : "Join Team"}</button>
                         </PortalBoxWidget>
                     </div>
                     <div className="top3">
