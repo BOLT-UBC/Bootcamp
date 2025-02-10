@@ -27,6 +27,15 @@
   margin-top: 3rem;
   font-family: "Roboto Mono", monospace;
   color: #fdf9f7;
-  width: 50vw;
+  width: 50%;
   text-align: left;
+}
+
+.display-screen b {
+  color: #ec703a;
+}
+
+.why-join li {
+  margin: 0;
+  padding: 0;
 }

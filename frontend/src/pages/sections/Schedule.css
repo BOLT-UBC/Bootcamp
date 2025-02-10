@@ -1,13 +1,12 @@
 .schedule-background {
-  background-image: url("assets/Schedule-Background.png");
-  background-size: cover;
-  background-position: center;
   width: 100vw;
   height: 100vh;
-  background-color: transparent;
+  background-color: #ffb881;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .folder-container {

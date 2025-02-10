@@ -22,14 +22,48 @@ export default function FAQ() {
       <div className="faq-container">
         <div className="faq-section faq-equal-width">
           <h2 className="faq-header">General</h2>
-          <Dropdown title="What is your return policy?">
-            We accept returns within 30 days of purchase.
+          <Dropdown title="What is BOLT UBC Bootcamp?">
+            BOLT UBC Bootcamp is a week-long event designed to give students
+            hands-on experience in data analytics, business problem-solving, and
+            networking with industry professionals. The Bootcamp consists of
+            interactive workshops, a structured networking event, and a
+            real-world case competition where participants can showcase their
+            skills.
           </Dropdown>
-          <Dropdown title="How do I contact support?">
-            You can reach us via email or phone during business hours.
+          <Dropdown title="Who can participate in Bootcamp?">
+            Bootcamp is open to all UBC students interested in business
+            strategy, data analytics, consulting, and technology. Students from
+            any faculty or background are welcome to participate—no prior
+            experience is required!
           </Dropdown>
-          <Dropdown title="Do you ship internationally?">
-            Yes, we offer international shipping.
+          <Dropdown title="How do I register for Bootcamp?">
+            Registration opens on February 10, 2025, and you can sign up through
+            the BOLT UBC website. The deadline to register is February 24, 2025.
+          </Dropdown>
+          <Dropdown title="What are the key dates for Bootcamp 2025?">
+            <ul>
+              <li>
+                <strong>February 10, 2025:</strong> Registration Opens
+              </li>
+              <li>
+                <strong>February 24, 2025:</strong> Registration Closes
+              </li>
+              <li>
+                <strong>February 26, 2025:</strong> Case Competition Release
+              </li>
+              <li>
+                <strong>March 1, 2025:</strong> Networking Event
+              </li>
+              <li>
+                <strong>March 4, 2025:</strong> Online Presentation Workshop
+              </li>
+              <li>
+                <strong>March 5, 2025:</strong> Case Submission Deadline
+              </li>
+              <li>
+                <strong>March 8, 2025:</strong> Final Presentation & Awards
+              </li>
+            </ul>
           </Dropdown>
         </div>
         <div className="faq-section faq-equal-width">
