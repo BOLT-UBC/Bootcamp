@@ -10,21 +10,7 @@ import "./Team.css";
 import NoTeamDisplay from "./NoTeamDisplay";
 
 const teammateCardStyle = {
-  display: "flex",
-  flexdirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "20%",
-  height: "45%",
-  aspectRatio: "1",
-  gap: "2rem",
-};
-const pendingRequestCardStyle = {
-  display: "flex",
-  flexDirection: "row",
-  width: "30%",
-  alignItems: "center",
-  padding: "1rem"
+  
 };
 
 type Member = {
@@ -45,13 +31,16 @@ type Member = {
 
 export default function Team() {
   const [members, setMembers] = useState<Member[]>([]);
-  const [hasTeam, setHasTeam] = useState<boolean>(false)
+  const [teamName, setTeamName] = useState("");
+  const [hasTeam, setHasTeam] = useState<boolean>(false);
+  const [teamID, setTeamID] = useState("");
+
   const checkIfUserHasTeam = async () => {
-    const storedEmail = localStorage.getItem("user_email");
-    const { data, error } = await supabase
-      .from('users')
-      .select('team_id')
-      .eq("email", storedEmail) 
+  const storedEmail = localStorage.getItem("user_email");
+  const { data, error } = await supabase
+    .from('users')
+    .select('team_id')
+    .eq("email", storedEmail) 
     
     if (error) {
       console.log("Error occurred while checking if the user has a team: ", error);
@@ -71,29 +60,28 @@ export default function Team() {
 const getUserTeamID = async () => {
     const storedEmail = localStorage.getItem("user_email");
     const { data, error } = await supabase
-    .from('users')
-    .select('team_id')
-    .eq("email", storedEmail) 
+      .from('users')
+      .select('team_id')
+      .eq("email", storedEmail) 
     if (error) {
-        console.log("There was an error retrieving the user's email: ", error);
+        console.log("There was an error retrieving the user's team ID: ", error);
     } else {
-        return data[0].team_id;
+        setTeamID(data[0].team_id);
     }
-    return null
 }
 
+
 const getTeams = async () => {
-    const team_id = await getUserTeamID();
     try {
-    const { data, error } = await supabase
+    const { data : teammateData, error } = await supabase
         .from("users")
         .select("*")
-        .eq("team_id", team_id);
+        .eq("team_id", teamID);
 
     if (error) {
         console.log("There was an error retrieving the user's team members: ", error);
     } else {
-        setMembers(data);
+        setMembers(teammateData);
     }
     } catch (err: any) {
     console.log("There was an error in retrieving the user's team: ", err.message);
@@ -102,43 +90,53 @@ const getTeams = async () => {
     return null
 }
 
+const getTeamInfo = async () => {
+  try {
+    const { data: teamData, error } = await supabase
+      .from("teams")
+      .select("*")
+      .eq("id", teamID)
+      .single(); 
+
+    if (error) {
+      console.error("Error retrieving team members:", error);
+      return;
+    }
+
+    if (teamData) {
+      setTeamName(teamData.team_name);
+    }
+  } catch (err: any) {
+    console.error("Error retrieving team:", err.message);
+  }
+};
+
 useEffect(() => {
-    getTeams();
+  checkIfUserHasTeam();
+  getUserTeamID();
+  getTeams();
+  getTeamInfo();
 })
 
   return (
     <>
-      <div className="hehehaha">
+      <div className="team-page-wrapper">
             {hasTeam ? <div className="team_content_wrapper">
+                <h1>Team {teamName} #{teamID}</h1>
                 <div className="teammate_cards_wrapper">
-                    
                     {members.map((member) => (
-                    <PortalBoxWidget style={teammateCardStyle} key={member.id}>
-                        <img src={CryCat} className="teammate_profile_picture"></img>
-                        <span className="teammate-title">
-                        <span className="teammate_name">{member.preferred_name}</span>
-                        <span className="teammate_pronouns">{member.pronouns}</span>
-                        </span>
-                        <span className="teammate_name">{member.school}</span>
-                        <span className="teammate_name">{member.major}</span>
-                    </PortalBoxWidget>
+                      <div className="teammate-widget">
+                        <PortalBoxWidget key={member.id}>
+                          <img src={CryCat} className="teammate_profile_picture"></img>
+                          {/* <div className="member-info"> */}
+                            <h3 className="teammate-name">{member.preferred_name}|{member.pronouns}</h3>
+                            <h3 className="teammate-major">Year {member.year} {member.major} </h3>
+                          {/* </div> */}
+
+                        </PortalBoxWidget>
+                      </div>
                     ))}
                 </div>
-            {/* <div className="pending_requests_cards_wrapper">
-                <PortalBoxWidget style={pendingRequestCardStyle}>
-                <img
-                    src={CryCat}
-                    className="pending_request_profile_picture"
-                ></img>
-                <div className="pending_request_desc">
-                    <span className="teammate_name">Leo Shang</span>
-                    <div>
-                    <button>Accept</button>
-                    <button>Reject</button>
-                    </div>
-                </div>
-                </PortalBoxWidget>
-            </div> */}
             </div> : <NoTeamDisplay/>}
       </div>
     </>

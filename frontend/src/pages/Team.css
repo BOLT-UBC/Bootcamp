@@ -6,14 +6,10 @@
     text-align: center;
 }
 
-.team_content_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
 .teammate_cards_wrapper {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     gap: 1rem;
 }
 
@@ -23,12 +19,10 @@
     row-gap: 1rem;
 }
 
-.hehehaha {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+.team-page-wrapper {
+    max-width: 95%;
+    padding-left:2rem;
+
 }
 
 .team_current_teammates__wrapper {
@@ -44,30 +38,29 @@
 }
 
 .teammate_profile_picture {
+    margin-top: 1rem;
+    margin-left: 2rem;
     max-width: 60%;
     aspect-ratio: 1;
     border-radius: 30px;
     object-fit: cover;
 }
-
-.teammate_name {
-    font-size: 2rem;
-    margin-top: -1rem;
+.member-info {
+    width: 100%;
 }
 
-.pending_requests_cards_wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+.teammate-name {
+    font-size: 1.5vw;
 }
 
-.pending_request_profile_picture {
-    max-width: 30%;
-    aspect-ratio: 1;
-    border-radius: 30px;
-    object-fit: cover;
+.teammate-major {
+    bottom: 5px;
+    font-size: 1vw;
 }
 
-.pending_request_desc {
-
+.teammate-widget {
+    width: 15rem;
+    aspect-ratio: 4/5;
 }
+
+
