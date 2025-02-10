@@ -24,10 +24,6 @@ export default function CreateTeam() {
       }
     };
 
-  const generateShortId = (): string => {
-    return Math.random().toString(36).substring(2, 6); // Ensures a 4-character string
-  };
-
   // returns the id of the team if it exists, otherwise returns an empty string
   const checkIfTeamExists = async() => {
     const { data, error } = await supabase
@@ -44,26 +40,6 @@ export default function CreateTeam() {
         return ""
     }
   }
-
-  const initializeTeamID = async () => {
-    try {
-        let id = await checkIfTeamExists()
-    
-        if (id.length > 0) {
-            console.log("Team exists: ", id);
-            setId(id)
-        } else {
-            console.log("Team does not exist.");
-            setId(generateShortId());
-        }
-      } catch (err: any) {
-        console.error("Error checking if team exists: ", err.message);
-      }
-  }
-
-  useEffect(() => {
-    initializeTeamID();
-  }, []);
 
   const teamExists = async () => {
     const { data, error } = await supabase
@@ -133,7 +109,8 @@ export default function CreateTeam() {
         return; // Exit the function if the team already exists
     }
 
-    initializeTeamID();
+    let code = Math.random().toString(36).substring(2, 6);
+    setId(code);
 
     try {
         const { data, error } = await supabase
@@ -147,7 +124,7 @@ export default function CreateTeam() {
         if (error) throw error;
         console.log("Team saved:", data);
         setMadeTeam(true)
-        setId(data[0].id)
+        setId(shortId)
     } catch (err: any) {
         console.error("Error creating team:", err.message);
     }
