@@ -20,6 +20,7 @@
 
 body {
   color: white;
+  width: 100vw;
 }
 /* 
 h1 {
@@ -39,3 +40,14 @@ h3 {
   font-size: 1rem;
   text-transform: uppercase;
 } */
+
+html,
+body {
+  overflow-y: scroll; /* Allows scrolling */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}

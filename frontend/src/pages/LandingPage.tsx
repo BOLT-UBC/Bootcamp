@@ -26,7 +26,7 @@ export default function LandingPage() {
 
     if (error) {
       console.error("Google Sign-In Error:", error);
-    } 
+    }
   };
 
   return (
