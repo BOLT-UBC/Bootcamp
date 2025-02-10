@@ -24,61 +24,67 @@ export default function Portal() {
     }
   };
 
-  const navigationComponent = 
-      <div className="portal_page__navbar">
-        <div className="navbar__my_portal_wrapper">
-          <h3 className="navbar__section_title">My Portal</h3>
-          <nav className="navbar__links">
-            <a
-              className="link"
-              onClick={() => setActivePage("Dashboard")}
-              href="#dashboard"
-            >
-              Dashboard
-            </a>
-            <a
-              className="link link__last"
-              onClick={() => setActivePage("Team")}
-              href="#my-team"
-            >
-              My Team
-            </a>
-          </nav>
-        </div>
-        <div className="navbar__general_wrapper">
-          <h3 className="navbar__section_title">General</h3>
-          <nav className="navbar__links">
-            <a
-              className="link"
-              onClick={() => setActivePage("Schedule")}
-              href="#schedule"
-            >
-              Schedule
-            </a>
-            <a
-              className="link link__last"
-              onClick={() => setActivePage("FAQ")}
-              href="#faq"
-            >
-              FAQ
-            </a>
-          </nav>
-        </div>
-        <button className="logout_button" onClick={() => signOut()}>
-          Log Out{" "}
-        </button>
+  const navigationComponent = (
+    <div className="portal_page__navbar">
+      <div className="navbar__my_portal_wrapper">
+        <h3 className="navbar__section_title">My Portal</h3>
+        <nav className="navbar__links">
+          <a
+            className="link"
+            onClick={() => setActivePage("Dashboard")}
+            href="#dashboard"
+          >
+            Dashboard
+          </a>
+          <a
+            className="link link__last"
+            onClick={() => setActivePage("Team")}
+            href="#my-team"
+          >
+            My Team
+          </a>
+        </nav>
       </div>
+      <div className="navbar__general_wrapper">
+        <h3 className="navbar__section_title">General</h3>
+        <nav className="navbar__links">
+          <a
+            className="link"
+            onClick={() => setActivePage("Schedule")}
+            href="#schedule"
+          >
+            Schedule
+          </a>
+          <a
+            className="link link__last"
+            onClick={() => setActivePage("FAQ")}
+            href="#faq"
+          >
+            FAQ
+          </a>
+        </nav>
+      </div>
+      <button className="logout_button" onClick={() => signOut()}>
+        Log Out{" "}
+      </button>
+    </div>
+  );
 
   return (
     <>
-      <div className="portal-page">
-        <FullFolder portalTitle={activePage} navbarTitle={"Bootcamp"} navigationComponent={navigationComponent}>
-          {activePage === "Dashboard" && <Dashboard />}
-          {activePage === "Team" && <Team />}
-          {activePage === "FAQ" && <FAQ />}
-          {activePage === "Schedule" && <Schedule />}
-        </FullFolder>
-        <img className="portal-background" src={"./assets/PortalBg.png"}></img>
+      <div className="portal-page portal-bg">
+        <div className="portal-bg">
+          <FullFolder
+            portalTitle={activePage}
+            navbarTitle={"Bootcamp"}
+            navigationComponent={navigationComponent}
+          >
+            {activePage === "Dashboard" && <Dashboard />}
+            {activePage === "Team" && <Team />}
+            {activePage === "FAQ" && <FAQ />}
+            {activePage === "Schedule" && <Schedule />}
+          </FullFolder>
+        </div>
       </div>
     </>
   );

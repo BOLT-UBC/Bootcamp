@@ -1,16 +1,26 @@
-.portal-page {
+.portal-bg {
+  background-image: url("../pages/assets/PortalBG.png");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
+}
+
+.portal-page {
+  background: linear-gradient(to top, #693b48 0%, #422932 19%, #17161b 81%);
 
   h1 {
     font-family: "RobotoMonoBold", sans-serif;
     text-transform: uppercase;
   }
 
-  h3, button {
+  h3,
+  button {
     font-family: "RobotoMonoBold", sans-serif;
   }
 
@@ -63,7 +73,7 @@
 }
 
 .link:hover {
-    background-color: rgba(255, 255, 255, 0.07);
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 .link__last {
@@ -71,24 +81,13 @@
 }
 
 .logout_button {
-    width: 90%;
-    padding: 1rem 0 1rem 0;
-    border-radius: 1rem;
-    background-color: #91511A;
-    border: none;
+  width: 90%;
+  padding: 1rem 0 1rem 0;
+  border-radius: 1rem;
+  background-color: #91511a;
+  border: none;
 }
 
 .page-right {
   flex: 4;
-}
-
-.portal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  background-color: black;
 }
