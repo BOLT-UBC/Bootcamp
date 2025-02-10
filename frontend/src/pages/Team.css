@@ -52,6 +52,7 @@
 
 .teammate_name {
     font-size: 2rem;
+    margin-top: -1rem;
 }
 
 .pending_requests_cards_wrapper {

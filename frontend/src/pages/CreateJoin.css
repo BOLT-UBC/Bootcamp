@@ -1,0 +1,48 @@
+.folder-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2vw;
+}
+
+.team-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 40vw;
+}
+
+.instruction {
+    margin-left: 0vw;   
+    font-family: "RobotoMonoLight", sans-serif;
+}
+
+.note {
+    margin-top: 0vh;
+    margin-left: 0vw;   
+    font-family: "RobotoMonoLight", sans-serif;
+}
+
+.message {
+    font-family: "RobotoMonoLight", sans-serif;
+    font-size: 0.8rem;
+}
+
+.teams-button, .teams-button-join {
+    position: relative;
+    width: 20vw;
+    height: 6vh;
+    border-radius: 1rem;
+    background-color: #91511A;
+    border: none;
+    font-family: "RobotoMonoLight", sans-serif;
+    color: white;
+}
+
+.teams-button:hover, .teams-button-join:hover {
+    background-color: #c88b5e;
+}
+
+.teams-button-join {
+    margin-left: 2vw;
+}
