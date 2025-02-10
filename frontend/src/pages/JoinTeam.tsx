@@ -64,7 +64,6 @@ const fetchUserEmail = async () => {
     }
 
   const join = async () => {
-    console.log(email)
     if (email.length <= 0){
         console.log("You aren't sign in yet.");
         setMessage("You aren't sign in yet.");
@@ -127,8 +126,8 @@ const fetchUserEmail = async () => {
         <button onClick={join}>
             Join Team
         </button>
-        <button onClick={() => navigate("/portal")}>
-            Back to portal
+        <button onClick={() => navigate("/portal/team")}>
+            Back to Team
         </button>
     </>
   );

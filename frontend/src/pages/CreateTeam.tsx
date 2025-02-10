@@ -83,10 +83,18 @@ export default function CreateTeam() {
         console.log("Team saved:", data);
         setMadeTeam(true)
         setId(data[0].id)
-        
     } catch (err: any) {
         console.error("Error creating team:", err.message);
     }
+
+    const storedEmail = localStorage.getItem("user_email");
+
+    const { data, error } = await supabase
+        .from('users')
+        .update({
+            team_id: shortId,
+        })
+        .eq('email', storedEmail);
 };
 
 
@@ -109,8 +117,8 @@ export default function CreateTeam() {
             {message.length > 0 ? message : null}
         </div>
     
-        <button onClick={() => navigate("/portal")}>
-            Back to portal
+        <button onClick={() => navigate("/portal/team")}>
+            Back to Team
         </button>
 
     </>
