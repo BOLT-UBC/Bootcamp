@@ -6,24 +6,27 @@ import ShortText from '../components/ShortText';
 export default function JoinTeam() {
   const navigate = useNavigate();
   const [id, setId] = useState<string>("")
-  const [error, setError] = useState<string>("")
+  const [message, setMessage] = useState<string>("")
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
 
   useEffect(() => {
-    if (!email) {
-        const getUserEmail = async () => {
-            const { data, error } = await supabase.auth.getUser();
-            if (error) {
-            console.error("Error fetching user:", error.message);
-            } else if (data?.user) {
-            const userEmail = data.user.email ?? "user@example.com";
-            setEmail(userEmail);
-            }
-        };
-        getUserEmail();
+      const storedEmail = localStorage.getItem("user_email");
+      if (storedEmail) {
+        setEmail(storedEmail);
+      } else {
+        fetchUserEmail();
+      }
+    }, []);
+  
+const fetchUserEmail = async () => {
+    const { data, error } = await supabase.auth.getUser();
+    if (!error && data?.user) {
+    setEmail(data.user.email ?? "");
+    localStorage.setItem("user_email", data.user.email ?? "");
     }
- }, [email]);
+};
+
 
     // gets all teams
     const getTeams = async() => {
@@ -61,13 +64,26 @@ export default function JoinTeam() {
     }
 
   const join = async () => {
-    checkFullness("uuuu");
-    if (id.length !== 4) {
-        console.log("ID has to be length 4.")
-        setError("ID has to be length 4.")
+    console.log(email)
+    if (email.length <= 0){
+        console.log("You aren't sign in yet.");
+        setMessage("You aren't sign in yet.");
         return 
     }
-    setError("")
+
+    let full = await checkFullness(id);
+
+    if (full) {
+        console.log("The team with the specified ID is full.");
+        setMessage("The team with the specified ID is full.");
+        return 
+    }
+    if (id.length !== 4) {
+        console.log("ID has to be length 4.");
+        setMessage("ID has to be length 4.");
+        return 
+    }
+    setMessage("")
     let data = await getTeams();
     if (data == null) {
         console.log("no teams created yet");
@@ -84,9 +100,13 @@ export default function JoinTeam() {
                 .eq('email', email);
             
             if (error) {
-                console.log("Error occurred while trying to update this user.")
-                setError("Couldn't join this team.")
+                console.log("Error occurred while trying to update this user.");
+                setMessage("Couldn't join this team.");
+                return
             }
+
+            console.log("Team " + id + " successfully joined!");
+            setMessage("Team " + id + " successfully joined!");
             
         }
     }
@@ -102,7 +122,7 @@ export default function JoinTeam() {
             placeholder="Your Team ID"
             need={true}
         />
-        {error.length > 0 ? <p>{error}</p> : null}
+        {message.length > 0 ? <p>{message}</p> : null}
         <h4>Your team ID should have been shown when you created your team.</h4>
         <button onClick={join}>
             Join Team

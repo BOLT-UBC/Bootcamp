@@ -17,6 +17,7 @@ import ProtectedUserInfo from "./pages/ProtectedUserInfo";
 import ProtectedResponses from "./pages/ProtectedResponses";
 import ProtectedThankYou from "./pages/ProtectedThankYou";
 import ProtectedFinalPage from "./pages/ProtectedFinalPage";
+import FinalPage from "./pages/FinalPage"
 
 export default function App() {
   return (

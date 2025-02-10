@@ -8,6 +8,7 @@ export default function CreateTeam() {
   const [teamName, setTeamName] = useState<string>("");
   const [shortId, setId] = useState<string>("");
   const [madeTeam, setMadeTeam] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
 
   const generateShortId = (): string => {
     return Math.random().toString(36).substring(2, 6); // Ensures a 4-character string
@@ -52,6 +53,14 @@ export default function CreateTeam() {
 
   const send = async () => {
 
+    if (teamName.length <= 0) {
+        console.log("Team name must not be empty");
+        setMessage("Team name must not be empty");
+        return
+    }
+
+    setMessage("")
+
     let id = await checkIfTeamExists()
 
     if (id.length > 0) {
@@ -89,13 +98,15 @@ export default function CreateTeam() {
             <ShortText
                 value={teamName} 
                 onChange={(e) => setTeamName(e.target.value)} 
-                placeholder="Create your team name" 
+                placeholder="Create your team name"
+                need={true}
             />
             {!madeTeam && <button onClick={send}>
                 Create
             </button>}
         
-            {madeTeam && <p>Your team id is: {shortId}</p>}
+            {madeTeam && <p>Team {teamName} successfully created! Your team ID is: {shortId}.</p>}
+            {message.length > 0 ? message : null}
         </div>
     
         <button onClick={() => navigate("/portal")}>
