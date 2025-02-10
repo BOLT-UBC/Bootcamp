@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { supabase } from '../supabase';
 import PortalBoxWidget from "../components/PortalBoxWidget";
 import "./Dashboard.css"
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 
 interface User {
     email: string;
@@ -104,14 +107,15 @@ export default function Dashboard() {
                     </div>
                     <div className="top2">
                         <PortalBoxWidget>
-                            <h2>My Team</h2>
+                            <h1>My Team</h1>
                             <h1>{team} #{teamID}</h1>
                             <h3>{teammates.join(", ")}</h3>
+                            <button className="redirect-button" onClick={() => navigate("/portal/team")}>View Team{" "}</button>
                         </PortalBoxWidget>
                     </div>
                     <div className="top3">
                         <PortalBoxWidget>
-                            <h2>Task Timer</h2>
+                            <h1>Task Timer</h1>
                         </PortalBoxWidget>
                     </div>
                 </div>
@@ -135,6 +139,7 @@ export default function Dashboard() {
                     <div className="bot3">
                         <PortalBoxWidget>
                             <h1>schedule</h1>
+                            <button className="redirect-button" onClick={() => navigate()}>View Schedule{" "}</button>
                         </PortalBoxWidget>
                     </div>
                 </div>
