@@ -30,6 +30,15 @@
     flex: 4;
 }
 
+.dashboard__desc {
+    font-family: "RobotoMonoLight", sans-serif;
+    font-size: 1.7rem;
+}
+
+.desc_bolded {
+    font-family: "RobotoMonoBold", sans-serif;
+}
+
 .bot1-wrapper {
     flex: 1;
     display: flex;

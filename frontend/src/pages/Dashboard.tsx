@@ -4,8 +4,6 @@ import PortalBoxWidget from "../components/PortalBoxWidget";
 import "./Dashboard.css"
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-
 interface User {
     email: string;
     name: string;
@@ -17,6 +15,9 @@ interface User {
 
 
 export default function Dashboard() {
+    
+const navigate =     useNavigate();
+
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [major, setMajor] = useState<string>("");
@@ -97,20 +98,21 @@ export default function Dashboard() {
             <div className="dashboard-wrapper">
                 <div className="top-row">   
                     <div className="top1">
-                        <PortalBoxWidget>
-                            <h1>welcome, {name}</h1>
-                            <h3>Year {year} | {major}</h3>
-                            <hr />
-                            <h3>your status for registration is:</h3>
-                            <h1>REGISTERED</h1>
+                        <PortalBoxWidget style={{display: "flex", flexDirection: "column",}}>
+                            <p className="dashboard__desc">Welcome, </p>
+                            <h1>{name ? name : "Guest"}</h1>
+                            {/* {<h3>Year {year} | {major}</h3> } */}
+                            {/* {year && major ? <h3>Year {year} | {major}</h3> : null} */}
+                            <p className="dashboard__desc">Your status for <span className="desc_bolded">registration</span>  is:</p>
+                            <h3>REGISTERED</h3>
                         </PortalBoxWidget>
                     </div>
                     <div className="top2">
-                        <PortalBoxWidget>
+                        <PortalBoxWidget style={{display: "flex", flexDirection: "column", justifyContent: "space-between", height: "90%"}}>
                             <h1>My Team</h1>
-                            <h1>{team} #{teamID}</h1>
+                            {teamID ? <h1>{team} #{teamID}</h1> : <p className="dashboard__desc">You don't have a team!</p> }
                             <h3>{teammates.join(", ")}</h3>
-                            <button className="redirect-button" onClick={() => navigate("/portal/team")}>View Team{" "}</button>
+                            <button className="redirect-button" onClick={() => navigate("/portal/team")}>{teamID ? "View Team" : "Join Team"}</button>
                         </PortalBoxWidget>
                     </div>
                     <div className="top3">
