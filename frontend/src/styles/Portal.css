@@ -1,52 +1,94 @@
 .portal-page {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 
-.portal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1; 
-    background-color: black;
+  h1 {
+    font-family: "RobotoMonoBold", sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
   }
 
-.navBar {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-    height: 100%;
+  h3, button {
+    font-family: "RobotoMonoBold", sans-serif;
+    font-size: 1.7rem;
+  }
+
+  button {
+    color: white;
+  }
+
+  a {
+    font-family: "RobotoMonoLight", sans-serif;
+  }
 }
 
-.links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
+.portal_page__navbar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar__my_portal_wrapper,
+.navbar__general_wrapper {
+  width: 100%;
+}
+
+.navbar__section_title {
+  margin-left: 5%;
+}
+
+.navbar__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .link {
-    padding: 0.5rem;
-    border-top: 1px solid #ccc;
-    width: 100%;
+  padding: 1rem;
+  margin-left: 10%;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
 }
 
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+}
 
-.logout {
-    bottom: 10vh;
+.link__last {
+  border-bottom: 1px solid #ccc;
+}
+
+.logout_button {
+    width: 90%;
+    padding: 1rem 0 1rem 0;
+    border-radius: 1rem;
+    background-color: #91511A;
+    border: none;
 }
 
 .page-right {
-    flex: 4;
+  flex: 4;
+}
+
+.portal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  background-color: black;
 }

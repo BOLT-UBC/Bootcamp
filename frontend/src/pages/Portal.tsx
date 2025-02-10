@@ -22,10 +22,10 @@ export default function Portal() {
   };
 
   const navigationComponent = 
-      <div className="navBar">
-        <div className="my-portal">
-          <h3>My Portal</h3>
-          <nav className="links">
+      <div className="portal_page__navbar">
+        <div className="navbar__my_portal_wrapper">
+          <h3 className="navbar__section_title">My Portal</h3>
+          <nav className="navbar__links">
             <a
               className="link"
               onClick={() => setActivePage("Dashboard")}
@@ -34,7 +34,7 @@ export default function Portal() {
               Dashboard
             </a>
             <a
-              className="link"
+              className="link link__last"
               onClick={() => setActivePage("My Team")}
               href="#my-team"
             >
@@ -42,9 +42,9 @@ export default function Portal() {
             </a>
           </nav>
         </div>
-        <div className="general">
-          <h3>General</h3>
-          <nav className="links">
+        <div className="navbar__general_wrapper">
+          <h3 className="navbar__section_title">General</h3>
+          <nav className="navbar__links">
             <a
               className="link"
               onClick={() => setActivePage("Schedule")}
@@ -53,7 +53,7 @@ export default function Portal() {
               Schedule
             </a>
             <a
-              className="link"
+              className="link link__last"
               onClick={() => setActivePage("FAQ")}
               href="#faq"
             >
@@ -61,7 +61,7 @@ export default function Portal() {
             </a>
           </nav>
         </div>
-        <button className="logout" onClick={() => signOut()}>
+        <button className="logout_button" onClick={() => signOut()}>
           Log Out{" "}
         </button>
       </div>
