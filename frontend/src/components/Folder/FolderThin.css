@@ -35,10 +35,11 @@
 }
 
 .folder-thin__navbar_title {
+    font-size: 2vw;
     position: absolute; 
     z-index: 3;
-    margin-left: 1vw;
-    margin-top: 1.5vh;
+    margin-left: 2vw;
+    margin-top: 1vh;
 }
 
 .folder-thin__content_wrapper::-webkit-scrollbar {

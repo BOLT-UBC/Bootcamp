@@ -42,10 +42,11 @@
 }
 
 .folder-wide__portal_title {
+    font-size: 2vw;
     position: absolute; 
     z-index: 3;
     margin-left: 2vw;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
 }
 
 

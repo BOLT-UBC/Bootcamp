@@ -6,7 +6,6 @@ import { supabase } from "../supabase";
 import Dashboard from "./Dashboard";
 import FullFolder from "../components/Folder/FullFolder";
 import SpaceBG from "../components/SpaceBG";
-import PortalBg from "./assets/PortalBg.png";
 
 export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -72,13 +71,7 @@ export default function Portal() {
         <FullFolder portalTitle={activePage} navbarTitle={"Bootcamp"} navigationComponent={navigationComponent}>
           <Dashboard />
         </FullFolder>
-        <img className="portal-background" src={PortalBg}></img>
-        {/* <div className='portal-page'>
-          
-            <div className='page-right'>
-              <Dashboard />
-            </div>
-        </div> */}
+        <img className="portal-background" src={"./assets/PortalBg.png"}></img>
       </div>
     </>
   );

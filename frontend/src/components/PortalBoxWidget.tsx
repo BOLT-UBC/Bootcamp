@@ -5,7 +5,9 @@ type PortalBoxWidgetProps = React.PropsWithChildren<{style?: React.CSSProperties
 
 const PortalBoxWidget: React.FC<PortalBoxWidgetProps> = ({ children, style }) => {
   return  <div className="portal_box_widget__wrapper" style={style}>
-    {children}
+    <div className="portal_box_widget__children">
+      {children}
+    </div>
   </div>
 }
 
