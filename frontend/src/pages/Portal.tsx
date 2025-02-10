@@ -23,7 +23,6 @@ export default function Portal() {
 
   const navigationComponent = 
       <div className="navBar">
-        <h1 className="bootcamp-title">Bootcamp</h1>
         <div className="my-portal">
           <h3>My Portal</h3>
           <nav className="links">
@@ -70,7 +69,7 @@ export default function Portal() {
   return (
     <>
       <div className="portal-page">
-        <FullFolder portalTitle={activePage} navigationComponent={navigationComponent}>
+        <FullFolder portalTitle={activePage} navbarTitle={"Bootcamp"} navigationComponent={navigationComponent}>
           <Dashboard />
         </FullFolder>
         <img className="portal-background" src={PortalBg}></img>

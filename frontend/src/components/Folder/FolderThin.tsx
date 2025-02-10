@@ -1,9 +1,9 @@
 import React from "react";
 import "./FolderThin.css";
 
-type FolderThinProps = React.PropsWithChildren<{}>;
+type FolderThinProps = React.PropsWithChildren<{navbarTitle?: String}>;
 
-const FolderThin: React.FC<FolderThinProps> = ({ children }) => {
+const FolderThin: React.FC<FolderThinProps> = ({  navbarTitle, children }) => {
   return (
     <>
       <div className="folder-thin__wrapper">
@@ -41,6 +41,7 @@ const FolderThin: React.FC<FolderThinProps> = ({ children }) => {
               stroke-width="4"
             />
           </svg>
+          <h1 className="folder-thin__navbar_title">{navbarTitle}</h1>
         <div className="folder-thin__content_wrapper">{children}</div>
       </div>
     </>

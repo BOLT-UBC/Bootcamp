@@ -34,6 +34,13 @@
     scrollbar-width: none;  
 }
 
+.folder-thin__navbar_title {
+    position: absolute; 
+    z-index: 3;
+    margin-left: 2vw;
+    margin-top: 1.5vh;
+}
+
 .folder-thin__content_wrapper::-webkit-scrollbar {
     display: none;
 }

@@ -5,14 +5,14 @@ import "./FullFolder.css";
 import FolderThin from "./FolderThin";
 import FolderWide from "./FolderWide";
 
-type FullFolderProps = React.PropsWithChildren<{navigationComponent: JSX.Element; portalTitle?: String}>;
+type FullFolderProps = React.PropsWithChildren<{navigationComponent: JSX.Element; portalTitle?: String; navbarTitle?: String}>;
 
-const FullFolder: React.FC<FullFolderProps> = ({ portalTitle, navigationComponent, children }) => {
+const FullFolder: React.FC<FullFolderProps> = ({ portalTitle,  navbarTitle, navigationComponent, children }) => {
   return (
       <section className="full_folder__wrapper">
         <div className="full_folder__content_wrapper">
           <div className="folder_thin__container">
-          <FolderThin>{navigationComponent}</FolderThin>
+          <FolderThin navbarTitle={navbarTitle}>{navigationComponent}</FolderThin>
           </div>
           <div className="folder_wide__container">
             <FolderWide portalTitle={portalTitle}>{children}</FolderWide>
