@@ -25,6 +25,7 @@
   width: 60%;
   z-index: 0;
   justify-content: center;
+  color: #17161b;
 }
 
 .register-title {
@@ -33,6 +34,7 @@
   font-size: 4rem;
   font-weight: 700; /* Increased weight for a bolder title */
   margin: 0.5rem 0;
+  font-family: "Righteous", sans-serif;
 }
 
 .register-subtitle {

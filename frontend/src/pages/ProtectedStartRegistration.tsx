@@ -45,7 +45,7 @@ export default function ProtectedStartRegistration() {
   useEffect(() => {
     if (!loading) {
       if (!isAuthenticated) {
-        navigate("/");
+        navigate("/login");
       } else if (registered) {
         navigate("/registration/page-4");
       }
