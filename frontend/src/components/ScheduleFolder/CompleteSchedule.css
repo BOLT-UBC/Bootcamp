@@ -19,12 +19,12 @@
 }
 
 .schedule_wide__container {
-  width: 75%;
+  width: 70%;
+  margin-left: 0.8%;
 }
 
 .schedule_thin__container {
-  width: 20%;
-  margin-left: 0.8%;
+  width: 25%;
 }
 
 .full_folder__background_wrapper {

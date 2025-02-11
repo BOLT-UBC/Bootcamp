@@ -1,8 +1,27 @@
 import React from "react";
 
-type ScheduleWideProps = React.PropsWithChildren<{ portalTitle?: String }>;
+import StarButton from "./components/StarButton";
 
-const ScheduleWide: React.FC<ScheduleWideProps> = ({ portalTitle }) => {
+import "./ScheduleWide.css";
+
+type ScheduleWideProps = React.PropsWithChildren<{
+  portalTitle?: String;
+  onSelect: (schedule: string) => void; // Function to update selected schedule
+}>;
+
+const ScheduleWide: React.FC<ScheduleWideProps> = ({
+  portalTitle,
+  onSelect,
+}) => {
+  const schedules = [
+    "Morning Schedule",
+    "Afternoon Schedule",
+    "Evening Schedule",
+    "Weekend Schedule",
+    "Holiday Schedule",
+    "Custom Schedule",
+    "Full Schedule",
+  ];
   return (
     <>
       <div className="folder-wide__wrapper">
@@ -35,10 +54,21 @@ const ScheduleWide: React.FC<ScheduleWideProps> = ({ portalTitle }) => {
             fill="#CD6E15"
           />
         </svg>
-        {portalTitle && (
-          <h1 className="folder-wide__portal_title">{portalTitle}</h1>
-        )}
-        {/* <div className="folder-wide__content_wrapper">{children}</div> */}
+        {portalTitle && <h1 className="schedule-wide_title">{portalTitle}</h1>}
+        <div className="schedule-wide__content_wrapper">
+          <div className="star-map-bg">
+            <StarButton day={2} isSelected={true} />
+            {schedules.map((schedule, index) => (
+              <button
+                key={index}
+                className="schedule-button"
+                onClick={() => onSelect(schedule)}
+              >
+                {schedule}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

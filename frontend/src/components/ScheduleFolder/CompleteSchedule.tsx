@@ -1,5 +1,6 @@
 import React from "react";
 import { JSX } from "react";
+import { useState } from "react";
 
 import "./CompleteSchedule.css";
 import ScheduleThin from "./ScheduleThin";
@@ -14,14 +15,19 @@ const CompleteSchedule: React.FC<CompleteScheduleProps> = ({
   portalTitle,
   navbarTitle,
 }) => {
+  const [selectedSchedule, setSelectedSchedule] = useState<string>("");
+
   return (
     <section className="full_folder__wrapper">
       <div className="full_folder__content_wrapper">
-        <div className="schedule_thin__container">
-          <ScheduleThin navbarTitle={navbarTitle}></ScheduleThin>
-        </div>
         <div className="schedule_wide__container">
-          <ScheduleWide portalTitle={portalTitle}></ScheduleWide>
+          <ScheduleWide
+            portalTitle={portalTitle}
+            onSelect={setSelectedSchedule}
+          />
+        </div>
+        <div className="schedule_thin__container">
+          <ScheduleThin navbarTitle={selectedSchedule || navbarTitle} />
         </div>
       </div>
       <div className="full_folder__background_wrapper">

@@ -1,5 +1,5 @@
 import React from "react";
-import "../Folder/FolderThin.css";
+import "./ScheduleThin.css";
 
 type ScheduleThinProps = React.PropsWithChildren<{ navbarTitle?: String }>;
 
@@ -42,7 +42,7 @@ const ScheduleThin: React.FC<ScheduleThinProps> = ({
             stroke-width="4"
           />
         </svg>
-        <h1 className="folder-thin__navbar_title">{navbarTitle}</h1>
+        <h1 className="schedule-thin_title">{navbarTitle}</h1>
         <div className="folder-thin__content_wrapper">{children}</div>
       </div>
     </>
