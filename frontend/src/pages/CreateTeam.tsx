@@ -9,7 +9,7 @@ import Dashboard from './Dashboard';
 export default function CreateTeam() {
   const navigate = useNavigate();
   const [teamName, setTeamName] = useState<string>("");
-  const [shortId, setId] = useState<string>("");
+  const [shortId, setShortId] = useState<string>("");
   const [madeTeam, setMadeTeam] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
   const [activePage, setActivePage] = useState("create");
@@ -111,13 +111,13 @@ export default function CreateTeam() {
     }
 
     let code = Math.random().toString(36).substring(2, 6);
-    setId(code);
+    setShortId(code);
 
     try {
         const { data, error } = await supabase
             .from("teams")
             .upsert([{ 
-                id: shortId,
+                id: code,
                 team_name: teamName
             }], { onConflict: 'team_name'})
             .select('*');
@@ -125,7 +125,6 @@ export default function CreateTeam() {
         if (error) throw error;
         console.log("Team saved:", data);
         setMadeTeam(true)
-        setId(shortId)
     } catch (err: any) {
         console.error("Error creating team:", err.message);
     }
@@ -135,7 +134,7 @@ export default function CreateTeam() {
     const { data, error } = await supabase
         .from('users')
         .update({
-            team_id: shortId,
+            team_id: code,
         })
         .eq('email', storedEmail);
 };

@@ -116,7 +116,7 @@ useEffect(() => {
   getUserTeamID();
   getTeams();
   getTeamInfo();
-})
+}, [])
 
   return (
     <>
