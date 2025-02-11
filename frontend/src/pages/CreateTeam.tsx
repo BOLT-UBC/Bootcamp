@@ -164,7 +164,7 @@ export default function CreateTeam() {
             {madeTeam && <p className='message'>Team {teamName} successfully created! Your team ID is: {shortId}.</p>}
             {message.length > 0 ? <p className='message'>{message}</p> : null}
             <h4 className='note'>
-                For someone to join your team, they will need your team ID. Note that we will only show this ID to you once.
+                For someone to join your team, they will need your team ID.
             </h4>
 
             </div>

@@ -18,10 +18,14 @@
     font-family: "RobotoMonoLight", sans-serif;
 }
 
-.note {
+.note, .note-team-members {
     margin-top: 0vh;
     margin-left: 0vw;   
     font-family: "RobotoMonoLight", sans-serif;
+}
+
+.note-team-members {
+    margin-top: 4vh;
 }
 
 .message {
