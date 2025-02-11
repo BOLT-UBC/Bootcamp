@@ -141,6 +141,9 @@ useEffect(() => {
                       </div>
                     ))}
                 </div>
+                <h4 className='note-team-members'>
+                    For someone to join your team, they will need your 4-digit team ID.
+                </h4>
             </div> : <NoTeamDisplay/>}
       </div>
     </>
