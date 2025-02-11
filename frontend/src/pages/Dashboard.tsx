@@ -94,58 +94,76 @@ const navigate =     useNavigate();
     };
 
     return (
-        <>
-            <div className="dashboard-wrapper">
-                <div className="top-row">   
-                    <div className="top1">
-                        <PortalBoxWidget style={{display: "flex", flexDirection: "column",}}>
-                            <p className="dashboard__desc">Welcome, </p>
-                            <h1>{name ? name : "Guest"}</h1>
-                            {/* {<h3>Year {year} | {major}</h3> } */}
-                            {/* {year && major ? <h3>Year {year} | {major}</h3> : null} */}
-                            <p className="dashboard__desc">Your status for <span className="desc_bolded">registration</span>  is:</p>
-                            <h3>REGISTERED</h3>
-                        </PortalBoxWidget>
-                    </div>
-                    <div className="top2">
-                        <PortalBoxWidget style={{display: "flex", flexDirection: "column", justifyContent: "space-between", height: "90%"}}>
-                            <h1>My Team</h1>
-                            {teamID ? <h1>{team} #{teamID}</h1> : <p className="dashboard__desc">You don't have a team!</p> }
-                            <h3>{teammates.join(", ")}</h3>
-                        </PortalBoxWidget>
-                    </div>
-                    <div className="top3">
-                        <PortalBoxWidget>
-                            <h1>Task Timer</h1>
-                        </PortalBoxWidget>
-                    </div>
+      <>
+        <div className="dashboard-wrapper">
+          <div className="top-row">
+            <div className="top1__welcome_container">
+              <PortalBoxWidget>
+                <div className="dashboard__welcome_widget">
+                  <div>
+                    <p className="dashboard__desc">Welcome, </p>
+                    <h1 className="dashboard__username">
+                      {name ? name : "Guest"}
+                    </h1>
+                  </div>
+                  <div>
+                    <p className="dashboard__desc"> Your status for registration is:</p>
+                    <p className="dashboard__registration_status">Registered</p>
+                  </div>
                 </div>
-                <div className="bot-row">
-                    <div className="bot1-wrapper">
-                        <div className="bot1-top">
-                            <PortalBoxWidget>
-                                <h1>case package</h1>
-                                <h3>unavailable</h3>
-                            </PortalBoxWidget>
-                        </div>
-                        <div className="bot1-bot">
-                        <PortalBoxWidget>
-                        </PortalBoxWidget>
-                        </div>
-                    </div>
-                    <div className="bot2">
-                        <PortalBoxWidget>
-                        </PortalBoxWidget>
-                    </div>
-                    <div className="bot3">
-                        <PortalBoxWidget>
-                            <h1>schedule</h1>
-                            <button className="redirect-button">View Schedule{" "}</button>
-                        </PortalBoxWidget>
-                    </div>
-                </div>
+              </PortalBoxWidget>
             </div>
-        </>
-     
-    )
+            <div className="top2__team_container">
+              <PortalBoxWidget
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  height: "90%",
+                }}
+              >
+                <h2 className="dashboard__widget_title">My Team</h2>
+                {teamID ? (
+                  <h1>
+                    {team} #{teamID}
+                  </h1>
+                ) : (
+                  <p className="dashboard__desc">You don't have a team!</p>
+                )}
+                {teammates && <h3>{teammates.join(", ")}</h3>}
+              </PortalBoxWidget>
+            </div>
+            <div className="top3">
+              <PortalBoxWidget>
+                <h2 className="dashboard__widget_title">Task Timer</h2>
+              </PortalBoxWidget>
+            </div>
+          </div>
+          <div className="bot-row">
+            <div className="bot1-wrapper">
+              <div className="bot1-top">
+                <PortalBoxWidget>
+                  <div className="dashboard__case_package_widget">
+                    <h2 className="dashboard__widget_title">Case Package</h2>
+                    <h1 className="dashboard__desc dashboard__case_package_unavail">Unavailable</h1>
+                  </div>
+                </PortalBoxWidget>
+              </div>
+              <div className="bot1-bot">
+                <PortalBoxWidget></PortalBoxWidget>
+              </div>
+            </div>
+            <div className="bot2">
+              <PortalBoxWidget></PortalBoxWidget>
+            </div>
+            <div className="bot3">
+              <PortalBoxWidget>
+                <h1>schedule</h1>
+                <button className="redirect-button">View Schedule </button>
+              </PortalBoxWidget>
+            </div>
+          </div>
+        </div>
+      </>
+    );
 }

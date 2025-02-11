@@ -1,74 +1,119 @@
-/* .hi_container {
-    width: 400px;
-    height: 400px;
-} */
-
+.dashboard__widget_title {
+    font-family: "RobotoMonoRegular", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+}
 .dashboard-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
 }
 
 .top-row {
-    height: 100%;
-    flex: 1;
     display: flex;
     flex-direction: row;
+    height: 35%;
+    width: 100%;
     column-gap: 1rem;
-    padding: 1rem;
+    padding-left: 1rem;
 }
 
-.top1 {
-    flex: 2;
+.dashboard__welcome_widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
 }
 
-.top2 {
-    flex: 3;
+.dashboard__registration_status {
+    font-family: "RobotoMonoBold", sans-serif;
+    font-size: 1.7rem;
+}
+
+
+.dashboard__username {
+    font-size: 3rem;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.top1__welcome_container {
+    height: 100%;
+    width: 20%;
+}
+
+
+.top2__team_container {
+    height: 100%;
+    width: 32%;
 }
 
 .top3 {
-    flex: 4;
+    height: 100%;
+    width: 45%;
 }
 
 .dashboard__desc {
     font-family: "RobotoMonoLight", sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
+    margin: 0;
 }
 
 .desc_bolded {
     font-family: "RobotoMonoBold", sans-serif;
 }
 
-.bot1-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-}
-
-.bot1-top {
-    flex: 1;
-}
-
-.bot1-bot {
-    flex: 4;
-}
-
-.bot2 {
-    flex: 1;
-}
-
-.bot3 {
-    flex: 1;
-}
-
 .bot-row {
-    flex: 2;
     display: flex;
     flex-direction: row;
     column-gap: 1rem;
     padding: 1rem;
+    height: 65%;
+    width: 100%;
 }
+
+.bot1-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 30%;
+}
+
+.dashboard__case_package_widget {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dashboard__case_package_unavail {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.bot1-top {
+    height: 30%;
+    width: 100%;
+}
+
+.bot1-bot {
+    height: 70%;
+    width: 100%;
+}
+
+.bot2 {
+    height: 100%;
+    width: 30%;
+}
+
+.bot3 {
+    height: 100%;
+    width: 37%;
+}
+
+
 
 .redirect-button {
     position: relative;

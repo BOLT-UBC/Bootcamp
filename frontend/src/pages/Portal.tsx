@@ -10,6 +10,7 @@ import Team from "./Team";
 import NoTeamDisplay from "./NoTeamDisplay";
 import FAQ from "./sections/FAQ";
 import Schedule from "./sections/Schedule";
+import GlowingDoggo from "../components/GlowingDoggo";
 
 export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -26,6 +27,7 @@ export default function Portal() {
 
   const navigationComponent = (
     <div className="portal_page__navbar">
+      <GlowingDoggo/>
       <div className="navbar__my_portal_wrapper">
         <h3 className="navbar__section_title">My Portal</h3>
         <nav className="navbar__links">

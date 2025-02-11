@@ -18,28 +18,15 @@
   src: url("/fonts/RobotoMono-Light.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "RobotoMonoRegular";
+  src: url("/fonts/RobotoMono-Regular.ttf") format("truetype");
+}
+
 body {
   color: white;
   width: 100vw;
 }
-/* 
-h1 {
-  font-family: "RobotoMonoBold", sans-serif;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-family: "RobotoMonoBold", sans-serif;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-}
-
-h3 {
-  font-family: "RobotoMonoBold", sans-serif;
-  font-size: 1rem;
-  text-transform: uppercase;
-} */
 
 html,
 body {

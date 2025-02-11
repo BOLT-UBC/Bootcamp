@@ -8,5 +8,6 @@
 }
 
 .portal_box_widget__children {
-    padding-left: 2vw;
+    height: 100%;
+    padding: 0.8vw;
 }
