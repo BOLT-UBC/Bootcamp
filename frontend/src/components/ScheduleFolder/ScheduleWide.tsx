@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import StarButton from "./components/StarButton";
 
@@ -14,14 +14,24 @@ const ScheduleWide: React.FC<ScheduleWideProps> = ({
   onSelect,
 }) => {
   const schedules = [
-    "Morning Schedule",
-    "Afternoon Schedule",
-    "Evening Schedule",
-    "Weekend Schedule",
-    "Holiday Schedule",
-    "Custom Schedule",
-    "Full Schedule",
+    { name: "Overview", yOffset: 60 },
+    { name: "Day 1", yOffset: 260 },
+    { name: "Day 2", yOffset: 180 },
+    { name: "Day 3", yOffset: 300 },
+    { name: "Day 4", yOffset: 80 },
+    { name: "Finale", yOffset: 150 }, // Last button
   ];
+
+  const [selectedIndex, setSelectedIndex] = useState<number>(0); // Default to "Overview"
+
+  useEffect(() => {
+    onSelect(schedules[0].name); // Set default schedule on mount
+  }, []);
+
+  const handleSelect = (index: number) => {
+    setSelectedIndex(index);
+    onSelect(schedules[index].name);
+  };
   return (
     <>
       <div className="folder-wide__wrapper">
@@ -57,16 +67,20 @@ const ScheduleWide: React.FC<ScheduleWideProps> = ({
         {portalTitle && <h1 className="schedule-wide_title">{portalTitle}</h1>}
         <div className="schedule-wide__content_wrapper">
           <div className="star-map-bg">
-            <StarButton day={2} isSelected={true} />
-            {schedules.map((schedule, index) => (
-              <button
-                key={index}
-                className="schedule-button"
-                onClick={() => onSelect(schedule)}
-              >
-                {schedule}
-              </button>
-            ))}
+            <div className="star-button-row">
+              {schedules.map((schedule, index) => (
+                <div
+                  key={index}
+                  style={{ position: "relative", top: `${schedule.yOffset}px` }}
+                >
+                  <StarButton
+                    label={schedule.name} // Set 0 for Overview, 1+ for days
+                    isSelected={index === selectedIndex}
+                    onClick={() => handleSelect(index)}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

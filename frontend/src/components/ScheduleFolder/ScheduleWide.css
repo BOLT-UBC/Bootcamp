@@ -56,3 +56,10 @@
   padding: 0.5rem 1rem;
   font-family: "Roboto Mono", monospace;
 }
+
+.star-button-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}

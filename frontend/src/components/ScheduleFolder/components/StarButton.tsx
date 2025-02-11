@@ -1,18 +1,18 @@
 import React from "react";
 import "./StarButton.css";
 
-interface GlowingMarkerProps {
-  day: number;
+interface StarButtonProps {
+  label: string;
   isSelected?: boolean;
   onClick?: () => void;
 }
 
-export default function GlowingMarker({
-  day,
+export default function StarButton({
+  label,
   isSelected = false,
   onClick,
-}: GlowingMarkerProps) {
-  const text = isSelected ? "You are here" : `Day ${day}`;
+}: StarButtonProps) {
+  const text = isSelected ? "Viewing" : label;
 
   return (
     <button className="container" onClick={onClick}>

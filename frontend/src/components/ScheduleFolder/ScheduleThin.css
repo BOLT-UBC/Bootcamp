@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  font-family: "Roboto Mono", monospace;
 }
 
 .folder-thin__filler_wrapper {
@@ -23,26 +24,56 @@
   height: 100%;
 }
 
-.folder-thin__content_wrapper {
-  position: absolute;
+.schedule-thin__content_wrapper {
+  position: relative;
   z-index: 3;
-  width: 100%;
   height: 85%;
-  margin-top: 7vh;
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding: 1rem;
+}
+
+.schedule-thin__content_wrapper ul {
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .schedule-thin_title {
   font-size: 1.5rem;
-  position: absolute;
+  position: relative;
   z-index: 3;
-  margin-left: 1rem;
-  margin-top: 0.5rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
   font-family: "Roboto Mono", monospace;
 }
 
 .folder-thin__content_wrapper::-webkit-scrollbar {
   display: none;
+}
+
+.schedule-day strong {
+  font-size: 1.2rem;
+  color: #fdf9f7;
+  display: block;
+}
+
+.schedule-description {
+  font-size: 1rem;
+  color: #fdf9f7;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-event {
+  font-size: 1rem;
+  color: #fdf9f7;
+  padding: 0.2rem 0;
 }

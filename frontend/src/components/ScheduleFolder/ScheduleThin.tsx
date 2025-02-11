@@ -1,12 +1,105 @@
 import React from "react";
 import "./ScheduleThin.css";
+import { JSX } from "react";
 
-type ScheduleThinProps = React.PropsWithChildren<{ navbarTitle?: String }>;
+type ScheduleThinProps = {
+  navbarTitle?: string;
+};
 
-const ScheduleThin: React.FC<ScheduleThinProps> = ({
-  navbarTitle,
-  children,
-}) => {
+const ScheduleThin: React.FC<ScheduleThinProps> = ({ navbarTitle }) => {
+  const scheduleMap: Record<
+    string,
+    { date: string; events: string[]; description?: string }[]
+  > = {
+    Overview: [
+      {
+        date: "Monday, February 10, 2025",
+        events: ["12:00 PM – Registration Opens"],
+      },
+      {
+        date: "Monday, February 24, 2025",
+        events: ["11:59 PM – Registration Closes"],
+      },
+      {
+        date: "Wednesday, February 26, 2025",
+        events: ["5:00 PM – Case Release"],
+      },
+      {
+        date: "Saturday, March 1, 2025",
+        events: ["12:00 PM – Offline Workshop", "1:30 PM – Networking Event"],
+      },
+      {
+        date: "Tuesday, March 4, 2025",
+        events: ["TBD – Online Presentation Workshop"],
+      },
+      {
+        date: "Wednesday, March 5, 2025",
+        events: [
+          "12:00 PM (Noon) – Submission Deadline",
+          "6:00 PM – Finalist Announcement",
+        ],
+      },
+      {
+        date: "Thursday, March 6, 2025",
+        events: ["TBD – Office Tour (Tentative)"],
+      },
+      {
+        date: "Saturday, March 8, 2025",
+        events: ["12:00 PM – Final Presentations @ Sauder, UBC"],
+      },
+    ],
+    "Day 1": [
+      {
+        date: "Saturday, March 1, 2025",
+        description:
+          "A day dedicated to workshops and networking with industry professionals.",
+        events: [
+          "12:00 PM – Offline Workshop | Hands-on session to strengthen problem-solving and case presentation skills.",
+          "1:30 PM – Networking Event (In collaboration with USS, WiDS, and WiCS) | Connect with industry professionals and expand your network. (Paid event)",
+        ],
+      },
+    ],
+    "Day 2": [
+      {
+        date: "Tuesday, March 4, 2025",
+        description:
+          "An online workshop focused on refining presentation skills.",
+        events: [
+          "TBD – Online Presentation Workshop | Learn how to structure and deliver an impactful case presentation.",
+        ],
+      },
+    ],
+    "Day 3": [
+      {
+        date: "Wednesday, March 5, 2025",
+        description: "Submission deadline and finalist announcement.",
+        events: [
+          "12:00 PM (Noon) – Submission Deadline | Final deadline to submit your case solutions.",
+          "6:00 PM – Finalist Announcement | Selected teams will be notified via email and the BOLT UBC website.",
+        ],
+      },
+    ],
+    "Day 4": [
+      {
+        date: "Thursday, March 6, 2025",
+        description:
+          "A potential opportunity to visit a corporate office and engage with professionals.",
+        events: ["TBD – Office Tour (Tentative)"],
+      },
+    ],
+    Finale: [
+      {
+        date: "Saturday, March 8, 2025",
+        description: "Final presentations and the announcement of winners.",
+        events: [
+          "12:00 PM – Final Presentations @ Sauder, UBC | Finalist teams present their case solutions to a panel of industry judges.",
+        ],
+      },
+    ],
+  };
+
+  // Default to "Overview" if the title isn't recognized
+  const scheduleItems = scheduleMap[navbarTitle || "Overview"] || [];
   return (
     <>
       <div className="folder-thin__wrapper">
@@ -43,7 +136,29 @@ const ScheduleThin: React.FC<ScheduleThinProps> = ({
           />
         </svg>
         <h1 className="schedule-thin_title">{navbarTitle}</h1>
-        <div className="folder-thin__content_wrapper">{children}</div>
+        <div className="schedule-thin__content_wrapper">
+          <ul>
+            {scheduleItems.length > 0 ? (
+              scheduleItems.map((day, index) => (
+                <li key={index} className="schedule-day">
+                  <strong>{day.date}</strong>
+                  {navbarTitle !== "Overview" && day.description && (
+                    <p className="schedule-description">{day.description}</p>
+                  )}
+                  <ul className="event-list">
+                    {day.events.map((event, eventIndex) => (
+                      <li key={eventIndex} className="schedule-event">
+                        {event}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))
+            ) : (
+              <p>No schedule available.</p>
+            )}
+          </ul>
+        </div>
       </div>
     </>
   );
