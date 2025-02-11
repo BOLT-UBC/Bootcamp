@@ -54,7 +54,7 @@ export default function Team() {
   }
   useEffect(() => {
     checkIfUserHasTeam();
-  })
+  }, []); // Empty array = runs only once
 
   
 const getUserTeamID = async () => {
@@ -69,6 +69,10 @@ const getUserTeamID = async () => {
         setTeamID(data[0].team_id);
     }
 }
+
+useEffect(() => {
+  getUserTeamID();
+})
 
 
 const getTeams = async () => {
@@ -112,11 +116,11 @@ const getTeamInfo = async () => {
 };
 
 useEffect(() => {
-  checkIfUserHasTeam();
-  getUserTeamID();
-  getTeams();
-  getTeamInfo();
-})
+  if (teamID) {
+    getTeams();
+    getTeamInfo();
+  }
+}, [teamID]);
 
   return (
     <>
