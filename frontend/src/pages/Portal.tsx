@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PortalNavBar from "../components/portalNavBar";
 import PortalPageSection from "../components/PortalPageSection";
 import "../styles/Portal.css";
@@ -11,6 +11,8 @@ import NoTeamDisplay from "./NoTeamDisplay";
 import FAQ from "./sections/FAQ";
 import Schedule from "./sections/Schedule";
 import GlowingDoggo from "../components/GlowingDoggo";
+
+
 
 export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -25,6 +27,26 @@ export default function Portal() {
     }
   };
 
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const currentHash = window.location.hash.replace("#", "");
+      console.log("Current hash:", currentHash); // Debugging line
+
+      if (currentHash) {
+        setActivePage(currentHash);
+      } 
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    handleHashChange();
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   const navigationComponent = (
     <div className="portal_page__navbar">
       <GlowingDoggo/>
@@ -33,14 +55,12 @@ export default function Portal() {
         <nav className="navbar__links">
           <a
             className="link"
-            onClick={() => setActivePage("Dashboard")}
             href="#dashboard"
           >
             Dashboard
           </a>
           <a
             className="link link__last"
-            onClick={() => setActivePage("Team")}
             href="#my-team"
           >
             My Team
@@ -52,14 +72,12 @@ export default function Portal() {
         <nav className="navbar__links">
           <a
             className="link"
-            onClick={() => setActivePage("Schedule")}
             href="#schedule"
           >
             Schedule
           </a>
           <a
             className="link link__last"
-            onClick={() => setActivePage("FAQ")}
             href="#faq"
           >
             FAQ
@@ -81,10 +99,10 @@ export default function Portal() {
             navbarTitle={"Bootcamp"}
             navigationComponent={navigationComponent}
           >
-            {activePage === "Dashboard" && <Dashboard />}
-            {activePage === "Team" && <Team />}
-            {activePage === "FAQ" && <FAQ />}
-            {activePage === "Schedule" && <Schedule />}
+            {activePage === "dashboard" && <Dashboard />}
+            {activePage === "my-team" && <Team />}
+            {activePage === "faq" && <FAQ />}
+            {activePage === "schedule" && <Schedule />}
           </FullFolder>
         </div>
       </div>

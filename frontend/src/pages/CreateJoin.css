@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2vw;
+    margin-top: 20vh;
+    margin-left: 20%;
 }
 
 .team-input {
@@ -37,10 +38,34 @@
     border: none;
     font-family: "RobotoMonoLight", sans-serif;
     color: white;
+    transition: background-color 0.3s ease;
 }
 
+.teams__dashboard_return {
+    font-family: "RoboMonoRegular", sans-serif;
+    color: white;
+    font-size: 1.7rem;
+    text-decoration: none;
+}
+
+.teams__dashboard_return:hover {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* .logout_button {
+    width: 90%;
+    padding: 1rem 0 1rem 0;
+    border-radius: 1.5rem;
+    background-color: #91511a;
+    border: none;
+    transition: background-color 0.3s ease;
+  } */
+  
+
 .teams-button:hover, .teams-button-join:hover {
-    background-color: #c88b5e;
+    background-color: #7c4514;
+    cursor: pointer;
 }
 
 .teams-button-join {

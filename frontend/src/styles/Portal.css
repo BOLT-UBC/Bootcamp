@@ -86,6 +86,7 @@
   border-radius: 1.5rem;
   background-color: #91511a;
   border: none;
+  transition: background-color 0.3s ease;
 }
 
 .logout_button:hover {

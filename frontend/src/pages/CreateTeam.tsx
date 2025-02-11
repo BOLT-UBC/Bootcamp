@@ -144,6 +144,9 @@ export default function CreateTeam() {
     <>
       {activePage === "create" ? (
         <div className="hehehaha">
+                <a className="teams__dashboard_return" href="#dashboard">
+            {`<`}- Back to Dashboard
+          </a>
         <div className="folder-contents">
             <h1 className='instruction'>What would you like to name your team?</h1>
             <div className="team-input">
@@ -163,9 +166,7 @@ export default function CreateTeam() {
             <h4 className='note'>
                 For someone to join your team, they will need your team ID. Note that we will only show this ID to you once.
             </h4>
-            <button className="teams-button" onClick={() => setActivePage("Dashboard")}>
-                Back to Dashboard
-            </button>
+
             </div>
     </div>
             ) : (
