@@ -5,13 +5,21 @@ import { supabase } from '../supabase';
 import FullFolder from "../components/Folder/FullFolder";
 import PortalBoxWidget from "../components/PortalBoxWidget";
 import CryCat from "../components/assets/anon-doggo.png";
+import earlgreyDoggo from "../components/assets/earl-grey-doggo.png";
+import orangeDoggo from "../components/assets/orange-doggo.png";
+import cookieDoggo from "../components/assets/cookie-doggo.png";
+import caramelDoggo from "../components/assets/caramel-doggo.png";
 
-import "./Team.css";
+import "./Team.box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.2);css";
 import NoTeamDisplay from "./NoTeamDisplay";
 
-const teammateCardStyle = {
-  
-};
+const doggos = [
+  earlgreyDoggo,
+  orangeDoggo,
+  cookieDoggo,
+  caramelDoggo
+];
+
 
 type Member = {
     accepted: boolean;
@@ -128,10 +136,10 @@ useEffect(() => {
             {hasTeam ? <div className="team_content_wrapper">
                 <h1>Team {teamName} #{teamID}</h1>
                 <div className="teammate_cards_wrapper">
-                    {members.map((member) => (
+                    {members.map((member, index) => (
                       <div className="teammate-widget">
                         <PortalBoxWidget key={member.id}>
-                          <img src={CryCat} className="teammate_profile_picture"></img>
+                          <img src={doggos[index % doggos.length] || CryCat}  className="teammate_profile_picture"></img>
                           {/* <div className="member-info"> */}
                             <h3 className="teammate-name">{member.preferred_name}|{member.pronouns}</h3>
                             <h3 className="teammate-major">Year {member.year} {member.major} </h3>

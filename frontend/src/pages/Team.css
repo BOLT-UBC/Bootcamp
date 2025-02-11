@@ -83,4 +83,9 @@
     aspect-ratio: 4/5;
 }
 
+.teammate-widget:hover {
+    box-shadow: 10px 10px 20px 5px rgba(154, 79, 33, 0.967);
+    border-radius: 30px;
+}
+
 
