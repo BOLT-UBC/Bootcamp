@@ -4,7 +4,7 @@ import { supabase } from '../supabase';
 
 import FullFolder from "../components/Folder/FullFolder";
 import PortalBoxWidget from "../components/PortalBoxWidget";
-import CryCat from "../components/assets/CryCat.jpg";
+import CryCat from "../components/assets/anon-doggo.png";
 
 import "./Team.css";
 import NoTeamDisplay from "./NoTeamDisplay";
