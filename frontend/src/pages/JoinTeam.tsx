@@ -177,51 +177,6 @@ const signOut = async () => {
     }
   }
 
-  const navigationComponent = 
-<div className="portal_page__navbar">
-  <div className="navbar__my_portal_wrapper">
-    <h3 className="navbar__section_title">My Portal</h3>
-    <nav className="navbar__links">
-      <a
-        className="link"
-        onClick={() => setActivePage("Dashboard")}
-        href="#dashboard"
-      >
-        Dashboard
-      </a>
-      <a
-        className="link link__last"
-        onClick={() => setActivePage("My Team")}
-        href="#my-team"
-      >
-        My Team
-      </a>
-    </nav>
-  </div>
-  <div className="navbar__general_wrapper">
-    <h3 className="navbar__section_title">General</h3>
-    <nav className="navbar__links">
-      <a
-        className="link"
-        onClick={() => setActivePage("Schedule")}
-        href="#schedule"
-      >
-        Schedule
-      </a>
-      <a
-        className="link link__last"
-        onClick={() => setActivePage("FAQ")}
-        href="#faq"
-      >
-        FAQ
-      </a>
-    </nav>
-  </div>
-  <button className="logout_button" onClick={() => signOut()}>
-    Log Out{" "}
-  </button>
-</div>
-
   return (
     <>
     {activePage === "Join" ? (
