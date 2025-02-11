@@ -32,6 +32,10 @@
     flex-direction: row;
     justify-content: space-around;
     gap: 1rem;
+    border: 3px solid #fad9834e;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(250, 237, 187, 0.8); 
 }
 
 .team__buttons-wrapper {
