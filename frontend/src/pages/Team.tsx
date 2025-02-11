@@ -10,7 +10,7 @@ import orangeDoggo from "../components/assets/orange-doggo.png";
 import cookieDoggo from "../components/assets/cookie-doggo.png";
 import caramelDoggo from "../components/assets/caramel-doggo.png";
 
-import "./Team.box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.2);css";
+import "./Team.css";
 import NoTeamDisplay from "./NoTeamDisplay";
 
 const doggos = [
@@ -130,6 +130,30 @@ useEffect(() => {
   }
 }, [teamID]);
 
+const handleLeaveTeam = async () => {
+  const storedEmail = localStorage.getItem("user_email");
+
+  if (!storedEmail) {
+    console.log("User not logged in.");
+    return;
+  }
+
+  // Update the user's team_id to null (leave the team)
+  const { error } = await supabase
+    .from("users")
+    .update({ team_id: null })
+    .eq("email", storedEmail);
+
+  if (error) {
+    console.error("Error leaving the team: ", error.message);
+  } else {
+    console.log("Successfully left the team!");
+    setHasTeam(false); // Update state to reflect the user is not in a team
+    setTeamID(""); // Clear the team ID
+  }
+};
+
+
   return (
     <>
       <div className="team-page-wrapper">
@@ -152,6 +176,11 @@ useEffect(() => {
                 <h4 className='note-team-members'>
                     For someone to join your team, they will need your 4-digit team ID.
                 </h4>
+                {hasTeam && (
+                <button onClick={handleLeaveTeam} className="leave-team-button">
+                  Leave Team
+                </button>
+              )}
             </div> : <NoTeamDisplay/>}
       </div>
     </>
