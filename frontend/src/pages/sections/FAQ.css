@@ -1,5 +1,5 @@
 .faq-background {
-  /* background-image: url("assets/Brick-Background.png"); */
+  background-image: url("assets/Brick-Background.png");
   background-size: cover;
   background-position: top;
   width: 100%;
@@ -9,6 +9,7 @@
   align-items: center;
   color: white;
   font-family: "Righteous", sans-serif;
+  border-radius: 1rem;
 }
 
 .faq-title {
