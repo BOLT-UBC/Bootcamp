@@ -18,7 +18,7 @@ export default function Title() {
           <div className="button-container">
             {/* Replace with custom button component */}
             <LandingPageButton text="Register Now" path="/registration" />
-            <LandingPageButton text="View Portal" path="/portal" />
+            <LandingPageButton text="View Portal" path="/portal#dashboard" />
           </div>
         </div>
       </div>
