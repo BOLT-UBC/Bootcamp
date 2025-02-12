@@ -1,5 +1,5 @@
 .faq-background {
-  background-image: url("assets/Brick-Background.png");
+  /* background-image: url("assets/Brick-Background.png"); */
   background-size: cover;
   background-position: top;
   border-radius: 20px;
@@ -16,7 +16,7 @@
   font-size: 3rem;
   font-weight: bold;
   text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
-  margin: 4rem;
+  margin: 1rem;
   letter-spacing: 0.3rem;
 }
 
