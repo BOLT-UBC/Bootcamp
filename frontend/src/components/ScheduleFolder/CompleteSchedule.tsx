@@ -7,8 +7,8 @@ import ScheduleThin from "./ScheduleThin";
 import ScheduleWide from "./ScheduleWide";
 
 type CompleteScheduleProps = React.PropsWithChildren<{
-  portalTitle?: String;
-  navbarTitle?: String;
+  portalTitle?: string;
+  navbarTitle?: string;
 }>;
 
 const CompleteSchedule: React.FC<CompleteScheduleProps> = ({

@@ -1,53 +1,50 @@
 .folder-wide__wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .folder-wide__filler_wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    margin: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: none;
 }
 
 .folder-wide__outline_wrapper {
-    filter: drop-shadow(0px 0px 10px #fab277);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    margin: none;
+  filter: drop-shadow(0px 0px 10px #fab277);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: none;
 }
 
 /* !!! MIGHT NEED TO CHANGE POSITION TO RELATIVE */
 .folder-wide__content_wrapper {
-    position: absolute; 
-    z-index: 3;
-    width: 100%;
-    height: 90%;
-    margin-top: 7vh;
-    overflow-y: auto;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;  
+  position: relative;
+  z-index: 3;
+  height: 85%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 1rem;
 }
 
 .folder-wide__content_wrapper::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .folder-wide__portal_title {
-    font-size: 2.5rem;
-    position: absolute; 
-    z-index: 3;
-    margin-left: 0.8vw;
-    margin-top: 1.5vh;
+  font-size: 2rem;
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-family: "Roboto Mono", monospace;
 }
-
-
-  

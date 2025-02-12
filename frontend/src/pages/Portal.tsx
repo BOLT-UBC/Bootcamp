@@ -11,8 +11,7 @@ import NoTeamDisplay from "./NoTeamDisplay";
 import FAQ from "./sections/FAQ";
 import Schedule from "./sections/Schedule";
 import GlowingDoggo from "../components/GlowingDoggo";
-
-
+import PortalSchedule from "../components/PortalSchedule";
 
 export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -27,7 +26,6 @@ export default function Portal() {
     }
   };
 
-
   useEffect(() => {
     const handleHashChange = () => {
       const currentHash = window.location.hash.replace("#", "");
@@ -35,7 +33,7 @@ export default function Portal() {
 
       if (currentHash) {
         setActivePage(currentHash);
-      } 
+      }
     };
 
     window.addEventListener("hashchange", handleHashChange);
@@ -49,20 +47,14 @@ export default function Portal() {
 
   const navigationComponent = (
     <div className="portal_page__navbar">
-      <GlowingDoggo/>
+      <GlowingDoggo />
       <div className="navbar__my_portal_wrapper">
         <h3 className="navbar__section_title">My Portal</h3>
         <nav className="navbar__links">
-          <a
-            className="link"
-            href="#dashboard"
-          >
+          <a className="link" href="#dashboard">
             Dashboard
           </a>
-          <a
-            className="link link__last"
-            href="#my-team"
-          >
+          <a className="link link__last" href="#my-team">
             My Team
           </a>
         </nav>
@@ -70,16 +62,10 @@ export default function Portal() {
       <div className="navbar__general_wrapper">
         <h3 className="navbar__section_title">General</h3>
         <nav className="navbar__links">
-          <a
-            className="link"
-            href="#schedule"
-          >
+          <a className="link" href="#schedule">
             Schedule
           </a>
-          <a
-            className="link link__last"
-            href="#faq"
-          >
+          <a className="link link__last" href="#faq">
             FAQ
           </a>
         </nav>
@@ -102,7 +88,7 @@ export default function Portal() {
             {activePage === "dashboard" && <Dashboard />}
             {activePage === "my-team" && <Team />}
             {activePage === "faq" && <FAQ />}
-            {activePage === "schedule" && <Schedule />}
+            {activePage === "schedule" && <PortalSchedule />}
           </FullFolder>
         </div>
       </div>
