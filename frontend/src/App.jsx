@@ -33,7 +33,6 @@ export default function App() {
         <Route path="/registration/page-3" element={<ProtectedFinalPage />} />
         <Route path="/registration/page-4" element={<ProtectedThankYou />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
-        <Route path="/test" element={<Portal />} />
       </Routes>
     </Router>
   );

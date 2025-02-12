@@ -1,5 +1,4 @@
-.faq-background {
-  background-image: url("assets/Brick-Background.png");
+.faq-background, .faq-portal-background {
   background-size: cover;
   background-position: top;
   width: 100%;
@@ -9,14 +8,17 @@
   align-items: center;
   color: white;
   font-family: "Righteous", sans-serif;
-  border-radius: 1rem;
+}
+
+.faq-background {
+  background-image: url("assets/Brick-Background.png");
 }
 
 .faq-title {
   font-size: 3rem;
   font-weight: bold;
   text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
-  margin: 1rem;
+  margin: 2rem;
   letter-spacing: 0.3rem;
 }
 
@@ -25,13 +27,15 @@
   gap: 40px;
   padding-bottom: 8rem;
   width: 80%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .faq-section {
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
-  width: 50%;
+  width: 100%;
 }
 
 .faq-header {
@@ -92,4 +96,40 @@
   padding: 0;
   font-weight: 100; /* Try using 300 if 100 is too light */
   font-family: "Roboto Mono", monospace, sans-serif; /* Fallback font */
+}
+
+@media (min-width: 475px) {
+}
+
+@media (min-width: 768px) {
+  .faq-section {
+    width: 50%;
+  }
+
+  .faq-container {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 8rem;
+    width: 80%;
+    flex-direction: row;
+    align-items: normal;
+  }
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1280px) {
+}
+
+@media (min-width: 1536px) {
+}
+
+@media (min-width: 2100px) {
+}
+
+@media (min-width: 2400px) {
+}
+
+@media (min-width: 3700px) {
 }
