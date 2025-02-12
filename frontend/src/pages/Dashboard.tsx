@@ -137,7 +137,7 @@ const navigate =     useNavigate();
                   height: "90%",
                 }}
               >
-                <h2 className="dashboard__widget_title">My Team</h2>
+                <h2 className="dashboard__widget_title my_team__title">My Team</h2>
                   {teamID ? (
                     <h1 className="team-name">
                       {team} #{teamID}
@@ -161,6 +161,7 @@ const navigate =     useNavigate();
                     flexDirection: "column",
                     alignItems: "center",
                     height: "90%",
+                    overflowY: "hidden",
                     overflow:"auto"
                   }}>
                   <h2 className="dashboard__widget_title">Task Timer</h2>
@@ -190,15 +191,15 @@ const navigate =     useNavigate();
                     height: "90%",
                     overflow:"auto"
                   }}>
-                  <h2 className="dashboard__widget_title">Submission Status</h2>
+                  <h2 className="dashboard__widget_title project_submission__title">Submission Status</h2>
                   <p className="dashboard__desc">not started</p>
                 </PortalBoxWidget>
               </div>
             </div>
             <div className="bot2">
               <PortalBoxWidget>
-                <h2 className="dashboard__widget_title">Announcements</h2>
-                <h2 className="dashboard__desc right">Please make sure to join a team by registration deadline! Bolt will assign teams past then.</h2>
+                <h2 className="dashboard__widget_title announcements__title">Announcements</h2>
+                <p className="dashboard__desc right">Please make sure to join a team by registration deadline! Bolt will assign teams past then.</p>
               </PortalBoxWidget>
             </div>
             <div className="bot3">
@@ -207,10 +208,11 @@ const navigate =     useNavigate();
                   flexDirection: "column",
                   alignItems: "center",
                   height: "90%",
+                   overflowY: "hidden",
                   overflow:"auto"
                 }}>
               <h2 className="dashboard__widget_title">Upcoming Events</h2>
-              <div className="table-wrapper">
+              <div className="upcoming_events__table-wrapper">
                 <div className="row">
                   <h2 className="left dashboard__desc">Feb 24</h2>
                   <h2 className="right dashboard__desc">Registration Closes</h2>

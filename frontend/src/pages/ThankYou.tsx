@@ -15,7 +15,7 @@ export default function StartRegistration() {
             <h2 className="form-title">Your Next Steps!</h2>
             <p>
               Head over to{" "}
-              <Link to="/portal" className="email-link">
+              <Link to="/portal/#dashboard" className="email-link">
                 your portal
               </Link>{" "}
               to join a team and get started.
