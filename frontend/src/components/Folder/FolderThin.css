@@ -30,15 +30,15 @@
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 1rem;
 }
 
 .folder-thin__navbar_title {
-  font-size: 1.5rem;
+  font-size: 1.45vw;
   position: relative;
   z-index: 3;
   margin: 0;
-  padding: 0.5rem 1rem;
+  padding-top: 1.85vh;
+  padding-left: 2vh;
   font-family: "Roboto Mono", monospace;
 }
 

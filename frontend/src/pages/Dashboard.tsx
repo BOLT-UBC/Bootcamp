@@ -160,14 +160,12 @@ const navigate =     useNavigate();
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    height: "90%",
-                    overflowY: "hidden",
-                    overflow:"auto"
+                    overflow: "hidden",
                   }}>
                   <h2 className="dashboard__widget_title">Task Timer</h2>
                   <p className="dashboard__desc">Team registration deadline is in</p>
+                  <Countdown targetDate={"2025-02-24T23:59:59"} />
                 </div>
-                <Countdown targetDate={"2025-02-24T23:59:59"} />
               </PortalBoxWidget>
             </div>
           </div>
@@ -208,7 +206,6 @@ const navigate =     useNavigate();
                   flexDirection: "column",
                   alignItems: "center",
                   height: "90%",
-                   overflowY: "hidden",
                   overflow:"auto"
                 }}>
               <h2 className="dashboard__widget_title">Upcoming Events</h2>

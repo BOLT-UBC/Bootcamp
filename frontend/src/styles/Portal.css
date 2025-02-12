@@ -5,8 +5,6 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  width: 100vw;
-  height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -25,7 +23,7 @@
   }
 
   button {
-    font-size: 2.5vh;
+    font-size: 1vw;
     color: white;
   }
 
@@ -40,7 +38,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 0.95vh;
   width: 100%;
   height: 100%;
 }
@@ -51,7 +49,7 @@
 }
 
 .navbar__section_title {
-  font-size: 2vh;
+  font-size: 1.2vw;
   margin-left: 5%;
 }
 
@@ -63,11 +61,11 @@
 }
 
 .link {
-  padding: 1rem;
+  padding: 0.8vw;
   margin-left: 10%;
-  border-top: 1px solid #ccc;
+  border-top: 0.01vw solid #ccc;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 0.8vw;
   color: white;
   text-decoration: none;
 }
@@ -77,13 +75,13 @@
 }
 
 .link__last {
-  border-bottom: 1px solid #ccc;
+  border-bottom:  0.01vw solid #ccc;
 }
 
 .logout_button {
   width: 90%;
-  padding: 1rem 0 1rem 0;
-  border-radius: 1.5rem;
+  padding: 0.5vw 0 0.5vw 0;
+  border-radius: 0.5vw;
   background-color: #91511a;
   border: none;
   transition: background-color 0.3s ease;
