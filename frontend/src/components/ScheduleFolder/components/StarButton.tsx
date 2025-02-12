@@ -12,14 +12,14 @@ export default function StarButton({
   isSelected = false,
   onClick,
 }: StarButtonProps) {
-  const text = isSelected ? "Viewing" : label;
+  const circle = !isSelected ? "" : "circle";
 
   return (
-    <button className="container" onClick={onClick}>
+    <button className="star-container" onClick={onClick}>
       <div className="tooltip">
-        <p className="text">{text}</p>
+        <p className="text">{label}</p>
       </div>
-      <img src="star.png" alt="Marker star" className="star" />
+      <img src="star.png" alt="Marker star" className={`star ${circle}`} />
     </button>
   );
 }

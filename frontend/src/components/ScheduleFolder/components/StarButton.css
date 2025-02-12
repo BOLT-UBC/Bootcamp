@@ -1,4 +1,4 @@
-.container {
+.star-container {
   position: relative;
   background: none;
   border: none;
@@ -8,19 +8,19 @@
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.container:hover {
+.star-container:hover {
   transform: translateY(-10px);
 }
 
-.container:hover .tooltip {
+.star-container:hover .tooltip {
   box-shadow: 0 0 25px rgba(255, 159, 77, 0.8);
 }
 
-.container:hover .text {
+.star-container:hover .text {
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-.container:hover .star {
+.star-container:hover .star {
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
 }
 
@@ -56,9 +56,15 @@
 }
 
 .star {
-  width: 40px;
-  height: 40px;
-  margin: 20px auto 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0.5rem auto 0;
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
   transition: filter 0.3s ease;
+  padding: 0.5rem;
+}
+
+.circle {
+  border: 2px dotted #ffae67;
+  border-radius: 50%;
 }
