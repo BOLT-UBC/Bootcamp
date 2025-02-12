@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import "./FAQ.css";
 
-const Dropdown = ({ title, children }) => {
+interface DropdownProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+const Dropdown = ({ title, children }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="dropdown">
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
         <span className="dropdown-title">{title}</span>
-        <span>{isOpen ? "▲" : "▼"}</span>
+        <span className="dropdown-arrow">{isOpen ? "▲" : "▼"}</span>
       </button>
       {isOpen && <div className="dropdown-content">{children}</div>}
     </div>
