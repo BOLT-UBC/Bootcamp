@@ -129,7 +129,7 @@ const ScheduleWide: React.FC<ScheduleWideProps> = ({
   };
 
   return (
-    <div>
+    <div style={{ marginRight: "1rem", width: "75%" }}>
       {portalTitle && <h1 className="schedule-wide_title">{portalTitle}</h1>}
       <div className="schedule-wide__content_wrapper">
         <div className="star-map-bg">
@@ -162,9 +162,21 @@ const PortalSchedule: React.FC<PortalScheduleProps> = ({
   const [selectedSchedule, setSelectedSchedule] = useState<string>("Overview");
 
   return (
-    <div style={{ display: "flex" }}>
+    <div
+      style={{
+        display: "flex",
+        height: "100%",
+        fontFamily: "Roboto Mono, monospace",
+      }}
+    >
       <ScheduleWide onSelect={setSelectedSchedule} />
-      <div>
+      <div
+        style={{
+          backgroundColor: "#D37E3D",
+          borderRadius: "1rem",
+          width: "25%",
+        }}
+      >
         <h1 className="schedule-thin_title">{selectedSchedule}</h1>
         <div className="schedule-thin__content_wrapper">
           <ul>
