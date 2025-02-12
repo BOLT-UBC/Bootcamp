@@ -1,6 +1,6 @@
 .dashboard__widget_title {
     font-family: "RobotoMonoRegular", sans-serif;
-    font-size: 2rem;
+    font-size: 1.8vw;
     font-weight: 500;
     margin: 0;
 }
@@ -11,8 +11,9 @@
     width: 97%;
 }
 
+/* !!! COME BACK */
 .team-name {
-    font-size: 2rem;
+    font-size: 1.8vw; 
 }
 
 .top-row {
@@ -20,8 +21,8 @@
     flex-direction: row;
     height: 35%;
     width: 100%;
-    column-gap: 1rem;
-    padding-left: 1rem;
+    column-gap: 1vw;
+    padding-left: 1vw;
 }
 
 .dashboard__welcome_widget {
@@ -33,14 +34,14 @@
 
 .dashboard__registration_status {
     font-family: "RobotoMonoBold", sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.7vw;
 }
 
 
 .dashboard__username {
-    font-size: 3rem;
+    font-size: 3vw;
     margin: 0;
-    margin-top: 0.5rem;
+    margin-top: 0.5vw;
 }
 
 .top1__welcome_container {
@@ -61,7 +62,7 @@
 
 .dashboard__desc {
     font-family: "RobotoMonoLight", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2vw;
     margin: 0;
 }
 
@@ -72,8 +73,8 @@
 .bot-row {
     display: flex;
     flex-direction: row;
-    column-gap: 1rem;
-    padding: 1rem;
+    column-gap: 1vw;
+    padding: 1vw;
     height: 65%;
     width: 100%;
 }
@@ -81,7 +82,7 @@
 .bot1-wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 1vw;
     width: 30%;
 }
 
@@ -122,8 +123,8 @@
 .redirect-button {
     position: relative;
     width: 70%;
-    padding: 1rem 0 1rem 0;
-    border-radius: 1.5rem;
+    padding: 1vw 0 1vw 0;
+    border-radius: 1.5vw;
     background-color: #91511A;
     border: none;
 }
