@@ -1,5 +1,4 @@
-.faq-background {
-  background-image: url("assets/Brick-Background.png");
+.faq-background, .faq-portal-background {
   background-size: cover;
   background-position: top;
   width: 100%;
@@ -11,11 +10,15 @@
   font-family: "Righteous", sans-serif;
 }
 
+.faq-background {
+  background-image: url("assets/Brick-Background.png");
+}
+
 .faq-title {
   font-size: 3rem;
   font-weight: bold;
   text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
-  margin: 1rem;
+  margin: 2rem;
   letter-spacing: 0.3rem;
 }
 

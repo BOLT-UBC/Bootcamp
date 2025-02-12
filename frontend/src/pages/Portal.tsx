@@ -12,6 +12,7 @@ import FAQ from "./sections/FAQ";
 import Schedule from "./sections/Schedule";
 import GlowingDoggo from "../components/GlowingDoggo";
 import PortalSchedule from "../components/PortalSchedule";
+import FAQPortal from "./sections/FAQPortal";
 
 export default function Portal() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -87,7 +88,7 @@ export default function Portal() {
           >
             {activePage === "dashboard" && <Dashboard />}
             {activePage === "my-team" && <Team />}
-            {activePage === "faq" && <FAQ />}
+            {activePage === "faq" && <FAQPortal />}
             {activePage === "schedule" && <PortalSchedule />}
           </FullFolder>
         </div>

@@ -32,13 +32,21 @@
 .title-content h1 {
   margin: 0;
   color: #fdf9f7;
-  font-size: 4rem;
+  font-size: 12rem;
 }
 
 .title-content h2 {
   margin: 0;
   color: #fdf9f7;
-  font-size: 1.4rem;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  font-size: 3rem;
+}
+
+.title-content h3 {
+  margin-top: 1;
+  color: #fdf9f7;
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
+  font-size: 2rem;
 }
 
 .button-container {
