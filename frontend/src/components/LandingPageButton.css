@@ -3,7 +3,7 @@
   color: #fdf9f7;
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
@@ -22,10 +22,44 @@
   transform: translateY(0);
 }
 
+@media (min-width: 475px) {
+  .landing-button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .landing-button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-button {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .landing-button {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .landing-button {
+    font-size: 2rem;
+  }
+}
+
 @media (min-width: 2100px) {
   .landing-button {
-    padding: 15px 30px;
-    font-size: 20px;
-    margin-right: 2rem;
+    font-size: 2rem;
   }
+}
+
+@media (min-width: 2400px) {
+}
+
+@media (min-width: 3700px) {
 }

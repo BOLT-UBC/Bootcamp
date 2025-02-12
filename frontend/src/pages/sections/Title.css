@@ -43,7 +43,6 @@
 }
 
 .title-content h3 {
-  margin-top: 1;
   color: #fdf9f7;
   text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.631);
   font-size: 1rem;
@@ -61,7 +60,7 @@
     font-size: 5rem;
   }
   .title-content h3 {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -72,11 +71,17 @@
   .title-content h2 {
     font-size: 2rem;
   }
+  .title-content h3 {
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .title-content h1 {
     font-size: 8rem;
+  }
+  .title-content h3 {
+    font-size: 1.3rem;
   }
 }
 

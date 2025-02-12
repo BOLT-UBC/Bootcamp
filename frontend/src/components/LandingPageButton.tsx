@@ -8,20 +8,7 @@ const LandingPageButton = ({ text, path }) => {
 
   return (
     <button
-      style={{
-        backgroundColor: "#C7512A",
-        color: "#fdf9f7",
-        border: "none",
-        padding: "15px 25px",
-        fontSize: "25px",
-        fontWeight: "bold",
-        borderRadius: "12px",
-        cursor: "pointer",
-        marginRight: "2rem",
-        boxShadow: "0px 10px 8px rgba(0, 0, 0, 0.5)",
-        textShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
-        transition: "background-color 0.3s ease, transform 0.2s ease",
-      }}
+      className="landing-button"
       onMouseEnter={(e) => {
         const target = e.target as HTMLButtonElement;
         target.style.backgroundColor = "#A63E1E"; // Darker shade on hover
