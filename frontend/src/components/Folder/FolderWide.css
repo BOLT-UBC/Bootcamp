@@ -29,11 +29,11 @@
 .folder-wide__content_wrapper {
   position: relative;
   z-index: 3;
-  height: 85%;
+  height: 90%;
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 1rem;
+  margin-top: 2%;
 }
 
 .folder-wide__content_wrapper::-webkit-scrollbar {

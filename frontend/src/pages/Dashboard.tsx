@@ -196,7 +196,10 @@ const navigate =     useNavigate();
               </div>
             </div>
             <div className="bot2">
-              <PortalBoxWidget></PortalBoxWidget>
+              <PortalBoxWidget>
+                <h2 className="dashboard__widget_title">Announcements</h2>
+                <h2 className="dashboard__desc right">Please make sure to join a team by registration deadline! Bolt will assign teams past then.</h2>
+              </PortalBoxWidget>
             </div>
             <div className="bot3">
               <PortalBoxWidget style={{
