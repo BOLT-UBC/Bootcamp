@@ -33,7 +33,7 @@
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  margin-top: 2%;
+  margin-top: 0.5%;
 }
 
 .folder-wide__content_wrapper::-webkit-scrollbar {
