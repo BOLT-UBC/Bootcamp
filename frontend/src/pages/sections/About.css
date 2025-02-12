@@ -1,13 +1,16 @@
 .about-background {
+  position: relative;
   background-image: url("assets/About-Background.png");
   background-size: cover;
   background-position: center;
-  width: 100vw;
+  width: 100;
   height: 100vh;
   background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  overflow-y: scroll;
+  
 }
 
 .computers {
@@ -20,15 +23,26 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   position: absolute;
 }
 
 .display-screen {
-  margin-top: 3rem;
   font-family: "Roboto Mono", monospace;
   color: #fdf9f7;
-  width: 50%;
   text-align: left;
+  overflow-y:scroll;
+}
+.display-screen-widget {
+  margin-top: 3rem;
+  width: 50vw;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+.page-left1 {
+}
+
+.page-right1 {
 }
 
 .display-screen b {
@@ -38,4 +52,12 @@
 .why-join li {
   margin: 0;
   padding: 0;
+}
+
+.about-title {
+  font-size: 2rem;
+}
+
+.about-content {
+  font-size: 1rem;
 }

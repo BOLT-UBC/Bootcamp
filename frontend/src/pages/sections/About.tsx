@@ -1,13 +1,15 @@
 import React from "react";
 import "./About.css";
 import "../LandingPage.css";
+import PortalBoxWidget from "../../components/PortalBoxWidget";
 
 export default function About() {
   return (
     <div className="about-background">
+      <div className="display-screen-widget">
       <div className="display-screen">
-        <h1>What is BOLT Bootcamp?</h1>
-        <p>
+        <h1 className="about-title">What is BOLT Bootcamp?</h1>
+        <p className="about-content">
           BOLT UBC Bootcamp is our <b>flagship annual event</b>, bringing
           together students, industry professionals, and academic experts for a{" "}
           <b>
@@ -53,7 +55,7 @@ export default function About() {
           </ul>
         </div>
       </div>
-
+      </div>
       <div className="computers"></div>
     </div>
   );

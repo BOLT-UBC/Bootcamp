@@ -26,8 +26,8 @@ export default function StartRegistration() {
             </p>
             <p>
               <b>Discord</b>:{" "}
-              <a href="google.com" className="email-link">
-                insert link
+              <a href="https://discord.gg/8AzXWMyVkE" className="email-link">
+                Discord
               </a>{" "}
             </p>
             <p>
