@@ -12,7 +12,7 @@ export default function StartRegistration() {
           <h1 className="register-title">Register</h1>
           <p className="register-subtitle">
             Already registered for Bootcamp? View your status in{" "}
-            <Link to="/portal" className="portal-link">
+            <Link to="/portal/#dashboard" className="portal-link">
               your portal
             </Link>{" "}
             or go back{" "}

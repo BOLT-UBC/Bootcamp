@@ -15,7 +15,7 @@
   
   .countdown2 {
     font-family: "DigitalNumbers", sans-serif;
-    font-size: 2rem;
+    font-size: 1.85vw;
   }
   
   .countdown2 h1 {
@@ -24,22 +24,22 @@
   
   .countdown-sublabel-time2 {
     font-family: "RobotoMonoRegular", sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.65vw;
   }
   
   .countdown-sublabel-days2 {
     font-family: "RobotoMonoRegular", sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.65vw;
   }
   
   .countdown-sublabel-hours2 {
     font-family: "RobotoMonoRegular", sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.65vw;
   }
   
   .countdown-sublabel-minutes2 {
     font-family: "RobotoMonoRegular", sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.65vw;
   }
 
   .sublabel-wrapper {
