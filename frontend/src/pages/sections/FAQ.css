@@ -2,7 +2,6 @@
   background-image: url("assets/Brick-Background.png");
   background-size: cover;
   background-position: top;
-  border-radius: 20px;
   width: 100%;
   min-height: 100%;
   display: flex;
@@ -52,7 +51,8 @@
   width: 100%;
 }
 
-.dropdown-title, .dropdown-arrow {
+.dropdown-title,
+.dropdown-arrow {
   color: black;
 }
 
