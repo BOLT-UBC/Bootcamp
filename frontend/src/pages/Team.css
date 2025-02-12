@@ -70,6 +70,8 @@
 }
 
 .teammate-name {
+    max-width: 15rem;
+    overflow-wrap: break-word;
     font-size: 1.5vw;
 }
 
@@ -80,7 +82,7 @@
 
 .teammate-widget {
     width: 15rem;
-    aspect-ratio: 4/5;
+    aspect-ratio: 3/4;
 }
 
 .teammate-widget:hover {

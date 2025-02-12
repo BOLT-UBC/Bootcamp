@@ -2,35 +2,37 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 20vh;
-    margin-left: 20%;
+    margin-left: 5%;
 }
 
 .team-input {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 40vw;
+    width: 20rem;
 }
 
-.instruction {
-    margin-left: 0vw;   
+.input-field {
+    font-size: 3rem;
+    font-family: "RobotoMonoRegular", sans-serif;
+    color:rgb(91, 88, 86);
+}
+
+
+.instruction {   
     font-family: "RobotoMonoLight", sans-serif;
 }
 
 .note, .note-team-members {
-    margin-top: 0vh;
-    margin-left: 0vw;   
+    max-width: 50rem;
     font-family: "RobotoMonoLight", sans-serif;
-}
-
-.note-team-members {
-    margin-top: 4vh;
 }
 
 .message {
     font-family: "RobotoMonoLight", sans-serif;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
 }
 
 .teams-button, .teams-button-join {
@@ -41,7 +43,6 @@
     background-color: #91511A;
     border: none;
     font-family: "RobotoMonoLight", sans-serif;
-    color: white;
     transition: background-color 0.3s ease;
 }
 
@@ -56,15 +57,6 @@
     text-decoration: underline;
     font-weight: 700;
 }
-
-/* .logout_button {
-    width: 90%;
-    padding: 1rem 0 1rem 0;
-    border-radius: 1.5rem;
-    background-color: #91511a;
-    border: none;
-    transition: background-color 0.3s ease;
-  } */
   
 
 .teams-button:hover, .teams-button-join:hover {
@@ -75,3 +67,11 @@
 .teams-button-join {
     margin-left: 2vw;
 }
+
+.team-input-create {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50rem;
+}
+  

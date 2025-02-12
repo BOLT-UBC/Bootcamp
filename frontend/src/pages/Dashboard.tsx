@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from '../supabase';
+import { supabase } from '../supabase'; 
 import PortalBoxWidget from "../components/PortalBoxWidget";
 import "./Dashboard.css"
 import { useNavigate } from "react-router-dom";
+import Countdown from "../components/Countdown";
 
 interface User {
     email: string;
@@ -93,12 +94,26 @@ const navigate =     useNavigate();
     }
     };
 
+
+    const formatter = new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    })
+    
+
     return (
       <>
         <div className="dashboard-wrapper">
           <div className="top-row">
             <div className="top1__welcome_container">
-              <PortalBoxWidget>
+              <PortalBoxWidget style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  height: "90%",
+                  overflow:"auto"
+                }}>
                 <div className="dashboard__welcome_widget">
                   <div>
                     <p className="dashboard__desc">Welcome, </p>
@@ -107,8 +122,8 @@ const navigate =     useNavigate();
                     </h1>
                   </div>
                   <div>
-                    <p className="dashboard__desc"> Your status for registration is:</p>
-                    <p className="dashboard__registration_status">Registered</p>
+                    <p className="dashboard__desc"> Today is</p>
+                    <p className="dashboard__desc">{formatter.format(new Date())}</p>
                   </div>
                 </div>
               </PortalBoxWidget>
@@ -118,24 +133,40 @@ const navigate =     useNavigate();
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
+                  alignItems: "center",
                   height: "90%",
                 }}
               >
                 <h2 className="dashboard__widget_title">My Team</h2>
-                {teamID ? (
-                  <h1>
-                    {team} #{teamID}
-                  </h1>
-                ) : (
-                  <p className="dashboard__desc">You don't have a team!</p>
-                )}
+                  {teamID ? (
+                    <h1 className="team-name">
+                      {team} #{teamID}
+                    </h1>
+                  ) : (
+                      <p className="dashboard__desc">You don't have a team!</p>
+                  )}
                 {teammates && <h3>{teammates.join(", ")}</h3>}
               </PortalBoxWidget>
             </div>
             <div className="top3">
-              <PortalBoxWidget>
-                <h2 className="dashboard__widget_title">Task Timer</h2>
+              <PortalBoxWidget style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  height: "90%",
+                  overflow:"auto"
+                }}>
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    height: "90%",
+                    overflow:"auto"
+                  }}>
+                  <h2 className="dashboard__widget_title">Task Timer</h2>
+                  <p className="dashboard__desc">Team registration deadline is in</p>
+                </div>
+                <Countdown targetDate={"2025-02-24T23:59:59"} />
               </PortalBoxWidget>
             </div>
           </div>
@@ -145,21 +176,63 @@ const navigate =     useNavigate();
                 <PortalBoxWidget>
                   <div className="dashboard__case_package_widget">
                     <h2 className="dashboard__widget_title">Case Package</h2>
-                    <h1 className="dashboard__desc dashboard__case_package_unavail">Unavailable</h1>
+                    <div className="submission-status">
+                      <p className="dashboard__desc">release on Feb 26</p>
+                    </div>
                   </div>
                 </PortalBoxWidget>
               </div>
               <div className="bot1-bot">
-                <PortalBoxWidget></PortalBoxWidget>
+                <PortalBoxWidget style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    height: "90%",
+                    overflow:"auto"
+                  }}>
+                  <h2 className="dashboard__widget_title">Submission Status</h2>
+                  <p className="dashboard__desc">not started</p>
+                </PortalBoxWidget>
               </div>
             </div>
             <div className="bot2">
               <PortalBoxWidget></PortalBoxWidget>
             </div>
             <div className="bot3">
-              <PortalBoxWidget>
-                <h1>schedule</h1>
-                <button className="redirect-button">View Schedule </button>
+              <PortalBoxWidget style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  height: "90%",
+                  overflow:"auto"
+                }}>
+              <h2 className="dashboard__widget_title">Upcoming Events</h2>
+              <div className="table-wrapper">
+                <div className="row">
+                  <h2 className="left dashboard__desc">Feb 24</h2>
+                  <h2 className="right dashboard__desc">Registration Closes</h2>
+                </div>
+                <div className="row">
+                  <h2 className="left dashboard__desc">Feb 26</h2>
+                  <h2 className="right dashboard__desc">Case Release</h2>
+                </div>
+                <div className="row">
+                  <h2 className="left dashboard__desc">Mar 1</h2>
+                  <h2 className="right dashboard__desc">Workshop + Networking</h2>
+                </div>
+                <div className="row">
+                  <h2 className="left dashboard__desc">Mar 4</h2>
+                  <h2 className="right dashboard__desc">Presentation Workshop</h2>
+                </div>
+                <div className="row">
+                  <h2 className="left dashboard__desc">Mar 5 </h2>
+                  <h2 className="right dashboard__desc">Submission Deadline + Finalist Announcement</h2>
+                </div>
+                <div className="row">
+                  <h2 className="left dashboard__desc">Mar 8</h2>
+                  <h2 className="right dashboard__desc">Case Day</h2>
+                </div>
+                </div>
               </PortalBoxWidget>
             </div>
           </div>

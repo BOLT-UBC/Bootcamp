@@ -188,19 +188,15 @@ export default function JoinTeam() {
               <ShortText
                 value={id}
                 onChange={(e) => setId(e.target.value)}
-                placeholder="Your Team ID"
+                placeholder="Team ID"
                 need={true}
               />
               <button className="teams-button-join" onClick={join}>
-                Join Team
+                Join
               </button>
             </div>
 
             {message.length > 0 ? <p className="message">{message}</p> : null}
-            <h4 className="note">
-              Your team ID should have been provided when your team was created.
-              Note that you cannot leave your team once you've joined.
-            </h4>
           </div>
         </div>
       ) : (

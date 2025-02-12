@@ -145,19 +145,19 @@ export default function CreateTeam() {
       {activePage === "create" ? (
         <div className="hehehaha">
                 <a className="teams__dashboard_return" href="#dashboard">
-            {`<`}- Back to Dashboard
+                ← Back to Dashboard
           </a>
         <div className="folder-contents">
             <h1 className='instruction'>What would you like to name your team?</h1>
-            <div className="team-input">
+            <div className="team-input-create">
                 <ShortText
                     value={teamName}
                     onChange={(e) => setTeamName(e.target.value)}
-                    placeholder="Your Team Name"
+                    placeholder="ENTER TEAM NAME"
                     need={true} 
                 />
                 {!madeTeam && <button className="teams-button-join" onClick={send}>
-                    Create Team
+                    Create
                 </button>}
             </div>
             

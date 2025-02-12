@@ -8,6 +8,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 97%;
+}
+
+.team-name {
+    font-size: 2rem;
 }
 
 .top-row {
@@ -85,11 +90,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
 .dashboard__case_package_unavail {
-    font-size: 2rem;
     text-align: center;
 }
 
@@ -114,7 +119,6 @@
 }
 
 
-
 .redirect-button {
     position: relative;
     width: 70%;
@@ -126,4 +130,35 @@
 
 .redirect-button:hover {
     background-color: #774112;
+}
+
+.table-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    padding-left: 0.5rem;
+    overflow-y: auto;
+}
+
+.row {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.left {
+    text-align: center;
+    border-radius: 0.5rem;
+    flex: 2;
+    background-color: #BC743E;
+    padding: 0.2rem;
+}
+
+.right {
+    flex: 6;
+    border-radius: 0.5rem;
+    background-color: #BC743E;
+    padding: 0.2rem;
 }
