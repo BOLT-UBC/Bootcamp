@@ -29,6 +29,12 @@
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    overflow-x: auto;
+
+    white-space: nowrap;       
+    overflow: hidden;         
+    text-overflow: ellipsis;   
+    max-width: 100%; 
 }
 
 .dashboard__registration_status {
