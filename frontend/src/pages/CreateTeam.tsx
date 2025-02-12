@@ -153,7 +153,7 @@ export default function CreateTeam() {
                 <ShortText
                     value={teamName}
                     onChange={(e) => setTeamName(e.target.value)}
-                    placeholder="ENTER TEAM NAME"
+                    placeholder="Enter team name"
                     need={true} 
                 />
                 {!madeTeam && <button className="teams-button-join" onClick={send}>

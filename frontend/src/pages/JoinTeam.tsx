@@ -180,7 +180,7 @@ export default function JoinTeam() {
       {activePage === "Join" ? (
         <div>
           <a className="teams__dashboard_return" href="#dashboard">
-            {`<`}- Back to Dashboard
+          ← Back to Dashboard
           </a>
           <div className="folder-contents">
             <h1 className="instruction">Enter your team ID below</h1>

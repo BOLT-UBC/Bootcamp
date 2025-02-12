@@ -195,9 +195,15 @@ const navigate =     useNavigate();
               </div>
             </div>
             <div className="bot2">
-              <PortalBoxWidget>
+              <PortalBoxWidget style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    height: "90%",
+                    overflow:"auto"
+                  }}>
                 <h2 className="dashboard__widget_title announcements__title">Announcements</h2>
-                <p className="dashboard__desc right">Please make sure to join a team by registration deadline! Bolt will assign teams past then.</p>
+                <p className="dashboard__desc right"> ⭐ Please make sure to join a team by registration deadline. If you are not part of a team by then, we will assign you one!</p>
               </PortalBoxWidget>
             </div>
             <div className="bot3">
@@ -208,11 +214,15 @@ const navigate =     useNavigate();
                   height: "90%",
                   overflow:"auto"
                 }}>
-              <h2 className="dashboard__widget_title">Upcoming Events</h2>
+              <h2 className="dashboard__widget_title">Your Upcoming Events</h2>
               <div className="upcoming_events__table-wrapper">
                 <div className="row">
-                  <h2 className="left dashboard__desc">Feb 24</h2>
-                  <h2 className="right dashboard__desc">Registration Closes</h2>
+                  <h2 className="left dashboard__desc" style={{backgroundColor:""}}>Feb 12</h2>
+                  <h2 className="right dashboard__desc">Registration Opens</h2>
+                </div>
+                <div className="row">
+                  <h2 className="left dashboard__desc" style={{backgroundColor:"#9D5C75"}}>Feb 24</h2>
+                  <h2 className="right dashboard__desc" style={{backgroundColor:"#9D5C75"}}>Registration and Team Deadline</h2>
                 </div>
                 <div className="row">
                   <h2 className="left dashboard__desc">Feb 26</h2>
@@ -220,11 +230,11 @@ const navigate =     useNavigate();
                 </div>
                 <div className="row">
                   <h2 className="left dashboard__desc">Mar 1</h2>
-                  <h2 className="right dashboard__desc">Workshop + Networking</h2>
+                  <h2 className="right dashboard__desc">Case Workshop + Networking Session</h2>
                 </div>
                 <div className="row">
                   <h2 className="left dashboard__desc">Mar 4</h2>
-                  <h2 className="right dashboard__desc">Presentation Workshop</h2>
+                  <h2 className="right dashboard__desc">Online Presentation Workshop</h2>
                 </div>
                 <div className="row">
                   <h2 className="left dashboard__desc">Mar 5 </h2>
@@ -232,7 +242,7 @@ const navigate =     useNavigate();
                 </div>
                 <div className="row">
                   <h2 className="left dashboard__desc">Mar 8</h2>
-                  <h2 className="right dashboard__desc">Case Day</h2>
+                  <h2 className="right dashboard__desc">Finalist Presentation Day</h2>
                 </div>
                 </div>
               </PortalBoxWidget>

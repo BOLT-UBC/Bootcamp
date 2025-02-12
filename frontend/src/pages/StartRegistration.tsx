@@ -62,10 +62,12 @@ export default function StartRegistration() {
             <h3>Join a Team 👥:</h3>
             <p>
               Don't have a team yet? No worries! After registering, you'll have
-              the opportunity to find teammates through our networking sessions,
+              the opportunity to find teammates through our networking sessions, our discord,
               or you can be matched with others who are also looking for a team.
             </p>
-
+            <h3>Join our discord 👾: <a href="https://discord.gg/8AzXWMyVkE" className="email-link">
+                Discord
+              </a>{" "}</h3>
             <p>
               Contact us at our email:{" "}
               <a href="mailto:boltubc@gmail.com" className="email-link">

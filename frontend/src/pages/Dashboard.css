@@ -128,7 +128,7 @@
 }
 
 .announcements__title {
-    margin-bottom: 5vh;
+    margin-bottom: 1vh;
 }
 
 .bot3 {
@@ -160,7 +160,7 @@
     flex-direction: column;
     width: 95%;
     padding-left: 0.45vw;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 .row {
@@ -175,12 +175,12 @@
     border-radius: 0.42vw;
     flex: 2;
     background-color: #BC743E;
-    padding: 0.15vw;
+    padding: 0.4vw;
 }
 
 .right {
     flex: 6;
     border-radius: 0.42vw;
     background-color: #BC743E;
-    padding: 0.15vw;
+    padding: 0.4vw;
 }
