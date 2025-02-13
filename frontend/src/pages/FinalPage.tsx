@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../supabase";
 import { Link } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 export default function Responses() {
   const navigate = useNavigate();
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state?.email || "");
+  const [name, setName] = useState<string>(location.state?.name || "");
   const [hear, setHear] = useState<string>("");
   const [emailUpdates, setEmailUpdates] = useState<string>("");
   const [past, setPast] = useState<string[]>([]);
@@ -19,6 +21,8 @@ export default function Responses() {
           console.error("Error fetching user:", error.message);
         } else if (data?.user) {
           const userEmail = data.user.email ?? "user@example.com";
+          const userName = data.user.name ?? "User";
+          setName(userName);
           setEmail(userEmail);
           fetchResponses(userEmail); // Fetch user data after getting the email
           console.log("Fetched User Email:", userEmail);
@@ -106,7 +110,28 @@ export default function Responses() {
       console.log("Responses saved:", responsesData);
       console.log("User registered updated:", usersData);
 
-      navigate("/registration/page-4");
+      // navigate("/registration/page-4");
+      // Send confirmation email using EmailJS
+      emailjs
+        .send(
+          "service_gd4v1sl", // EmailJS service ID
+          "template_sa7a2lr", // EmailJS template ID
+          {
+            name: name,
+            email: email
+          },
+          "6bwc7JEUTgSgUzO0d" // EmailJS public key
+        )
+        .then(
+          (response: any) => {
+            console.log("Email successfully sent!", response.status, response.text);
+            navigate("/registration/page-4");
+          },
+          (error: any) => {
+            console.error("Error sending email:", error);
+            alert("Your registration was successful, but we couldn't send the confirmation email.");
+          }
+        );
     } catch (err: any) {
       console.error("Error saving responses:", err.message);
     }
